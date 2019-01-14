@@ -1,64 +1,64 @@
-<template name="edb3fb44">
-  <view class="_view data-v-4e3b585a">
-    <view class="_view data-v-4e3b585a container {{[isIphoneX ? 'containerX' : '']}}">
-      <view class="_view data-v-4e3b585a shouye_top">
-        <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'Q9D-0'}}" data-comkey="{{$k}}" class="_form data-v-4e3b585a">
-          <button class="_button data-v-4e3b585a shouye_top_left" formType="submit">
-            <image class="_image data-v-4e3b585a shouye_coinImg" src="../../assets/images/luck/icon_coin2.png"></image>
-            <text class="_text data-v-4e3b585a">{{luckySum}}</text>
-            <image class="_image data-v-4e3b585a shouye_rightImg" src="../../assets/images/luck/icon_right1.png"></image>
+<template name="6ae88ba2">
+  <view class="_view data-v-3b82c7fe">
+    <view class="_view data-v-3b82c7fe container {{[isIphoneX ? 'containerX' : '']}}">
+      <view class="_view data-v-3b82c7fe shouye_top">
+        <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'yYk-0'}}" data-comkey="{{$k}}" class="_form data-v-3b82c7fe">
+          <button class="_button data-v-3b82c7fe shouye_top_left" formType="submit">
+            <image class="_image data-v-3b82c7fe shouye_coinImg" src="../../assets/images/luck/icon_coin2.png"></image>
+            <text class="_text data-v-3b82c7fe">{{luckySum}}</text>
+            <image class="_image data-v-3b82c7fe shouye_rightImg" src="../../assets/images/luck/icon_right1.png"></image>
           </button>
         </form>
-        <form bindsubmit="handleProxy" reportSubmit="true" wx:if="{{isSign}}" data-eventid="{{'YjB-2'}}" data-comkey="{{$k}}" class="_form data-v-4e3b585a">
-          <button class="_button data-v-4e3b585a shouye_top_right shouye_top_right1" formType="submit">已签到
-            <image class="_image data-v-4e3b585a sign_rightImg1" src="../../assets/images/icon_right.png"></image>
+        <form bindsubmit="handleProxy" reportSubmit="true" wx:if="{{isSign}}" data-eventid="{{'Y6w-2'}}" data-comkey="{{$k}}" class="_form data-v-3b82c7fe">
+          <button class="_button data-v-3b82c7fe shouye_top_right shouye_top_right1" formType="submit">已签到
+            <image class="_image data-v-3b82c7fe sign_rightImg1" src="../../assets/images/icon_right.png"></image>
           </button>
         </form>
-        <form bindsubmit="handleProxy" reportSubmit="true" wx:else data-eventid="{{'4Ke-1'}}" data-comkey="{{$k}}" class="_form data-v-4e3b585a">
-          <button class="_button data-v-4e3b585a shouye_top_right" formType="submit">
-            <image class="_image data-v-4e3b585a sign_rightImg" src="../../assets/images/icon_sign.png"></image> 签到
-            <image animation="{{bubbleAc}}" class="_image data-v-4e3b585a sign_bubbleImg" src="../../assets/images/icon_signbubble.png"></image>
+        <form bindsubmit="handleProxy" reportSubmit="true" wx:else data-eventid="{{'Qju-1'}}" data-comkey="{{$k}}" class="_form data-v-3b82c7fe">
+          <button class="_button data-v-3b82c7fe shouye_top_right" formType="submit">
+            <image class="_image data-v-3b82c7fe sign_rightImg" src="../../assets/images/icon_sign.png"></image> 签到
+            <image animation="{{bubbleAc}}" class="_image data-v-3b82c7fe sign_bubbleImg" src="../../assets/images/icon_signbubble.png"></image>
           </button>
         </form>
       </view>
-      <view class="_view data-v-4e3b585a listContainer">
-        <form bindsubmit="handleProxy" reportSubmit="true" wx:key="index" key="{{index}}" data-eventid="{{'PXC-3-'+index}}" data-comkey="{{$k}}" wx:for="{{lists}}" wx:for-index="index" wx:for-item="item" class="_form data-v-4e3b585a">
-          <button class="_button data-v-4e3b585a indexBtn" data-data="{{item}}" data-lotteryid="{{item.id}}" formType="submit">
-            <view class="_view data-v-4e3b585a index_list">
-              <view class="_view data-v-4e3b585a list_img" style=" {{('height:' + (imgHeight + 'px') + ';')}}">
-                <image class="_image data-v-4e3b585a lotteryImg" src="{{item.thumb}}" style=" {{('height:' + (imgHeight + 'px') + ';')}}"></image>
-                <image class="_image data-v-4e3b585a partStatusImg" src="../../assets/images/icon_part.png" wx:if="{{item.join_status == 1}}"></image>
-                <view class="_view data-v-4e3b585a list_tag" wx:if="{{item.sponsor_name}}">{{item.sponsor_name}} 赞助</view>
+      <view class="_view data-v-3b82c7fe listContainer">
+        <form bindsubmit="handleProxy" reportSubmit="true" wx:key="index" key="{{index}}" data-eventid="{{'tHq-3-'+index}}" data-comkey="{{$k}}" wx:for="{{lists}}" wx:for-index="index" wx:for-item="item" class="_form data-v-3b82c7fe">
+          <button class="_button data-v-3b82c7fe indexBtn" data-data="{{item}}" data-lotteryid="{{item.id}}" formType="submit">
+            <view class="_view data-v-3b82c7fe index_list">
+              <view class="_view data-v-3b82c7fe list_img" style=" {{('height:' + (imgHeight + 'px') + ';')}}">
+                <image class="_image data-v-3b82c7fe lotteryImg" src="{{item.thumb}}" style=" {{('height:' + (imgHeight + 'px') + ';')}}"></image>
+                <image class="_image data-v-3b82c7fe partStatusImg" src="../../assets/images/icon_part.png" wx:if="{{item.join_status == 1}}"></image>
+                <view class="_view data-v-3b82c7fe list_tag" wx:if="{{item.sponsor_name}}">{{item.sponsor_name}} 赞助</view>
               </view>
-              <view class="_view data-v-4e3b585a list_content">
+              <view class="_view data-v-3b82c7fe list_content">
                 <block wx:if="{{item.is_more == 1}}">
-                  <view class="_view data-v-4e3b585a list_lottery" wx:key="key" key="{{key}}" wx:for="{{item.prizes}}" wx:for-index="key" wx:for-item="value">{{value}}</view>
+                  <view class="_view data-v-3b82c7fe list_lottery" wx:key="key" key="{{key}}" wx:for="{{item.prizes}}" wx:for-index="key" wx:for-item="value">{{value}}</view>
                 </block>
-                <view class="_view data-v-4e3b585a list_lottery" wx:else>奖品：{{item.title}}×{{item.count}}</view>
-                <view class="_view data-v-4e3b585a list_rule" wx:if="{{item.open_type == 1}}">{{item.endtime_text}} 自动开奖</view>
-                <view class="_view data-v-4e3b585a list_rule" wx:if="{{item.open_type == 2}}">{{item.join_total}}人数开奖</view>
-                <view class="_view data-v-4e3b585a list_rule" wx:if="{{item.open_type == 3}}">手动开奖</view>
+                <view class="_view data-v-3b82c7fe list_lottery" wx:else>奖品：{{item.title}}×{{item.count}}</view>
+                <view class="_view data-v-3b82c7fe list_rule" wx:if="{{item.open_type == 1}}">{{item.endtime_text}} 自动开奖</view>
+                <view class="_view data-v-3b82c7fe list_rule" wx:if="{{item.open_type == 2}}">{{item.join_total}}人数开奖</view>
+                <view class="_view data-v-3b82c7fe list_rule" wx:if="{{item.open_type == 3}}">手动开奖</view>
               </view>
             </view>
           </button>
         </form>
-        <view class="_view data-v-4e3b585a welfare" wx:if="{{recommendations.length > 0}}">
-          <view class="_view data-v-4e3b585a welfare_title">推荐抽奖</view>
-          <view class="_view data-v-4e3b585a welfare_container">
-            <form bindsubmit="handleProxy" reportSubmit="true" wx:key="index" key="{{index}}" data-eventid="{{'3UB-4-'+index}}" data-comkey="{{$k}}" wx:for="{{recommendations}}" wx:for-index="index" wx:for-item="item" class="_form data-v-4e3b585a">
-              <button class="_button data-v-4e3b585a indexBtn1 {{[index == 0 ? 'welfare_container2' : '']}}" data-data="{{item}}" data-lotteryid="{{item.id}}" formType="submit">
-                <view class="_view data-v-4e3b585a welfare_container1">
-                  <view class="_view data-v-4e3b585a welfare_container_left">
-                    <image class="_image data-v-4e3b585a welfareImg" src="{{item.thumb}}"></image>
-                    <image class="_image data-v-4e3b585a joinStatusImg" src="../../assets/images/icon_part.png" wx:if="{{item.join_status == 1}}"></image>
+        <view class="_view data-v-3b82c7fe welfare" wx:if="{{recommendations.length > 0}}">
+          <view class="_view data-v-3b82c7fe welfare_title">推荐抽奖</view>
+          <view class="_view data-v-3b82c7fe welfare_container">
+            <form bindsubmit="handleProxy" reportSubmit="true" wx:key="index" key="{{index}}" data-eventid="{{'32R-4-'+index}}" data-comkey="{{$k}}" wx:for="{{recommendations}}" wx:for-index="index" wx:for-item="item" class="_form data-v-3b82c7fe">
+              <button class="_button data-v-3b82c7fe indexBtn1 {{[index == 0 ? 'welfare_container2' : '']}}" data-data="{{item}}" data-lotteryid="{{item.id}}" formType="submit">
+                <view class="_view data-v-3b82c7fe welfare_container1">
+                  <view class="_view data-v-3b82c7fe welfare_container_left">
+                    <image class="_image data-v-3b82c7fe welfareImg" src="{{item.thumb}}"></image>
+                    <image class="_image data-v-3b82c7fe joinStatusImg" src="../../assets/images/icon_part.png" wx:if="{{item.join_status == 1}}"></image>
                   </view>
-                  <view class="_view data-v-4e3b585a welfare_container_right">
-                    <view class="_view data-v-4e3b585a wc_right_title">奖品：{{item.title}}×{{item.count}}</view>
-                    <view class="_view data-v-4e3b585a wc_right_sponsor" wx:if="{{item.sponsor_name}}">{{item.sponsor_name}} 赞助</view>
-                    <view class="_view data-v-4e3b585a wc_right_sponsor1" wx:else></view>
-                    <view class="_view data-v-4e3b585a wc_right_time" wx:if="{{item.open_type == 1}}">{{item.endtime_text}} 自动开奖</view>
-                    <view class="_view data-v-4e3b585a wc_right_time" wx:if="{{item.open_type == 2}}">{{item.join_total}}人数开奖</view>
-                    <view class="_view data-v-4e3b585a wc_right_time" wx:if="{{item.open_type == 3}}">手动开奖</view>
+                  <view class="_view data-v-3b82c7fe welfare_container_right">
+                    <view class="_view data-v-3b82c7fe wc_right_title">奖品：{{item.title}}×{{item.count}}</view>
+                    <view class="_view data-v-3b82c7fe wc_right_sponsor" wx:if="{{item.sponsor_name}}">{{item.sponsor_name}} 赞助</view>
+                    <view class="_view data-v-3b82c7fe wc_right_sponsor1" wx:else></view>
+                    <view class="_view data-v-3b82c7fe wc_right_time" wx:if="{{item.open_type == 1}}">{{item.endtime_text}} 自动开奖</view>
+                    <view class="_view data-v-3b82c7fe wc_right_time" wx:if="{{item.open_type == 2}}">{{item.join_total}}人数开奖</view>
+                    <view class="_view data-v-3b82c7fe wc_right_time" wx:if="{{item.open_type == 3}}">手动开奖</view>
                   </view>
                 </view>
               </button>
@@ -66,10 +66,10 @@
           </view>
         </view>
       </view>
-      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'flR-5'}}" data-comkey="{{$k}}" class="_form data-v-4e3b585a">
-        <button class="_button data-v-4e3b585a homePage indexshouye" formType="submit">我要上首页></button>
+      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'fr7-5'}}" data-comkey="{{$k}}" class="_form data-v-3b82c7fe">
+        <button class="_button data-v-3b82c7fe homePage indexshouye" formType="submit">我要上首页></button>
       </form>
-      <view class="_view data-v-4e3b585a isPhone" style="height:80px" wx:if="{{isIos}}"></view>
+      <view class="_view data-v-3b82c7fe isPhone" style="height:80px" wx:if="{{isIos}}"></view>
     </view>
   </view>
 </template>

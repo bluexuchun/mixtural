@@ -1,9 +1,8 @@
 .usercenter{
 	height:100%;
 	background-color: #fff;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	overflow: hidden;
+	overflow-y: auto;
 }
 .user_header{
 	width:100%;
@@ -64,11 +63,12 @@
 
 .user_mission{
 	width:86%;
-	margin-top:180rpx;
+	margin:180rpx auto 0rpx;
 	.user_progress{
 		width:100%;
 		box-sizing: border-box;
 		padding:20rpx 12rpx;
+		margin-bottom: 10rpx;
 		.progress_word{
 			width:100%;
 			display: flex;
@@ -107,6 +107,7 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
+		margin-bottom: 10rpx;
 		.award_word{
 			width:60%;
 			display: flex;
@@ -124,6 +125,35 @@
 				color:#999;
 				margin-right:10rpx;
 			}
+			.more_icon{
+				width:40rpx;
+			}
+		}
+	}
+	.user_vip{
+		width: 100%;
+		box-sizing: border-box;
+		padding:20rpx 12rpx;
+		.viplevel{
+			width:100%;
+			padding:10rpx 0rpx;
+			font-size:26rpx;
+			color:#999;
+		}
+		.vipdetail{
+			width:100%;
+			padding:10rpx 0rpx;
+			font-size:24rpx;
+			color:#666;
+		}
+		.vipmore{
+			width:100%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-end;
+			font-size:24rpx;
+			color:#999;
 			.more_icon{
 				width:40rpx;
 			}

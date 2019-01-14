@@ -1,37 +1,37 @@
-<template name="68c6058f">
-  <view class="_view data-v-04e65c4a container">
-    <view class="_view data-v-04e65c4a address-section">
-      <view wx:if="{{lists.length>0}}" class="_view data-v-04e65c4a">
-        <view bindtap="chooseAddress" class="_view data-v-04e65c4a my-address-item" data-my-address-item-index="{{index}}" wx:key="index" key="{{index}}" wx:for="{{lists}}" wx:for-index="index" wx:for-item="myAddressItem">
-          <view class="_view data-v-04e65c4a my-address-item-info">
-            <view class="_view data-v-04e65c4a my-address-item-address">
-              <view class="_view data-v-04e65c4a my-address-item-tag" wx:if="{{myAddressItem.tag=='HOME'}}">[住宅]</view>
-              <view class="_view data-v-04e65c4a my-address-item-tag" wx:elif="{{myAddressItem.tag=='COMPANY'}}">[公司]</view>
-              <view class="_view data-v-04e65c4a my-address-item-tag" wx:elif="{{myAddressItem.tag=='SCHOOL'}}">[学校]</view>
-              <view class="_view data-v-04e65c4a my-address-item-tag" wx:elif="{{myAddressItem.tag=='OTHER'}}">[其他]</view>
-              <view class="_view data-v-04e65c4a my-address-item-city">{{myAddressItem.city}}</view>
-              <view class="_view data-v-04e65c4a my-address-item-area">{{myAddressItem.area}}</view>
-              <view class="_view data-v-04e65c4a my-address-item-region">{{myAddressItem.region}}</view>
-              <view class="_view data-v-04e65c4a my-address-item-address-detail">{{myAddressItem.address_detail}} </view>
+<template name="31cf9ba6">
+  <view class="_view data-v-413a71b5 container">
+    <view class="_view data-v-413a71b5 address-section">
+      <view wx:if="{{lists.length>0}}" class="_view data-v-413a71b5">
+        <view bindtap="chooseAddress" class="_view data-v-413a71b5 my-address-item" data-my-address-item-index="{{index}}" wx:key="index" key="{{index}}" wx:for="{{lists}}" wx:for-index="index" wx:for-item="myAddressItem">
+          <view class="_view data-v-413a71b5 my-address-item-info">
+            <view class="_view data-v-413a71b5 my-address-item-address">
+              <view class="_view data-v-413a71b5 my-address-item-tag" wx:if="{{myAddressItem.tag=='HOME'}}">[住宅]</view>
+              <view class="_view data-v-413a71b5 my-address-item-tag" wx:elif="{{myAddressItem.tag=='COMPANY'}}">[公司]</view>
+              <view class="_view data-v-413a71b5 my-address-item-tag" wx:elif="{{myAddressItem.tag=='SCHOOL'}}">[学校]</view>
+              <view class="_view data-v-413a71b5 my-address-item-tag" wx:elif="{{myAddressItem.tag=='OTHER'}}">[其他]</view>
+              <view class="_view data-v-413a71b5 my-address-item-city">{{myAddressItem.city}}</view>
+              <view class="_view data-v-413a71b5 my-address-item-area">{{myAddressItem.area}}</view>
+              <view class="_view data-v-413a71b5 my-address-item-region">{{myAddressItem.region}}</view>
+              <view class="_view data-v-413a71b5 my-address-item-address-detail">{{myAddressItem.address_detail}} </view>
             </view>
-            <view class="_view data-v-04e65c4a my-address-item-people">
-              <view class="_view data-v-04e65c4a my-address-item-name">{{myAddressItem.name}}</view>
-              <view class="_view data-v-04e65c4a my-address-item-phone-number">{{myAddressItem.phone_number}}</view>
+            <view class="_view data-v-413a71b5 my-address-item-people">
+              <view class="_view data-v-413a71b5 my-address-item-name">{{myAddressItem.name}}</view>
+              <view class="_view data-v-413a71b5 my-address-item-phone-number">{{myAddressItem.phone_number}}</view>
             </view>
           </view>
-          <view catchtap="editAddress" class="_view data-v-04e65c4a my-address-item-edit" data-my-address-item-id="{{myAddressItem.id}}">编辑</view>
+          <view catchtap="editAddress" class="_view data-v-413a71b5 my-address-item-edit" data-my-address-item-id="{{myAddressItem.id}}">编辑</view>
         </view>
       </view>
-      <view class="_view data-v-04e65c4a not-address" wx:elif="{{lists.length<=0}}">
-        <view class="_view data-v-04e65c4a not_address_flex">
-          <view class="_view data-v-04e65c4a not_address_img">
-            <image class="_image data-v-04e65c4a not_address_img" mode="aspectFit" src="../../static/images/no_address.png"></image>
+      <view class="_view data-v-413a71b5 not-address" wx:elif="{{lists.length<=0}}">
+        <view class="_view data-v-413a71b5 not_address_flex">
+          <view class="_view data-v-413a71b5 not_address_img">
+            <image class="_image data-v-413a71b5 not_address_img" mode="aspectFit" src="../../static/images/no_address.png"></image>
           </view>
-          <view class="_view data-v-04e65c4a not_address_text"> 您还没有收货地址呦～ </view>
+          <view class="_view data-v-413a71b5 not_address_text"> 您还没有收货地址呦～ </view>
         </view>
       </view>
-      <view class="_view data-v-04e65c4a add-address">
-        <view bindtap="handleProxy" class="_view data-v-04e65c4a add-address-button" data-eventid="{{'NB0-0'}}" data-comkey="{{$k}}">新增收货地址</view>
+      <view class="_view data-v-413a71b5 add-address">
+        <view bindtap="handleProxy" class="_view data-v-413a71b5 add-address-button" data-eventid="{{'zlS-0'}}" data-comkey="{{$k}}">新增收货地址</view>
       </view>
     </view>
   </view>

@@ -1,14 +1,14 @@
-<template name="a87d3932">
-  <view class="_div data-v-2b8b31c9">
-    <view class="_div data-v-2b8b31c9 loading" wx:if="{{show == 'loading'}}">
-      <view class="_div data-v-2b8b31c9 ball-beat">
-        <view class="_div data-v-2b8b31c9"></view>
-        <view class="_div data-v-2b8b31c9"></view>
-        <view class="_div data-v-2b8b31c9"></view>
+<template name="58747125">
+  <view class="_div data-v-67df4734">
+    <view class="_div data-v-67df4734 loading" wx:if="{{show == 'loading'}}">
+      <view class="_div data-v-67df4734 ball-beat">
+        <view class="_div data-v-67df4734"></view>
+        <view class="_div data-v-67df4734"></view>
+        <view class="_div data-v-67df4734"></view>
       </view>
     </view>
-    <view class="_div data-v-2b8b31c9 empty-placeholder" wx:if="{{show == 'empty'}}">
-      <view class="_div data-v-2b8b31c9 txt">没有更多数据了</view>
+    <view class="_div data-v-67df4734 empty-placeholder" wx:if="{{show == 'empty'}}">
+      <view class="_div data-v-67df4734 txt">没有更多数据了</view>
     </view>
   </view>
 </template>

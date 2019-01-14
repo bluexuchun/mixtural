@@ -1,1 +1,1 @@
-<import src="/pages/lottery/publish.vue.wxml" /><template is="421fc803" data="{{ ...$root['0'], $root }}"/>
+<import src="/pages/lottery/publish.vue.wxml" /><template is="34b0e68c" data="{{ ...$root['0'], $root }}"/>

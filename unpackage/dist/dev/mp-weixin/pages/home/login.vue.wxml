@@ -1,20 +1,20 @@
-<template name="52cda575">
-  <view class="_view data-v-baec122c main">
-    <view class="_view data-v-baec122c logo">
-      <image src="../../static/images/logo.png" class="_image data-v-baec122c"></image>
+<template name="d7994574">
+  <view class="_view data-v-052a6b15 main">
+    <view class="_view data-v-052a6b15 logo">
+      <image src="../../static/images/logo.png" class="_image data-v-052a6b15"></image>
     </view>
-    <view class="_view data-v-baec122c tips">为了让您享受更充分的平台服务，小程序需要获取您的昵称、头像等基本信息的授权。点击授权登录即代表同意
-      <text class="_text data-v-baec122c protocol" bindtap="handleProxy" data-eventid="{{'sBr-0'}}" data-comkey="{{$k}}">《用户协议》</text>。</view>
-    <view class="_view data-v-baec122c button">
-      <button plain open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="handleProxy" data-eventid="{{'NsU-1'}}" data-comkey="{{$k}}" class="_button data-v-baec122c">授权登录</button>
+    <view class="_view data-v-052a6b15 tips">为了让您享受更充分的平台服务，小程序需要获取您的昵称、头像等基本信息的授权。点击授权登录即代表同意
+      <text class="_text data-v-052a6b15 protocol" bindtap="handleProxy" data-eventid="{{'E2t-0'}}" data-comkey="{{$k}}">《用户协议》</text>。</view>
+    <view class="_view data-v-052a6b15 button">
+      <button plain open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="handleProxy" data-eventid="{{'WES-1'}}" data-comkey="{{$k}}" class="_button data-v-052a6b15">授权登录</button>
     </view>
-    <view class="_view data-v-baec122c mask" wx:if="{{protocolShow}}" bindtap="handleProxy" data-eventid="{{'8zH-2'}}" data-comkey="{{$k}}"></view>
-    <view class="_view data-v-baec122c content-box" wx:if="{{protocolShow}}">
-      <view class="_view data-v-baec122c header">
-        <view class="_view data-v-baec122c title">用户协议</view>
-        <view class="_view data-v-baec122c iconfont icon-close" bindtap="handleProxy" data-eventid="{{'zbQ-3'}}" data-comkey="{{$k}}"></view>
+    <view class="_view data-v-052a6b15 mask" wx:if="{{protocolShow}}" bindtap="handleProxy" data-eventid="{{'Q2m-2'}}" data-comkey="{{$k}}"></view>
+    <view class="_view data-v-052a6b15 content-box" wx:if="{{protocolShow}}">
+      <view class="_view data-v-052a6b15 header">
+        <view class="_view data-v-052a6b15 title">用户协议</view>
+        <view class="_view data-v-052a6b15 iconfont icon-close" bindtap="handleProxy" data-eventid="{{'89q-3'}}" data-comkey="{{$k}}"></view>
       </view>
-      <rich-text nodes="{{protocol}}" class="_rich-text data-v-baec122c"></rich-text>
+      <rich-text nodes="{{protocol}}" class="_rich-text data-v-052a6b15"></rich-text>
     </view>
   </view>
 </template>

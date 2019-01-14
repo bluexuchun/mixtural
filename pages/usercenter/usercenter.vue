@@ -19,6 +19,7 @@
 		
 		<!-- usermission -->
 		<view class="user_mission">
+			<!-- progress -->
 			<view class="user_progress">
 				<view class="progress_word">
 					当前任务进度：<view class="progress_num">20%</view>
@@ -29,6 +30,7 @@
 					</view>
 				</view>
 			</view>
+			<!-- award -->
 			<view class="user_award">
 				<view class="award_word">
 					当前任务奖励
@@ -37,6 +39,21 @@
 					<view class="more_word">
 						查看奖励
 					</view>
+					<image class="more_icon" src="../../static/images/usercenter/more.png" mode="widthFix"></image>
+				</view>
+			</view>
+			<!-- vip -->
+			<view class="user_vip">
+				<view class="viplevel">
+					vip1
+				</view>
+				<view class="vipdetail">
+					1：vip1的福利1<br>
+					2：vip2的福利2<br>
+					3：vip3的福利3<br>
+				</view>
+				<view class="vipmore">
+					点击查看所有VIP等级与福利
 					<image class="more_icon" src="../../static/images/usercenter/more.png" mode="widthFix"></image>
 				</view>
 			</view>

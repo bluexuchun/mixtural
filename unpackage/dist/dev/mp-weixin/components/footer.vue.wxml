@@ -1,15 +1,15 @@
-<template name="a5a65280">
-  <view class="_footer data-v-08c297c4 footer">
-    <view class="_div data-v-08c297c4 default item-center" wx:if="{{!diy}}">
-      <navigator hover-class="none" open-type="redirect" class="_navigator data-v-08c297c4 navigator {{[item.path == path ? 'active' : '']}}" wx:key="index" key="{{index}}" url="{{item.path}}" wx:if="{{item.show}}" wx:for="{{lists}}" wx:for-index="index"
+<template name="3f221942">
+  <view class="_footer data-v-25e6755a footer">
+    <view class="_div data-v-25e6755a default item-center" wx:if="{{!diy}}">
+      <navigator hover-class="none" open-type="redirect" class="_navigator data-v-25e6755a navigator {{[item.path == path ? 'active' : '']}}" wx:key="index" key="{{index}}" url="{{item.path}}" wx:if="{{item.show}}" wx:for="{{lists}}" wx:for-index="index"
         wx:for-item="item" style=" {{('width:' + (100 / lists.length + '%') + ';')}}">
-        <label class="_span data-v-08c297c4 iconfont {{item.icon}}"></label>
-        <view class="_div data-v-08c297c4 txt">{{ item.text }}</view>
+        <label class="_span data-v-25e6755a iconfont {{item.icon}}"></label>
+        <view class="_div data-v-25e6755a txt">{{ item.text }}</view>
       </navigator>
-      <view class="_div data-v-08c297c4 cover" catchtap="handleProxy" data-eventid="{{'0Fe-0'}}" data-comkey="{{$k}}">
-        <view class="_div data-v-08c297c4 home {{['/pages/scan/index' == path ? 'active' : '']}}">
-          <view class="_div data-v-08c297c4 circle">
-            <label class="_span data-v-08c297c4 iconfont icon-scan"></label>
+      <view class="_div data-v-25e6755a cover" catchtap="handleProxy" data-eventid="{{'lfr-0'}}" data-comkey="{{$k}}">
+        <view class="_div data-v-25e6755a home {{['/pages/scan/index' == path ? 'active' : '']}}">
+          <view class="_div data-v-25e6755a circle">
+            <label class="_span data-v-25e6755a iconfont icon-scan"></label>
           </view>
         </view>
       </view>
