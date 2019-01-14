@@ -1,8 +1,44 @@
 <template>
 	<view class="usercenter">
+		<!-- userheader -->
 		<view class="user_header">
+			<view class="settings">
+				<image class="icon_setting" src="../../static/images/usercenter/setting.png" mode=""></image>
+			</view>
 			<view class="user_info">
-				
+				<view class="user_ava">
+					<image class="icon_ava" :src="userInfo.avatar" mode=""></image>
+				</view>
+				<view class="user_infolist">
+					<view class="user_name">
+						{{userInfo.nickname}}
+					</view>
+				</view>
+			</view>
+		</view>
+		
+		<!-- usermission -->
+		<view class="user_mission">
+			<view class="user_progress">
+				<view class="progress_word">
+					当前任务进度：<view class="progress_num">20%</view>
+				</view>
+				<view class="progress_box">
+					<view class="progress_line">
+						
+					</view>
+				</view>
+			</view>
+			<view class="user_award">
+				<view class="award_word">
+					当前任务奖励
+				</view>
+				<view class="award_more">
+					<view class="more_word">
+						查看奖励
+					</view>
+					<image class="more_icon" src="../../static/images/usercenter/more.png" mode="widthFix"></image>
+				</view>
 			</view>
 		</view>
 	</view>

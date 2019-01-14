@@ -1,184 +1,184 @@
-<template name="4b826c04">
-  <view class="_view data-v-8b674f66 main">
-    <view class="_view data-v-8b674f66 products-section">
-      <scroll-view class="_scroll-view data-v-8b674f66 products-scroll-view" scroll-y="{{true}}">
-        <view class="_view data-v-8b674f66 detail-section">
-          <view class="_view data-v-8b674f66 video-container" hidden="{{!(top_tab == 'video')}}">
-            <video id="video" class="_video data-v-8b674f66 detail-video" objectFit="cover" autoplay="{{true}}" muted="{{!sound}}" page-gesture="{{true}}" controls src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></video>
-            <cover-view class="_cover-view data-v-8b674f66 detail-cover">
-              <cover-view class="_cover-view data-v-8b674f66 left item-center {{[top_tab == 'video' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'QHi-0'}}" data-comkey="{{$k}}">
-                <cover-view class="_cover-view data-v-8b674f66 text">视频</cover-view>
+<template name="2d425da7">
+  <view class="_view data-v-42a7f1a2 main">
+    <view class="_view data-v-42a7f1a2 products-section">
+      <scroll-view class="_scroll-view data-v-42a7f1a2 products-scroll-view" scroll-y="{{true}}">
+        <view class="_view data-v-42a7f1a2 detail-section">
+          <view class="_view data-v-42a7f1a2 video-container" hidden="{{!(top_tab == 'video')}}">
+            <video id="video" class="_video data-v-42a7f1a2 detail-video" objectFit="cover" autoplay="{{true}}" muted="{{!sound}}" page-gesture="{{true}}" controls src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></video>
+            <cover-view class="_cover-view data-v-42a7f1a2 detail-cover">
+              <cover-view class="_cover-view data-v-42a7f1a2 left item-center {{[top_tab == 'video' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'DUo-0'}}" data-comkey="{{$k}}">
+                <cover-view class="_cover-view data-v-42a7f1a2 text">视频</cover-view>
               </cover-view>
-              <cover-view class="_cover-view data-v-8b674f66 right item-center {{[top_tab == 'image' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'21R-1'}}" data-comkey="{{$k}}">
-                <cover-view class="_cover-view data-v-8b674f66 text">图片</cover-view>
+              <cover-view class="_cover-view data-v-42a7f1a2 right item-center {{[top_tab == 'image' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'S1e-1'}}" data-comkey="{{$k}}">
+                <cover-view class="_cover-view data-v-42a7f1a2 text">图片</cover-view>
               </cover-view>
             </cover-view>
-            <cover-view class="_cover-view data-v-8b674f66 sound" bindtap="handleProxy" data-eventid="{{'wSq-2'}}" data-comkey="{{$k}}">
-              <cover-image src="../../static/images/sound.png" wx:if="{{sound}}" class="_cover-image data-v-8b674f66"></cover-image>
-              <cover-image src="../../static/images/muted.png" wx:else class="_cover-image data-v-8b674f66"></cover-image>
+            <cover-view class="_cover-view data-v-42a7f1a2 sound" bindtap="handleProxy" data-eventid="{{'Cld-2'}}" data-comkey="{{$k}}">
+              <cover-image src="../../static/images/sound.png" wx:if="{{sound}}" class="_cover-image data-v-42a7f1a2"></cover-image>
+              <cover-image src="../../static/images/muted.png" wx:else class="_cover-image data-v-42a7f1a2"></cover-image>
             </cover-view>
           </view>
-          <view class="_view data-v-8b674f66 swiper-container" hidden="{{!(top_tab == 'image')}}">
-            <cover-view class="_cover-view data-v-8b674f66 detail-cover">
-              <cover-view class="_cover-view data-v-8b674f66 left item-center {{[top_tab == 'video' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'zkq-3'}}" data-comkey="{{$k}}">
-                <cover-view class="_cover-view data-v-8b674f66 text">视频</cover-view>
+          <view class="_view data-v-42a7f1a2 swiper-container" hidden="{{!(top_tab == 'image')}}">
+            <cover-view class="_cover-view data-v-42a7f1a2 detail-cover">
+              <cover-view class="_cover-view data-v-42a7f1a2 left item-center {{[top_tab == 'video' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'Hcc-3'}}" data-comkey="{{$k}}">
+                <cover-view class="_cover-view data-v-42a7f1a2 text">视频</cover-view>
               </cover-view>
-              <cover-view class="_cover-view data-v-8b674f66 right item-center {{[top_tab == 'image' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'L3d-4'}}" data-comkey="{{$k}}">
-                <cover-view class="_cover-view data-v-8b674f66 text">图片</cover-view>
+              <cover-view class="_cover-view data-v-42a7f1a2 right item-center {{[top_tab == 'image' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'hcw-4'}}" data-comkey="{{$k}}">
+                <cover-view class="_cover-view data-v-42a7f1a2 text">图片</cover-view>
               </cover-view>
             </cover-view>
-            <swiper autoplay="{{false}}" class="_swiper data-v-8b674f66 detail-swiper" duration="{{200}}" indicatorDots="{{true}}" interval="{{4000}}">
-              <swiper-item wx:key="index" key="{{index}}" wx:for="{{detail.images}}" wx:for-index="index" wx:for-item="item" class="_swiper-item data-v-8b674f66">
-                <image class="_image data-v-8b674f66 slide-detail-image" mode="aspectFit" src="{{item.thumb}}"></image>
+            <swiper autoplay="{{false}}" class="_swiper data-v-42a7f1a2 detail-swiper" duration="{{200}}" indicatorDots="{{true}}" interval="{{4000}}">
+              <swiper-item wx:key="index" key="{{index}}" wx:for="{{detail.images}}" wx:for-index="index" wx:for-item="item" class="_swiper-item data-v-42a7f1a2">
+                <image class="_image data-v-42a7f1a2 slide-detail-image" mode="aspectFit" src="{{item.thumb}}"></image>
               </swiper-item>
             </swiper>
           </view>
         </view>
-        <view class="_view data-v-8b674f66 sec_kill {{[detail.secKillProductInfo.secKillStatus == 2 ? 'sec_kill_line_img' : '']}}" wx:if="{{isShowTime}}">
-          <view class="_view data-v-8b674f66 sec_kill_left">
+        <view class="_view data-v-42a7f1a2 sec_kill {{[detail.secKillProductInfo.secKillStatus == 2 ? 'sec_kill_line_img' : '']}}" wx:if="{{isShowTime}}">
+          <view class="_view data-v-42a7f1a2 sec_kill_left">
             <block wx:if="{{detail.secKillProductInfo.secKillStatus == 1}}">
-              <view class="_view data-v-8b674f66 sec_kill_top"> {{detail.secKillProductInfo.secKillLeftText}} </view>
-              <view class="_view data-v-8b674f66 sec_kill_watch">
-                <text class="_text data-v-8b674f66 time_flex_text">距离结束</text>
-                <view class="_view data-v-8b674f66 time_text">{{hr}}</view>
-                <text class="_text data-v-8b674f66 time_center">:</text>
-                <view class="_view data-v-8b674f66 time_text">{{min}}</view>
-                <text class="_text data-v-8b674f66 time_center">:</text>
-                <view class="_view data-v-8b674f66 time_text">{{sec}}</view>
-                <text class="_text data-v-8b674f66 time_center">:</text>
-                <view class="_view data-v-8b674f66 time_text time_text_sec">{{micro_sec}}</view>
+              <view class="_view data-v-42a7f1a2 sec_kill_top"> {{detail.secKillProductInfo.secKillLeftText}} </view>
+              <view class="_view data-v-42a7f1a2 sec_kill_watch">
+                <text class="_text data-v-42a7f1a2 time_flex_text">距离结束</text>
+                <view class="_view data-v-42a7f1a2 time_text">{{hr}}</view>
+                <text class="_text data-v-42a7f1a2 time_center">:</text>
+                <view class="_view data-v-42a7f1a2 time_text">{{min}}</view>
+                <text class="_text data-v-42a7f1a2 time_center">:</text>
+                <view class="_view data-v-42a7f1a2 time_text">{{sec}}</view>
+                <text class="_text data-v-42a7f1a2 time_center">:</text>
+                <view class="_view data-v-42a7f1a2 time_text time_text_sec">{{micro_sec}}</view>
               </view>
             </block>
-            <image class="_image data-v-8b674f66 sec_kill_bg" src="https://j-image.missfresh.cn/img_20180910181427830.png" wx:if="{{detail.secKillProductInfo.secKillStatus == 2}}"></image>
+            <image class="_image data-v-42a7f1a2 sec_kill_bg" src="https://j-image.missfresh.cn/img_20180910181427830.png" wx:if="{{detail.secKillProductInfo.secKillStatus == 2}}"></image>
           </view>
-          <view class="_view data-v-8b674f66 sec_kill_right">
+          <view class="_view data-v-42a7f1a2 sec_kill_right">
             <block wx:if="{{detail.secKillProductInfo.secKillStatus == 2}}">
-              <view class="_view data-v-8b674f66 sec_kill_right_text"> {{detail.secKillProductInfo.secKillRightText}} </view>
-              <view class="_view data-v-8b674f66">
-                <view class="_view data-v-8b674f66 sec_kill_watch">
-                  <view class="_view data-v-8b674f66 time_text bg_whght">{{hr}}</view>
-                  <text class="_text data-v-8b674f66 time_center time_center_color">:</text>
-                  <view class="_view data-v-8b674f66 time_text bg_whght">{{min}}</view>
-                  <text class="_text data-v-8b674f66 time_center time_center_color">:</text>
-                  <view class="_view data-v-8b674f66 time_text bg_whght">{{sec}}</view>
-                  <text class="_text data-v-8b674f66 time_center time_center_color">:</text>
-                  <view class="_view data-v-8b674f66 time_text time_text_sec bg_whght">{{micro_sec}}</view>
+              <view class="_view data-v-42a7f1a2 sec_kill_right_text"> {{detail.secKillProductInfo.secKillRightText}} </view>
+              <view class="_view data-v-42a7f1a2">
+                <view class="_view data-v-42a7f1a2 sec_kill_watch">
+                  <view class="_view data-v-42a7f1a2 time_text bg_whght">{{hr}}</view>
+                  <text class="_text data-v-42a7f1a2 time_center time_center_color">:</text>
+                  <view class="_view data-v-42a7f1a2 time_text bg_whght">{{min}}</view>
+                  <text class="_text data-v-42a7f1a2 time_center time_center_color">:</text>
+                  <view class="_view data-v-42a7f1a2 time_text bg_whght">{{sec}}</view>
+                  <text class="_text data-v-42a7f1a2 time_center time_center_color">:</text>
+                  <view class="_view data-v-42a7f1a2 time_text time_text_sec bg_whght">{{micro_sec}}</view>
                 </view>
               </view>
             </block>
           </view>
         </view>
-        <view class="_view data-v-8b674f66 product-detail-info">
-          <view class="_view data-v-8b674f66 product-outline">
-            <view class="_view data-v-8b674f66 product-detail-name">{{detail.name}}</view>
-            <view class="_view data-v-8b674f66 product-detail-subtitle">{{detail.subtitle}}</view>
-            <view class="_view data-v-8b674f66 product-price1">
-              <text class="_text data-v-8b674f66 normal-price">¥{{detail.price}}</text>
-              <text class="_text data-v-8b674f66 market-price">¥{{detail.market_price}}</text>
+        <view class="_view data-v-42a7f1a2 product-detail-info">
+          <view class="_view data-v-42a7f1a2 product-outline">
+            <view class="_view data-v-42a7f1a2 product-detail-name">{{detail.name}}</view>
+            <view class="_view data-v-42a7f1a2 product-detail-subtitle">{{detail.subtitle}}</view>
+            <view class="_view data-v-42a7f1a2 product-price1">
+              <text class="_text data-v-42a7f1a2 normal-price">¥{{detail.price}}</text>
+              <text class="_text data-v-42a7f1a2 market-price">¥{{detail.market_price}}</text>
             </view>
-            <view class="_view data-v-8b674f66 product-price2">
-              <view class="_view data-v-8b674f66 vip-price">¥{{detail.vip_price}}</view>
-              <image class="_image data-v-8b674f66 vip-price-thumb" src="../../static/images/vip_price.png"></image>
-              <view class="_view data-v-8b674f66 sold">已售 {{detail.sales_volume}}份</view>
+            <view class="_view data-v-42a7f1a2 product-price2">
+              <view class="_view data-v-42a7f1a2 vip-price">¥{{detail.vip_price}}</view>
+              <image class="_image data-v-42a7f1a2 vip-price-thumb" src="../../static/images/vip_price.png"></image>
+              <view class="_view data-v-42a7f1a2 sold">已售 {{detail.sales_volume}}份</view>
             </view>
-            <view class="_view data-v-8b674f66 product-transport-root">
-              <view class="_view data-v-8b674f66 product-transport-container" wx:if="{{detail.country!=null}}">
-                <view class="_view data-v-8b674f66 product-transport-point"></view>
-                <view class="_view data-v-8b674f66 product-transport">{{detail.country}}</view>
+            <view class="_view data-v-42a7f1a2 product-transport-root">
+              <view class="_view data-v-42a7f1a2 product-transport-container" wx:if="{{detail.country!=null}}">
+                <view class="_view data-v-42a7f1a2 product-transport-point"></view>
+                <view class="_view data-v-42a7f1a2 product-transport">{{detail.country}}</view>
               </view>
-              <view class="_view data-v-8b674f66 product-transport-container" wx:if="{{detail.delivery_mode_name!=null}}">
-                <view class="_view data-v-8b674f66 product-transport-point"></view>
-                <view class="_view data-v-8b674f66 product-transport">{{detail.delivery_mode_name}}</view>
+              <view class="_view data-v-42a7f1a2 product-transport-container" wx:if="{{detail.delivery_mode_name!=null}}">
+                <view class="_view data-v-42a7f1a2 product-transport-point"></view>
+                <view class="_view data-v-42a7f1a2 product-transport">{{detail.delivery_mode_name}}</view>
               </view>
-              <view class="_view data-v-8b674f66 product-transport-container" wx:if="{{detail.promotion[0]!=null}}">
-                <view class="_view data-v-8b674f66 product-transport-point"></view>
-                <view class="_view data-v-8b674f66 product-transport">{{detail.promotion[0]}}</view>
+              <view class="_view data-v-42a7f1a2 product-transport-container" wx:if="{{detail.promotion[0]!=null}}">
+                <view class="_view data-v-42a7f1a2 product-transport-point"></view>
+                <view class="_view data-v-42a7f1a2 product-transport">{{detail.promotion[0]}}</view>
               </view>
             </view>
           </view>
-          <view class="_view data-v-8b674f66 product-vip-width" wx:if="{{detail.vip_card}}">
-            <view class="_view data-v-8b674f66 product-vip">
-              <image class="_image data-v-8b674f66 product-vip-bg" src="../../static/images/vip_productdetail.png"></image>
-              <view class="_view data-v-8b674f66 product-vip-flex">
-                <view class="_view data-v-8b674f66 product-vip-left">
-                  <image bindload="getVipWidth" class="_image data-v-8b674f66 product-vip-img" mode="{{scaleToFill}}" src="{{detail.vip_card.icon_img}}" style=" {{('height:' + '36rpx' + ';' + 'width:' + (vipImgWidth + 'rpx') + ';')}}"></image>
-                  <view class="_view data-v-8b674f66 product-vip-text">
-                    <rich-text class="_rich-text data-v-8b674f66 dialog-text" nodes="{{detail.vip_card.back_cash_text}}" type="node"></rich-text>
+          <view class="_view data-v-42a7f1a2 product-vip-width" wx:if="{{detail.vip_card}}">
+            <view class="_view data-v-42a7f1a2 product-vip">
+              <image class="_image data-v-42a7f1a2 product-vip-bg" src="../../static/images/vip_productdetail.png"></image>
+              <view class="_view data-v-42a7f1a2 product-vip-flex">
+                <view class="_view data-v-42a7f1a2 product-vip-left">
+                  <image bindload="getVipWidth" class="_image data-v-42a7f1a2 product-vip-img" mode="{{scaleToFill}}" src="{{detail.vip_card.icon_img}}" style=" {{('height:' + '36rpx' + ';' + 'width:' + (vipImgWidth + 'rpx') + ';')}}"></image>
+                  <view class="_view data-v-42a7f1a2 product-vip-text">
+                    <rich-text class="_rich-text data-v-42a7f1a2 dialog-text" nodes="{{detail.vip_card.back_cash_text}}" type="node"></rich-text>
                   </view>
                 </view>
-                <view catchtap="goVip" class="_view data-v-8b674f66 product-vip-right" wx:if="{{detail.vip_card.is_opened==0}}">
-                  <view class="_view data-v-8b674f66 product-vip-open"> 去开通 </view>
-                  <image class="_image data-v-8b674f66 product-vip-rigimg" mode src="../../static/images/right-detail.png"></image>
+                <view catchtap="goVip" class="_view data-v-42a7f1a2 product-vip-right" wx:if="{{detail.vip_card.is_opened==0}}">
+                  <view class="_view data-v-42a7f1a2 product-vip-open"> 去开通 </view>
+                  <image class="_image data-v-42a7f1a2 product-vip-rigimg" mode src="../../static/images/right-detail.png"></image>
                 </view>
               </view>
             </view>
           </view>
-          <view class="_view data-v-8b674f66 product-security">
-            <view class="_view data-v-8b674f66 product-security-title">安心指数</view>
-            <scroll-view scrollX class="_scroll-view data-v-8b674f66 product-security-fingerprints">
-              <view bindtap="toSecurityDetail" class="_view data-v-8b674f66 fingerprints-item" data-href="{{item.securityDetailUrl}}" wx:key="index" key="{{index}}" wx:for="{{detail.productFingerprints}}" wx:for-index="index" wx:for-item="item">
-                <image class="_image data-v-8b674f66 security-tag-url" src="{{item.securityTagUrl}}"></image>
-                <view class="_view data-v-8b674f66 security-tag-name">{{item.securityTagName}}</view>
+          <view class="_view data-v-42a7f1a2 product-security">
+            <view class="_view data-v-42a7f1a2 product-security-title">安心指数</view>
+            <scroll-view scrollX class="_scroll-view data-v-42a7f1a2 product-security-fingerprints">
+              <view bindtap="toSecurityDetail" class="_view data-v-42a7f1a2 fingerprints-item" data-href="{{item.securityDetailUrl}}" wx:key="index" key="{{index}}" wx:for="{{detail.productFingerprints}}" wx:for-index="index" wx:for-item="item">
+                <image class="_image data-v-42a7f1a2 security-tag-url" src="{{item.securityTagUrl}}"></image>
+                <view class="_view data-v-42a7f1a2 security-tag-name">{{item.securityTagName}}</view>
               </view>
             </scroll-view>
           </view>
-          <view class="_view data-v-8b674f66 light-spots">亮点</view>
-          <view class="_view data-v-8b674f66 product-buyer" style=" {{(  'margin-top:' +  (!(detail.buyerName && detail.buyerDescription && detail.buyerUrl) &&  detail.description.length    ? '24rpx'    : '90rpx') +  ';')}}">
-            <image class="_image data-v-8b674f66 product-buyer-avater" src="{{detail.buyerUrl}}" wx:if="{{detail.buyerUrl}}"></image>
-            <image class="_image data-v-8b674f66 product-buyer-maishou" src="../../static/images/icon_buyer.png" wx:if="{{detail.buyerName&&detail.buyerDescription&&detail.buyerUrl}}"></image>
-            <text class="_text data-v-8b674f66 product-buyer-say" wx:if="{{detail.buyerName&&detail.buyerDescription&&detail.buyerUrl}}">买手说</text>
-            <view class="_view data-v-8b674f66 product-buyer-name" wx:if="{{detail.buyerName}}">{{detail.buyerName}} </view>
-            <view class="_view data-v-8b674f66 product-buyer-description" style=" {{(  'padding-top:' +  (!(detail.buyerName && detail.buyerDescription && detail.buyerUrl) &&  detail.description.length    ? '0rpx'    : '26rpx') +  ';')}}">{{detail.buyerDescription}}</view>
-            <view class="_view data-v-8b674f66 product-buyer-descontain">
-              <image class="_image data-v-8b674f66 product-buyer-maohao" src="../../static/images/icon_maohao.png"></image>
-              <view class="_view data-v-8b674f66 product-description" wx:key="index" key="{{index}}" wx:for="{{detail.description}}" wx:for-index="index" wx:for-item="item">{{item}}</view>
+          <view class="_view data-v-42a7f1a2 light-spots">亮点</view>
+          <view class="_view data-v-42a7f1a2 product-buyer" style=" {{(  'margin-top:' +  (!(detail.buyerName && detail.buyerDescription && detail.buyerUrl) &&  detail.description.length    ? '24rpx'    : '90rpx') +  ';')}}">
+            <image class="_image data-v-42a7f1a2 product-buyer-avater" src="{{detail.buyerUrl}}" wx:if="{{detail.buyerUrl}}"></image>
+            <image class="_image data-v-42a7f1a2 product-buyer-maishou" src="../../static/images/icon_buyer.png" wx:if="{{detail.buyerName&&detail.buyerDescription&&detail.buyerUrl}}"></image>
+            <text class="_text data-v-42a7f1a2 product-buyer-say" wx:if="{{detail.buyerName&&detail.buyerDescription&&detail.buyerUrl}}">买手说</text>
+            <view class="_view data-v-42a7f1a2 product-buyer-name" wx:if="{{detail.buyerName}}">{{detail.buyerName}} </view>
+            <view class="_view data-v-42a7f1a2 product-buyer-description" style=" {{(  'padding-top:' +  (!(detail.buyerName && detail.buyerDescription && detail.buyerUrl) &&  detail.description.length    ? '0rpx'    : '26rpx') +  ';')}}">{{detail.buyerDescription}}</view>
+            <view class="_view data-v-42a7f1a2 product-buyer-descontain">
+              <image class="_image data-v-42a7f1a2 product-buyer-maohao" src="../../static/images/icon_maohao.png"></image>
+              <view class="_view data-v-42a7f1a2 product-description" wx:key="index" key="{{index}}" wx:for="{{detail.description}}" wx:for-index="index" wx:for-item="item">{{item}}</view>
             </view>
           </view>
-          <view class="_view data-v-8b674f66 article-title">测评文章</view>
-          <view class="_view data-v-8b674f66 article-list">
-            <navigator hover-class="none" class="_navigator data-v-8b674f66 list-item" wx:key="index" key="{{index}}" url="{{'/pages/store/detail?id=' + item.id}}" wx:for="{{lists}}" wx:for-index="index" wx:for-item="item">
-              <view class="_view data-v-8b674f66 left">
-                <image mode="aspectFill" src="{{item.thumb}}" class="_image data-v-8b674f66"></image>
+          <view class="_view data-v-42a7f1a2 article-title">测评文章</view>
+          <view class="_view data-v-42a7f1a2 article-list">
+            <navigator hover-class="none" class="_navigator data-v-42a7f1a2 list-item" wx:key="index" key="{{index}}" url="{{'/pages/store/detail?id=' + item.id}}" wx:for="{{lists}}" wx:for-index="index" wx:for-item="item">
+              <view class="_view data-v-42a7f1a2 left">
+                <image mode="aspectFill" src="{{item.thumb}}" class="_image data-v-42a7f1a2"></image>
               </view>
-              <view class="_view data-v-8b674f66 right">
-                <view class="_view data-v-8b674f66 title">{{item.title}}</view>
-                <view class="_view data-v-8b674f66 description">{{item.description}}</view>
+              <view class="_view data-v-42a7f1a2 right">
+                <view class="_view data-v-42a7f1a2 title">{{item.title}}</view>
+                <view class="_view data-v-42a7f1a2 description">{{item.description}}</view>
               </view>
             </navigator>
           </view>
-          <view class="_view data-v-8b674f66 product-format">
-            <view class="_view data-v-8b674f66 product-unit">商品详情</view>
-            <view class="_view data-v-8b674f66 product-detail-attributes">
-              <view class="_view data-v-8b674f66 product-detail-attribute" wx:key="index" key="{{index}}" wx:for="{{detail.attributes}}" wx:for-index="index" wx:for-item="item">{{item.name}}: {{item.value}}</view>
+          <view class="_view data-v-42a7f1a2 product-format">
+            <view class="_view data-v-42a7f1a2 product-unit">商品详情</view>
+            <view class="_view data-v-42a7f1a2 product-detail-attributes">
+              <view class="_view data-v-42a7f1a2 product-detail-attribute" wx:key="index" key="{{index}}" wx:for="{{detail.attributes}}" wx:for-index="index" wx:for-item="item">{{item.name}}: {{item.value}}</view>
             </view>
-            <view class="_view data-v-8b674f66 product-detail-content">
-              <rich-text nodes="{{detail.content}}" class="_rich-text data-v-8b674f66"></rich-text>
+            <view class="_view data-v-42a7f1a2 product-detail-content">
+              <rich-text nodes="{{detail.content}}" class="_rich-text data-v-42a7f1a2"></rich-text>
             </view>
           </view>
-          <view class="_view data-v-8b674f66 store-navigation">
-            <view class="_view data-v-8b674f66 navigation-title">线下店</view>
-            <view class="_view data-v-8b674f66 navigtion-list">
-              <view class="_view data-v-8b674f66 list-item" wx:key="index" key="{{index}}" wx:for="{{navigations}}" wx:for-index="index" wx:for-item="item">
-                <view class="_view data-v-8b674f66 left">
-                  <view class="_view data-v-8b674f66 title">{{item.title}}</view>
-                  <view class="_view data-v-8b674f66 address">{{item.address}}</view>
+          <view class="_view data-v-42a7f1a2 store-navigation">
+            <view class="_view data-v-42a7f1a2 navigation-title">线下店</view>
+            <view class="_view data-v-42a7f1a2 navigtion-list">
+              <view class="_view data-v-42a7f1a2 list-item" wx:key="index" key="{{index}}" wx:for="{{navigations}}" wx:for-index="index" wx:for-item="item">
+                <view class="_view data-v-42a7f1a2 left">
+                  <view class="_view data-v-42a7f1a2 title">{{item.title}}</view>
+                  <view class="_view data-v-42a7f1a2 address">{{item.address}}</view>
                 </view>
-                <view class="_view data-v-8b674f66 right">{{item.distanceText}}</view>
+                <view class="_view data-v-42a7f1a2 right">{{item.distanceText}}</view>
               </view>
             </view>
           </view>
         </view>
       </scroll-view>
-      <view class="_view data-v-8b674f66 product-cart">
-        <view bindtap="openCart" class="_view data-v-8b674f66 product-cart-button">
-          <view class="_view data-v-8b674f66 imageview">
-            <view class="_view data-v-8b674f66 product-cart-button-imageview">
-              <image class="_image data-v-8b674f66 product-cart-button-image" mode="aspectFit" src="../../static/images/detail-add-cart.png"></image>
-              <view class="_view data-v-8b674f66 product-cart-count product-cart-count-active">{{cartCount}}</view>
+      <view class="_view data-v-42a7f1a2 product-cart">
+        <view bindtap="openCart" class="_view data-v-42a7f1a2 product-cart-button">
+          <view class="_view data-v-42a7f1a2 imageview">
+            <view class="_view data-v-42a7f1a2 product-cart-button-imageview">
+              <image class="_image data-v-42a7f1a2 product-cart-button-image" mode="aspectFit" src="../../static/images/detail-add-cart.png"></image>
+              <view class="_view data-v-42a7f1a2 product-cart-count product-cart-count-active">{{cartCount}}</view>
             </view>
           </view>
         </view>
-        <view class="_view data-v-8b674f66 product-add-cart-button">加入购物车</view>
+        <view class="_view data-v-42a7f1a2 product-add-cart-button">加入购物车</view>
       </view>
     </view>
   </view>

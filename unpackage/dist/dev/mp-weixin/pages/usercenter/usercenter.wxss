@@ -1,20 +1,195 @@
 @import "../../common/vendor.wxss";
 
-.user_header.data-v-3dfaa17a {
+.usercenter.data-v-5ddcdc4e {
+  height: 100%;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.user_header.data-v-5ddcdc4e {
   width: 100%;
-  height: 200rpx;
+  height: 220rpx;
   background: #FFDB4D;
   position: relative;
 }
-.user_header .user_info.data-v-3dfaa17a {
+.user_header .settings.data-v-5ddcdc4e {
+  width: 100%;
+  height: 50rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.user_header .settings .icon_setting.data-v-5ddcdc4e {
+  width: 42rpx;
+  height: 42rpx;
+  margin: 0rpx 20rpx;
+}
+.user_header .user_info.data-v-5ddcdc4e {
   width: 86%;
-  height: 340rpx;
+  height: 320rpx;
   background: #FFFFFF;
   position: absolute;
   left: 50%;
-  margin-top: 30rpx;
+  margin-top: 60rpx;
   margin-left: -43%;
   z-index: 1;
-  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.user_header .user_info .user_ava.data-v-5ddcdc4e {
+  width: 35%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.user_header .user_info .user_ava .icon_ava.data-v-5ddcdc4e {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.user_header .user_info .user_infolist.data-v-5ddcdc4e {
+  width: 65%;
+}
+.user_header .user_info .user_infolist .user_name.data-v-5ddcdc4e {
+  height: 120rpx;
+  font-size: 30rpx;
+}
+.user_mission.data-v-5ddcdc4e {
+  width: 86%;
+  margin-top: 180rpx;
+}
+.user_mission .user_progress.data-v-5ddcdc4e {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 12rpx;
+}
+.user_mission .user_progress .progress_word.data-v-5ddcdc4e {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  font-size: 26rpx;
+  color: #999;
+}
+.user_mission .user_progress .progress_word .progress_num.data-v-5ddcdc4e {
+  font-size: 27rpx;
+  color: #000;
+}
+.user_mission .user_progress .progress_box.data-v-5ddcdc4e {
+  width: 100%;
+  height: 10rpx;
+  background: #eaeaea;
+  border-radius: 100rpx;
+  margin-top: 16rpx;
+  position: relative;
+}
+.user_mission .user_progress .progress_box .progress_line.data-v-5ddcdc4e {
+  width: 20%;
+  height: 10rpx;
+  border-radius: 100rpx;
+  background: #FFDB4D;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.user_mission .user_award.data-v-5ddcdc4e {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 12rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.user_mission .user_award .award_word.data-v-5ddcdc4e {
+  width: 60%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  font-size: 26rpx;
+  color: #999;
+}
+.user_mission .user_award .award_more.data-v-5ddcdc4e {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.user_mission .user_award .award_more .more_word.data-v-5ddcdc4e {
+  font-size: 24rpx;
+  color: #999;
+  margin-right: 10rpx;
+}
+.user_mission .user_award .award_more .more_icon.data-v-5ddcdc4e {
+  width: 40rpx;
 }

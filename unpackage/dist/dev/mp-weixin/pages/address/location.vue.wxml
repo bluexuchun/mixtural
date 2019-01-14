@@ -1,16 +1,16 @@
-<template name="2997ef3d">
-  <view class="_view data-v-3c7b25cc container">
-    <view class="_view data-v-3c7b25cc box-1">
-      <view class="_view data-v-3c7b25cc locator-address">
-        <view class="_view data-v-3c7b25cc locator-address-button" bindtap="handleProxy" wx:if="{{isShow==1}}" data-eventid="{{'Iqp-0'}}" data-comkey="{{$k}}">
-          <view class="_view data-v-3c7b25cc locator-address-city"> {{location.city}} </view>
-          <view class="_view data-v-3c7b25cc locator-address-list-down">
-            <image class="_image data-v-3c7b25cc locator-address-list-down-image" mode="aspectFit" src="../../static/images/xiajt.png"></image>
+<template name="6bf586b4">
+  <view class="_view data-v-1c55bde1 container">
+    <view class="_view data-v-1c55bde1 box-1">
+      <view class="_view data-v-1c55bde1 locator-address">
+        <view class="_view data-v-1c55bde1 locator-address-button" bindtap="handleProxy" wx:if="{{isShow==1}}" data-eventid="{{'p3p-0'}}" data-comkey="{{$k}}">
+          <view class="_view data-v-1c55bde1 locator-address-city"> {{location.city}} </view>
+          <view class="_view data-v-1c55bde1 locator-address-list-down">
+            <image class="_image data-v-1c55bde1 locator-address-list-down-image" mode="aspectFit" src="../../static/images/xiajt.png"></image>
           </view>
         </view>
-        <image class="_image data-v-3c7b25cc locator-address-fangdajing-image" mode="aspectFit" src="../../static/images/fangdajing.png"></image>
-        <view class="_view data-v-3c7b25cc locator-address-detail-input-content">
-          <input bindinput="listenerAddressInput" class="_input data-v-3c7b25cc locator-address-detail-input" placeholder="请输入您的地址" type="text" />
+        <image class="_image data-v-1c55bde1 locator-address-fangdajing-image" mode="aspectFit" src="../../static/images/fangdajing.png"></image>
+        <view class="_view data-v-1c55bde1 locator-address-detail-input-content">
+          <input bindinput="listenerAddressInput" class="_input data-v-1c55bde1 locator-address-detail-input" placeholder="请输入您的地址" type="text" />
         </view>
       </view>
     </view>

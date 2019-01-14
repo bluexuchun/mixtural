@@ -1,70 +1,70 @@
-<template name="4117c312">
-  <view class="_view data-v-50829921 container">
-    <view class="_view data-v-50829921 address-section">
-      <view class="_view data-v-50829921 edit-address-detail-scroll-view">
-        <view class="_view data-v-50829921 edit-address-detail-info">
-          <view class="_view data-v-50829921 edit-address-detail-input-label">收 货 人</view>
-          <view class="_view data-v-50829921 edit-address-detail-input-content">
-            <input bindinput="handleProxy" class="_input data-v-50829921 edit-address-detail-input" placeholder="姓名" type="text" value="{{detail.name}}" data-eventid="{{'WSc-0'}}" data-comkey="{{$k}}" />
+<template name="780e2cfb">
+  <view class="_view data-v-142e83b6 container">
+    <view class="_view data-v-142e83b6 address-section">
+      <view class="_view data-v-142e83b6 edit-address-detail-scroll-view">
+        <view class="_view data-v-142e83b6 edit-address-detail-info">
+          <view class="_view data-v-142e83b6 edit-address-detail-input-label">收 货 人</view>
+          <view class="_view data-v-142e83b6 edit-address-detail-input-content">
+            <input bindinput="handleProxy" class="_input data-v-142e83b6 edit-address-detail-input" placeholder="姓名" type="text" value="{{detail.name}}" data-eventid="{{'XiQ-0'}}" data-comkey="{{$k}}" />
           </view>
         </view>
-        <view class="_view data-v-50829921 edit-address-detail-info">
-          <view class="_view data-v-50829921 edit-address-detail-input-label">联系电话</view>
-          <view class="_view data-v-50829921 edit-address-detail-input-content">
-            <input bindinput="handleProxy" class="_input data-v-50829921 edit-address-detail-input" maxlength="11" placeholder="手机或固话" type="number" value="{{detail.phone_number}}" data-eventid="{{'qf6-1'}}" data-comkey="{{$k}}" />
+        <view class="_view data-v-142e83b6 edit-address-detail-info">
+          <view class="_view data-v-142e83b6 edit-address-detail-input-label">联系电话</view>
+          <view class="_view data-v-142e83b6 edit-address-detail-input-content">
+            <input bindinput="handleProxy" class="_input data-v-142e83b6 edit-address-detail-input" maxlength="11" placeholder="手机或固话" type="number" value="{{detail.phone_number}}" data-eventid="{{'RYc-1'}}" data-comkey="{{$k}}" />
           </view>
         </view>
-        <view class="_view data-v-50829921 edit-address-detail-info">
-          <view class="_view data-v-50829921 edit-address-detail-input-label">选择城市</view>
-          <view class="_view data-v-50829921 edit-address-detail-input-area">
-            <picker mode="region" class="_picker data-v-50829921 edit-address-detail-picker" value="{{hotTagsCityIndex}}" bindchange="handleProxy" data-eventid="{{'LTQ-2'}}" data-comkey="{{$k}}">
-              <view class="_view data-v-50829921 edit-address-detail-picker-text-wrapper" wx:if="{{hotTagsCityLists[hotTagsCityIndex]=='请输入您收货的城市'}}">
-                <view class="_view data-v-50829921 edit-address-detail-picker-text"> {{hotTagsCityLists[hotTagsCityIndex]}}</view>
+        <view class="_view data-v-142e83b6 edit-address-detail-info">
+          <view class="_view data-v-142e83b6 edit-address-detail-input-label">选择城市</view>
+          <view class="_view data-v-142e83b6 edit-address-detail-input-area">
+            <picker mode="region" class="_picker data-v-142e83b6 edit-address-detail-picker" value="{{hotTagsCityIndex}}" bindchange="handleProxy" data-eventid="{{'R8V-2'}}" data-comkey="{{$k}}">
+              <view class="_view data-v-142e83b6 edit-address-detail-picker-text-wrapper" wx:if="{{hotTagsCityLists[hotTagsCityIndex]=='请输入您收货的城市'}}">
+                <view class="_view data-v-142e83b6 edit-address-detail-picker-text"> {{hotTagsCityLists[hotTagsCityIndex]}}</view>
               </view>
-              <view class="_view data-v-50829921 edit-address-detail-picker-text-wrapper" wx:elif="{{regionName==''}}">
-                <view class="_view data-v-50829921 edit-address-detail-picker-text" style="color:#353535"> {{hotTagsCityLists[hotTagsCityIndex]}}</view>
+              <view class="_view data-v-142e83b6 edit-address-detail-picker-text-wrapper" wx:elif="{{regionName==''}}">
+                <view class="_view data-v-142e83b6 edit-address-detail-picker-text" style="color:#353535"> {{hotTagsCityLists[hotTagsCityIndex]}}</view>
               </view>
-              <view class="_view data-v-50829921 edit-address-detail-picker-text-wrapper" wx:else>
-                <view class="_view data-v-50829921 edit-address-detail-picker-text" style="color:#353535"> {{regionName}}</view>
+              <view class="_view data-v-142e83b6 edit-address-detail-picker-text-wrapper" wx:else>
+                <view class="_view data-v-142e83b6 edit-address-detail-picker-text" style="color:#353535"> {{regionName}}</view>
               </view>
-              <image class="_image data-v-50829921 edit-address-detail-picker-image" mode="aspectFit" src="../../static/images/youjt.png"></image>
+              <image class="_image data-v-142e83b6 edit-address-detail-picker-image" mode="aspectFit" src="../../static/images/youjt.png"></image>
             </picker>
           </view>
         </view>
-        <view class="_view data-v-50829921 edit-address-detail-info">
-          <view class="_view data-v-50829921 edit-address-detail-input-label">收货地址</view>
-          <view class="_view data-v-50829921 edit-address-detail-no-adress-area" bindtap="handleProxy" wx:if="{{address1===''}}" data-eventid="{{'BHK-4'}}" data-comkey="{{$k}}">
-            <view class="_view data-v-50829921 edit-address-detail-picker-text">请输入您的收货地址</view>
-            <image class="_image data-v-50829921 edit-address-detail-picker-image" mode="aspectFit" src="../../static/images/youjt.png"></image>
+        <view class="_view data-v-142e83b6 edit-address-detail-info">
+          <view class="_view data-v-142e83b6 edit-address-detail-input-label">收货地址</view>
+          <view class="_view data-v-142e83b6 edit-address-detail-no-adress-area" bindtap="handleProxy" wx:if="{{address1===''}}" data-eventid="{{'tmZ-4'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-142e83b6 edit-address-detail-picker-text">请输入您的收货地址</view>
+            <image class="_image data-v-142e83b6 edit-address-detail-picker-image" mode="aspectFit" src="../../static/images/youjt.png"></image>
           </view>
-          <view class="_view data-v-50829921 edit-address-detail-have-adress-area" bindtap="handleProxy" wx:else data-eventid="{{'40g-3'}}" data-comkey="{{$k}}">
-            <view class="_view data-v-50829921 edit-address-detail-picker-text">{{address1}}</view>
-            <image class="_image data-v-50829921 edit-address-detail-picker-image" mode="aspectFit" src="../../static/images/youjt.png"></image>
-          </view>
-        </view>
-        <view class="_view data-v-50829921 edit-address-detail-info">
-          <view class="_view data-v-50829921 edit-address-detail-input-label">楼号门牌</view>
-          <view class="_view data-v-50829921 edit-address-detail-input-content">
-            <input bindinput="handleProxy" class="_input data-v-50829921 edit-address-detail-input" placeholder="楼号/单元/门牌号" type="text" value="{{address2}}" data-eventid="{{'BTG-5'}}" data-comkey="{{$k}}" />
+          <view class="_view data-v-142e83b6 edit-address-detail-have-adress-area" bindtap="handleProxy" wx:else data-eventid="{{'VZF-3'}}" data-comkey="{{$k}}">
+            <view class="_view data-v-142e83b6 edit-address-detail-picker-text">{{address1}}</view>
+            <image class="_image data-v-142e83b6 edit-address-detail-picker-image" mode="aspectFit" src="../../static/images/youjt.png"></image>
           </view>
         </view>
-        <view class="_view data-v-50829921 edit-address-detail-info">
-          <view class="_view data-v-50829921 edit-address-detail-input-label">地址类型</view>
-          <view class="_view data-v-50829921 edit-address-detail-input-area">
-            <picker bindchange="handleProxy" class="_picker data-v-50829921 edit-address-detail-picker" mode="selector" range="{{addressTagArray}}" value="{{addressTagIndex}}" data-eventid="{{'wZw-6'}}" data-comkey="{{$k}}">
-              <view class="_view data-v-50829921 edit-address-detail-picker-text-wrapper" wx:if="{{addressTagArray[addressTagIndex]=='请选择地址类型'}}">
-                <view class="_view data-v-50829921 edit-address-detail-picker-text">{{addressTagArray[addressTagIndex]}}</view>
+        <view class="_view data-v-142e83b6 edit-address-detail-info">
+          <view class="_view data-v-142e83b6 edit-address-detail-input-label">楼号门牌</view>
+          <view class="_view data-v-142e83b6 edit-address-detail-input-content">
+            <input bindinput="handleProxy" class="_input data-v-142e83b6 edit-address-detail-input" placeholder="楼号/单元/门牌号" type="text" value="{{address2}}" data-eventid="{{'gLI-5'}}" data-comkey="{{$k}}" />
+          </view>
+        </view>
+        <view class="_view data-v-142e83b6 edit-address-detail-info">
+          <view class="_view data-v-142e83b6 edit-address-detail-input-label">地址类型</view>
+          <view class="_view data-v-142e83b6 edit-address-detail-input-area">
+            <picker bindchange="handleProxy" class="_picker data-v-142e83b6 edit-address-detail-picker" mode="selector" range="{{addressTagArray}}" value="{{addressTagIndex}}" data-eventid="{{'Bin-6'}}" data-comkey="{{$k}}">
+              <view class="_view data-v-142e83b6 edit-address-detail-picker-text-wrapper" wx:if="{{addressTagArray[addressTagIndex]=='请选择地址类型'}}">
+                <view class="_view data-v-142e83b6 edit-address-detail-picker-text">{{addressTagArray[addressTagIndex]}}</view>
               </view>
-              <view class="_view data-v-50829921 edit-address-detail-picker-text-wrapper" wx:else>
-                <view class="_view data-v-50829921 edit-address-detail-picker-text" style="color:#353535">{{addressTagArray[addressTagIndex]}}</view>
+              <view class="_view data-v-142e83b6 edit-address-detail-picker-text-wrapper" wx:else>
+                <view class="_view data-v-142e83b6 edit-address-detail-picker-text" style="color:#353535">{{addressTagArray[addressTagIndex]}}</view>
               </view>
-              <image class="_image data-v-50829921 edit-address-detail-picker-image" mode="aspectFit" src="../../static/images/youjt.png"></image>
+              <image class="_image data-v-142e83b6 edit-address-detail-picker-image" mode="aspectFit" src="../../static/images/youjt.png"></image>
             </picker>
           </view>
         </view>
       </view>
     </view>
-    <view bindtap="saveAddress" class="_view data-v-50829921 save-address" data-address-detail-id="{{detail.id}}">保存地址</view>
-    <view bindtap="deleteAddress" class="_view data-v-50829921 edit-address" data-address-detail-id="{{detail.id}}" wx:if="{{operationType==='EDIT'}}">删除地址</view>
+    <view bindtap="saveAddress" class="_view data-v-142e83b6 save-address" data-address-detail-id="{{detail.id}}">保存地址</view>
+    <view bindtap="deleteAddress" class="_view data-v-142e83b6 edit-address" data-address-detail-id="{{detail.id}}" wx:if="{{operationType==='EDIT'}}">删除地址</view>
   </view>
 </template>

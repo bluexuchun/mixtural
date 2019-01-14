@@ -1,29 +1,29 @@
 @import "../../common/vendor.wxss";
 
-.main.data-v-052a6b15 {
+.main.data-v-baec122c {
   background-color: #fff;
   height: 100%;
   padding-top: 100rpx;
 }
-.main .logo.data-v-052a6b15 {
+.main .logo.data-v-baec122c {
   width: 150rpx;
   height: 150rpx;
   margin: auto;
 }
-.main .logo image.data-v-052a6b15 {
+.main .logo image.data-v-baec122c {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
-.main .tips.data-v-052a6b15 {
+.main .tips.data-v-baec122c {
   margin-top: 50rpx;
   padding: 0 60rpx;
   font-size: 28rpx;
 }
-.main .button.data-v-052a6b15 {
+.main .button.data-v-baec122c {
   margin-top: 50rpx;
 }
-.main .button ._button.data-v-052a6b15 {
+.main .button ._button.data-v-baec122c {
   padding: 0;
   margin: auto;
   width: 400rpx;
