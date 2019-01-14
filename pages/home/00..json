@@ -1,0 +1,132 @@
+{
+    "result": {
+        "data": {
+            "mr_data": [{
+                "id": "143938",
+                "cover": "https://qny-cj.9w9.com/32071161546049397442316-cover",
+                "join_status": 0,
+                "sponsor_name": "活动抽奖官方",
+                "is_more": "0",
+                "lname": "Meitu 美图T9手机",
+                "lcount": "1",
+                "name_str": "奖品：Meitu 美图T9手机 x 1",
+                "end_time": "01月04日 21:00",
+                "open_type": "0",
+                "open_str": "自动开奖"
+            }, {
+                "id": "145246",
+                "cover": "https://qny-cj.9w9.com/9b0be20190103141549.png-cover",
+                "join_status": 0,
+                "sponsor_name": "Ava熊猫🐼美瞳",
+                "is_more": "0",
+                "lname": "明星同款梦幻银河美瞳",
+                "lcount": "1",
+                "name_str": "奖品：明星同款梦幻银河美瞳 x 1",
+                "end_time": "01月06日 19:00",
+                "open_type": "0",
+                "open_str": "自动开奖"
+            }, {
+                "id": "145212",
+                "cover": "https://qny-cj.9w9.com/1546425226968-cover",
+                "join_status": 0,
+                "sponsor_name": "Az-团队",
+                "is_more": "0",
+                "lname": "正品国潮渐变雕棉服 ",
+                "lcount": "1",
+                "name_str": "奖品：正品国潮渐变雕棉服 x 1",
+                "end_time": "01月06日 09:00",
+                "open_type": "0",
+                "open_str": "自动开奖"
+            }, {
+                "id": "145146",
+                "cover": "https://qny-cj.9w9.com/42276931546399620653852-cover",
+                "join_status": 0,
+                "sponsor_name": "Ajun潮服",
+                "is_more": "0",
+                "lname": "正品匡威1970s",
+                "lcount": "1",
+                "name_str": "奖品：正品匡威1970s x 1",
+                "end_time": "01月05日 15:00",
+                "open_type": "0",
+                "open_str": "自动开奖"
+            }, {
+                "id": "145132",
+                "cover": "https://qny-cj.9w9.com/32071161546394147772951-cover",
+                "join_status": 0,
+                "sponsor_name": "全民搬砖",
+                "is_more": "0",
+                "lname": "资生堂（SHISEIDO）女士护肤套装",
+                "lcount": "1",
+                "name_str": "奖品：资生堂（SHISEIDO）女士护肤套装 x 1",
+                "end_time": "01月08日 21:00",
+                "open_type": "0",
+                "open_str": "自动开奖"
+            }, {
+                "id": "144044",
+                "cover": "https://qny-cj.9w9.com/52ba820181229171204.png-cover",
+                "join_status": 0,
+                "sponsor_name": "品潮工作室",
+                "is_more": "0",
+                "lname": "Nike x Off-White 万圣节",
+                "lcount": "1",
+                "name_str": "奖品：Nike x Off-White 万圣节 x 1",
+                "end_time": "01月04日 18:00",
+                "open_type": "0",
+                "open_str": "自动开奖"
+            }],
+            "tj_data": [{
+                "id": "145247",
+                "cover": "https://qny-cj.9w9.com/9886163154642291569310-cover",
+                "join_status": 0,
+                "sponsor_name": "可爱暴击skr",
+                "is_more": "1",
+                "lname": "魅可MAC 经典唇膏 子弹头口红",
+                "lcount": "1",
+                "name_str": ["一等奖： 魅可MAC 经典唇膏 子弹头口红 x 1", "二等奖： LUYCON年抛 高端非离子美瞳 x 1"],
+                "end_time": "01月05日 09:00",
+                "open_type": "0",
+                "open_str": "自动开奖"
+            }, {
+                "id": "145148",
+                "cover": "https://qny-cj.9w9.com/1546400857718-cover",
+                "join_status": 0,
+                "sponsor_name": "EX潮铺",
+                "is_more": "0",
+                "lname": "Air Jordan 1 紫脚趾",
+                "lcount": "1",
+                "name_str": "奖品：Air Jordan 1 紫脚趾 x 1",
+                "end_time": "01月06日 15:00",
+                "open_type": "0",
+                "open_str": "自动开奖"
+            }, {
+                "id": "144909",
+                "cover": "https://qny-cj.9w9.com/99098321546320640373472-cover",
+                "join_status": 0,
+                "sponsor_name": "环球旅行代购",
+                "is_more": "1",
+                "lname": "妆蕾RAY面膜",
+                "lcount": "1",
+                "name_str": ["一等奖： 妆蕾RAY面膜 x 1", "二等奖： 伊朗藏红花1克礼品装 x 2", "三等奖： 泰国小草莓变色唇膏 x 3"],
+                "end_time": "01月04日 09:00",
+                "open_type": "0",
+                "open_str": "自动开奖"
+            }, {
+                "id": "143883",
+                "cover": "https://qny-cj.9w9.com/9788028154600951657749-cover",
+                "join_status": 0,
+                "sponsor_name": "DUANG鞋库",
+                "is_more": "0",
+                "lname": "Adidas Yeezy500",
+                "lcount": "1",
+                "name_str": "奖品：Adidas Yeezy500 x 1",
+                "end_time": "01月03日 23:55",
+                "open_type": "0",
+                "open_str": "自动开奖"
+            }]
+        },
+        "is_sign": 0
+    },
+    "code": "0",
+    "time": 1546504628,
+    "token": "d6477eb7e9e509327adc9f5f93da267bea521a46"
+}

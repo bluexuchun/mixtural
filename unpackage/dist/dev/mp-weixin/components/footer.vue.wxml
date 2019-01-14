@@ -1,0 +1,18 @@
+<template name="5dcb2e14">
+  <view class="_footer data-v-0a7caf7c footer">
+    <view class="_div data-v-0a7caf7c default item-center" wx:if="{{!diy}}">
+      <navigator hover-class="none" open-type="redirect" class="_navigator data-v-0a7caf7c navigator {{[item.path == path ? 'active' : '']}}" wx:key="index" key="{{index}}" url="{{item.path}}" wx:if="{{item.show}}" wx:for="{{lists}}" wx:for-index="index"
+        wx:for-item="item" style=" {{('width:' + (100 / lists.length + '%') + ';')}}">
+        <label class="_span data-v-0a7caf7c iconfont {{item.icon}}"></label>
+        <view class="_div data-v-0a7caf7c txt">{{ item.text }}</view>
+      </navigator>
+      <view class="_div data-v-0a7caf7c cover" catchtap="handleProxy" data-eventid="{{'iiA-0'}}" data-comkey="{{$k}}">
+        <view class="_div data-v-0a7caf7c home {{['/pages/scan/index' == path ? 'active' : '']}}">
+          <view class="_div data-v-0a7caf7c circle">
+            <label class="_span data-v-0a7caf7c iconfont icon-scan"></label>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

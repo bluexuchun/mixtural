@@ -1,0 +1,79 @@
+<template name="1d9b7466">
+  <view class="_div data-v-2cd886f9">
+    <view class="_div data-v-2cd886f9 input">
+      <input bindinput="handleProxy" bindblur="handleProxy" placeholder="输入城市名或拼音查询" placeholder-style="font-size: 30rpx" value="{{inputName}}" data-eventid="{{'ZiH-0'}}" data-comkey="{{$k}}" class="_input data-v-2cd886f9" />
+    </view>
+    <view class="_div data-v-2cd886f9 container-inner">
+      <view class="_div data-v-2cd886f9 searchLetter touchClass">
+        <view class="_div data-v-2cd886f9 thishotText" bindtap="handleProxy" data-eventid="{{'WXL-1'}}" data-comkey="{{$k}}">
+          <view class="_div data-v-2cd886f9">当前</view>
+          <view class="_div data-v-2cd886f9">热门</view>
+        </view>
+        <view class="_div data-v-2cd886f9 letter" wx:key="index" key="{{index}}" data-letter="{{item.name}}" bindtap="handleProxy" data-eventid="{{'cai-2-'+index}}" data-comkey="{{$k}}" wx:for="{{searchLetter}}" wx:for-index="index" wx:for-item="item">{{item.name}}</view>
+      </view>
+      <view class="_div data-v-2cd886f9 container">
+        <view class="_div data-v-2cd886f9 showSlectedLetter" wx:if="{{isShowLetter}}"> {{toastShowLetter}} </view>
+        <scroll-view scroll-y="{{true}}" bindscroll="handleProxy" scroll-into-view="{{scrollTopId}}" data-eventid="{{'hjT-17'}}" data-comkey="{{$k}}" class="_scroll-view data-v-2cd886f9" style=" {{('height:' + (winHeight + 'px') + ';')}}">
+          <view id="top" class="_div data-v-2cd886f9"></view>
+          <view class="_div data-v-2cd886f9 hotcity-common" bindtap="handleProxy" data-eventid="{{'iMY-3'}}" data-comkey="{{$k}}">重新定位</view>
+          <view class="_div data-v-2cd886f9 thisCityName" data-city="{{city}}" data-code="{{currentCityCode}}" bindtap="handleProxy" data-eventid="{{'7Rx-4'}}" data-comkey="{{$k}}">{{city}}{{dist ? ('/' + dist) : ''}}</view>
+          <view class="_ul data-v-2cd886f9 ul">
+            <view wx:key="index" key="{{index}}" bindtap="handleProxy" data-city="{{item.city}}" data-code="{{item.code}}" class="_li data-v-2cd886f9 li" data-eventid="{{'Hmp-5-'+index}}" data-comkey="{{$k}}" wx:for="{{completeList}}" wx:for-index="index"
+              wx:for-item="item">{{item.city}}</view>
+          </view>
+          <view wx:if="{{condition}}" class="_div data-v-2cd886f9 hotcity-common">选择区县</view>
+          <view wx:if="{{condition}}" class="_div data-v-2cd886f9 dist">
+            <view class="_div data-v-2cd886f9 hotCity" wx:key="id" key="{{id}}" wx:for="{{distList}}" wx:for-index="index" wx:for-item="item">
+              <view class="_div data-v-2cd886f9 weui-grid {{[item.fullname == location.dist ? 'active' : '']}}" data-code="{{item.id}}" data-city="{{item.fullname}}" bindtap="handleProxy" data-eventid="{{'uHr-6-'+index}}" data-comkey="{{$k}}">
+                <view class="_div data-v-2cd886f9 weui-grid__label">{{item.fullname}}</view>
+              </view>
+            </view>
+          </view>
+          <view class="_div data-v-2cd886f9 selectCity">
+            <view class="_div data-v-2cd886f9 hotcity-common">热门城市</view>
+            <view class="_div data-v-2cd886f9 weui-grids">
+              <view class="_div data-v-2cd886f9 weui-grid {{['北京市' == location.city ? 'active' : '']}}" data-code="110000" data-city="北京市" bindtap="handleProxy" data-eventid="{{'EXC-7'}}" data-comkey="{{$k}}">
+                <view class="_div data-v-2cd886f9 weui-grid__label">北京市</view>
+              </view>
+              <view class="_div data-v-2cd886f9 weui-grid {{['上海市' == location.city ? 'active' : '']}}" data-code="310000" data-city="上海市" bindtap="handleProxy" data-eventid="{{'EBw-8'}}" data-comkey="{{$k}}">
+                <view class="_div data-v-2cd886f9 weui-grid__label">上海市</view>
+              </view>
+              <view class="_div data-v-2cd886f9 weui-grid {{['广州市' == location.city ? 'active' : '']}}" data-code="440100" data-city="广州市" bindtap="handleProxy" data-eventid="{{'ClT-9'}}" data-comkey="{{$k}}">
+                <view class="_div data-v-2cd886f9 weui-grid__label">广州市</view>
+              </view>
+            </view>
+            <view class="_div data-v-2cd886f9 weui-grids">
+              <view class="_div data-v-2cd886f9 weui-grid {{['深圳市' == location.city ? 'active' : '']}}" data-code="440300" data-city="深圳市" bindtap="handleProxy" data-eventid="{{'Hxl-10'}}" data-comkey="{{$k}}">
+                <view class="_div data-v-2cd886f9 weui-grid__label">深圳市</view>
+              </view>
+              <view class="_div data-v-2cd886f9 weui-grid {{['杭州市' == location.city ? 'active' : '']}}" data-code="330100" data-city="杭州市" bindtap="handleProxy" data-eventid="{{'HFt-11'}}" data-comkey="{{$k}}">
+                <view class="_div data-v-2cd886f9 weui-grid__label">杭州市</view>
+              </view>
+              <view class="_div data-v-2cd886f9 weui-grid {{['南京市' == location.city ? 'active' : '']}}" data-code="320100" data-city="南京市" bindtap="handleProxy" data-eventid="{{'3df-12'}}" data-comkey="{{$k}}">
+                <view class="_div data-v-2cd886f9 weui-grid__label">南京市</view>
+              </view>
+            </view>
+            <view class="_div data-v-2cd886f9 weui-grids">
+              <view class="_div data-v-2cd886f9 weui-grid {{['武汉市' == location.city ? 'active' : '']}}" data-code="420100" data-city="武汉市" bindtap="handleProxy" data-eventid="{{'DAn-13'}}" data-comkey="{{$k}}">
+                <view class="_div data-v-2cd886f9 weui-grid__label">武汉市</view>
+              </view>
+              <view class="_div data-v-2cd886f9 weui-grid {{['天津市' == location.city ? 'active' : '']}}" data-code="120000" data-city="天津市" bindtap="handleProxy" data-eventid="{{'S7W-14'}}" data-comkey="{{$k}}">
+                <view class="_div data-v-2cd886f9 weui-grid__label">天津市</view>
+              </view>
+              <view class="_div data-v-2cd886f9 weui-grid {{['西安市' == location.city ? 'active' : '']}}" data-code="610100" data-city="西安市" bindtap="handleProxy" data-eventid="{{'jqi-15'}}" data-comkey="{{$k}}">
+                <view class="_div data-v-2cd886f9 weui-grid__label">西安市</view>
+              </view>
+            </view>
+          </view>
+          <view class="_div data-v-2cd886f9 selection" wx:key="initial" key="{{initial}}" wx:for="{{cityList}}" wx:for-index="initial" wx:for-item="item">
+            <view class="_div data-v-2cd886f9 item_letter" id="{{item.initial}}">{{item.initial}}</view>
+            <view class="_div data-v-2cd886f9 item_city" wx:key="id" key="{{id}}" data-code="{{ct.code}}" data-city="{{ct.city}}" bindtap="handleProxy" data-eventid="{{'dEi-16-'+initial+'-'+index1}}" data-comkey="{{$k}}" wx:for="{{item.cityInfo}}"
+              wx:for-index="index1" wx:for-item="ct"> {{ct.city}}
+              <label class="_span data-v-2cd886f9 iconfont icon-check" wx:if="{{location.city == ct.city}}"></label>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</template>

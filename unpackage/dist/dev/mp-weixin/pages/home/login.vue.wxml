@@ -1,0 +1,20 @@
+<template name="2269f47f">
+  <view class="_view data-v-507017cc main">
+    <view class="_view data-v-507017cc logo">
+      <image src="../../static/images/logo.png" class="_image data-v-507017cc"></image>
+    </view>
+    <view class="_view data-v-507017cc tips">为了让您享受更充分的平台服务，小程序需要获取您的昵称、头像等基本信息的授权。点击授权登录即代表同意
+      <text class="_text data-v-507017cc protocol" bindtap="handleProxy" data-eventid="{{'9Gs-0'}}" data-comkey="{{$k}}">《用户协议》</text>。</view>
+    <view class="_view data-v-507017cc button">
+      <button plain open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="handleProxy" data-eventid="{{'CjO-1'}}" data-comkey="{{$k}}" class="_button data-v-507017cc">授权登录</button>
+    </view>
+    <view class="_view data-v-507017cc mask" wx:if="{{protocolShow}}" bindtap="handleProxy" data-eventid="{{'GSn-2'}}" data-comkey="{{$k}}"></view>
+    <view class="_view data-v-507017cc content-box" wx:if="{{protocolShow}}">
+      <view class="_view data-v-507017cc header">
+        <view class="_view data-v-507017cc title">用户协议</view>
+        <view class="_view data-v-507017cc iconfont icon-close" bindtap="handleProxy" data-eventid="{{'woH-3'}}" data-comkey="{{$k}}"></view>
+      </view>
+      <rich-text nodes="{{protocol}}" class="_rich-text data-v-507017cc"></rich-text>
+    </view>
+  </view>
+</template>
