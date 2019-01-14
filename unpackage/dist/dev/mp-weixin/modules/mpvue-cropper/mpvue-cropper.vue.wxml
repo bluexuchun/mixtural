@@ -1,3 +1,3 @@
-<template name="374c0113">
-  <canvas wx:if="{{_canvasId}}" canvasId="{{_canvasId}}" bindtouchstart="handleProxy" bindtouchmove="handleProxy" bindtouchend="handleProxy" disable-scroll data-eventid="{{'IBp-0'}}" data-comkey="{{$k}}" class="_canvas data-v-2601439a" style=" {{(  'width:' +  (_width + 'px') +  ';' +  'height:' +  (_height + 'px') +  ';' +  'background:' +  'rgba(0, 0, 0, .8)' +  ';')}}"></canvas>
+<template name="148a3b14">
+  <canvas wx:if="{{_canvasId}}" canvasId="{{_canvasId}}" bindtouchstart="handleProxy" bindtouchmove="handleProxy" bindtouchend="handleProxy" disable-scroll data-eventid="{{'j7M-0'}}" data-comkey="{{$k}}" class="_canvas data-v-27788be3" style=" {{(  'width:' +  (_width + 'px') +  ';' +  'height:' +  (_height + 'px') +  ';' +  'background:' +  'rgba(0, 0, 0, .8)' +  ';')}}"></canvas>
 </template>

@@ -1,7 +1,7 @@
-<template name="2c208559">
-  <view class="_view data-v-23b6ba2c usercenter">
-    <view class="_view data-v-23b6ba2c user_header">
-      <view class="_view data-v-23b6ba2c user_info"></view>
+<template name="f761b71c">
+  <view class="_view data-v-3dfaa17a usercenter">
+    <view class="_view data-v-3dfaa17a user_header">
+      <view class="_view data-v-3dfaa17a user_info"></view>
     </view>
   </view>
 </template>

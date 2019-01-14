@@ -1,12 +1,12 @@
 @import "../../common/vendor.wxss";
 
-.user_header.data-v-23b6ba2c {
+.user_header.data-v-3dfaa17a {
   width: 100%;
   height: 200rpx;
   background: #FFDB4D;
   position: relative;
 }
-.user_header .user_info.data-v-23b6ba2c {
+.user_header .user_info.data-v-3dfaa17a {
   width: 86%;
   height: 340rpx;
   background: #FFFFFF;
