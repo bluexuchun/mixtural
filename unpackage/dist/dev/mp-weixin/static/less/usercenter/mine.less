@@ -1,0 +1,54 @@
+.mine{
+	width: 100%;
+	height:100%;
+	background: #fff;
+	overflow: hidden;
+	overflow-y: auto;
+	.mine_header{
+		width:100%;
+		height:200rpx;
+		display: flex;
+		background: #FFDB4D;
+		flex-direction: row;
+		align-items: center;
+		box-sizing:border-box;
+		padding:0rpx 20rpx;
+		.mine_avatar{
+			width:120rpx;
+			height:120rpx;
+			border-radius: 50%;
+			margin-right:20rpx;
+		}
+		.mine_userinfo{
+			display: flex;
+			flex-direction: column;
+			font-size: 32rpx;
+			color:#fff;
+		}
+	}
+	.mine_lists{
+		width: 100%;
+		box-sizing: border-box;
+		padding: 16rpx 20rpx;
+		.mine_item{
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			box-sizing: border-box;
+			padding: 20rpx 0rpx;
+			border-bottom:1px solid #eaeaea;
+			.item_left{
+				font-size:28rpx;
+				color:#999;
+			}
+			.item_right{
+				.icon_more{
+					width:35rpx;
+				}
+			}
+		}
+		
+	}
+}

@@ -59,6 +59,7 @@
 			</view>
 		</view>
 	</view>
+	
 </template>
 
 <script>
@@ -66,8 +67,12 @@
 	import Utils from 'utils'
 	import api from '@/utils/api'
 	import mixin from '@/utils/mixin'
+	import Footer from '@/components/footer.vue'
 	export default {
 		mixins:[mixin],
+		components:{
+			'v-footer':Footer
+		},
 		computed: {
 		    userInfo() {
 		        return this.$store.state.app.userInfo;

@@ -55,6 +55,13 @@
 		        "navigationBarTitleText": "个人中心",
 				"navigationBarBackgroundColor": "#FFDB4D"
 		    }
+		},{
+		    "path": "pages/usercenter/mine",
+		    "style": {
+				"navigationBarTextStyle":"white",
+		        "navigationBarTitleText": "我的",
+				"navigationBarBackgroundColor": "#FFDB4D"
+		    }
 		}
     ],
     "permission": {
@@ -62,6 +69,25 @@
 //             "desc": "你的位置信息将用于小程序位置接口的效果展示"
 //         }
     },
+	"tabBar": {
+		"backgroundColor":"#FFFFFF",
+		"color":"#333333",
+		"selectedColor":"#FFDB4D",
+		"list": [
+		  {
+			"pagePath": "pages/usercenter/usercenter",
+			"iconPath":"static/images/home.png",
+			"selectedIconPath":"static/images/home_active.png",
+			"text": "首页"
+		  },
+		  {
+			"pagePath": "pages/usercenter/mine",
+			"iconPath":"static/images/my.png",
+			"selectedIconPath":"static/images/my_active.png",
+			"text": "我的"
+		  }
+		]
+	  },
     "globalStyle": {
         "navigationBarTextStyle": "black",
         "navigationBarTitleText": "棒客硬货",
@@ -72,6 +98,10 @@
         //模式配置，仅开发期间生效
         "current": 0, //当前激活的模式（list 的索引项）
         "list": [{
+		    "name": "我的", //模式名称
+		    "path": "pages/usercenter/mine",
+		    "query": "" //启动参数，在页面的onLoad函数里面得到。
+		},{
 		    "name": "个人中心", //模式名称
 		    "path": "pages/usercenter/usercenter",
 		    "query": "" //启动参数，在页面的onLoad函数里面得到。

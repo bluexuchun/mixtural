@@ -6,24 +6,24 @@
           <view class="_view data-v-8b674f66 video-container" hidden="{{!(top_tab == 'video')}}">
             <video id="video" class="_video data-v-8b674f66 detail-video" objectFit="cover" autoplay="{{true}}" muted="{{!sound}}" page-gesture="{{true}}" controls src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"></video>
             <cover-view class="_cover-view data-v-8b674f66 detail-cover">
-              <cover-view class="_cover-view data-v-8b674f66 left item-center {{[top_tab == 'video' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'yr8-0'}}" data-comkey="{{$k}}">
+              <cover-view class="_cover-view data-v-8b674f66 left item-center {{[top_tab == 'video' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'BQ2-0'}}" data-comkey="{{$k}}">
                 <cover-view class="_cover-view data-v-8b674f66 text">视频</cover-view>
               </cover-view>
-              <cover-view class="_cover-view data-v-8b674f66 right item-center {{[top_tab == 'image' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'kUz-1'}}" data-comkey="{{$k}}">
+              <cover-view class="_cover-view data-v-8b674f66 right item-center {{[top_tab == 'image' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'11g-1'}}" data-comkey="{{$k}}">
                 <cover-view class="_cover-view data-v-8b674f66 text">图片</cover-view>
               </cover-view>
             </cover-view>
-            <cover-view class="_cover-view data-v-8b674f66 sound" bindtap="handleProxy" data-eventid="{{'ERI-2'}}" data-comkey="{{$k}}">
+            <cover-view class="_cover-view data-v-8b674f66 sound" bindtap="handleProxy" data-eventid="{{'pET-2'}}" data-comkey="{{$k}}">
               <cover-image src="../../static/images/sound.png" wx:if="{{sound}}" class="_cover-image data-v-8b674f66"></cover-image>
               <cover-image src="../../static/images/muted.png" wx:else class="_cover-image data-v-8b674f66"></cover-image>
             </cover-view>
           </view>
           <view class="_view data-v-8b674f66 swiper-container" hidden="{{!(top_tab == 'image')}}">
             <cover-view class="_cover-view data-v-8b674f66 detail-cover">
-              <cover-view class="_cover-view data-v-8b674f66 left item-center {{[top_tab == 'video' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'yUy-3'}}" data-comkey="{{$k}}">
+              <cover-view class="_cover-view data-v-8b674f66 left item-center {{[top_tab == 'video' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'k4T-3'}}" data-comkey="{{$k}}">
                 <cover-view class="_cover-view data-v-8b674f66 text">视频</cover-view>
               </cover-view>
-              <cover-view class="_cover-view data-v-8b674f66 right item-center {{[top_tab == 'image' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'pMZ-4'}}" data-comkey="{{$k}}">
+              <cover-view class="_cover-view data-v-8b674f66 right item-center {{[top_tab == 'image' ? 'active' : '']}}" bindtap="handleProxy" data-eventid="{{'V7f-4'}}" data-comkey="{{$k}}">
                 <cover-view class="_cover-view data-v-8b674f66 text">图片</cover-view>
               </cover-view>
             </cover-view>

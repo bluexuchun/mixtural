@@ -1,18 +1,18 @@
 <template name="34b0e68c">
   <view class="_view data-v-5655221d">
     <view class="_view data-v-5655221d container container1">
-      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'ICY-27'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'Rk0-27'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
         <block wx:key="index" key="{{index}}" wx:for="{{prizes}}" wx:for-index="index" wx:for-item="item">
-          <view bindtap="handleProxy" class="_view data-v-5655221d lottery {{[index > 0 ? 'lotterytop' : '']}}" data-eventid="{{'YyE-0-'+index}}" data-comkey="{{$k}}" style=" {{('height:' + (imgHeight + 'px') + ';')}}">
+          <view bindtap="handleProxy" class="_view data-v-5655221d lottery {{[index > 0 ? 'lotterytop' : '']}}" data-eventid="{{'Fa3-0-'+index}}" data-comkey="{{$k}}" style=" {{('height:' + (imgHeight + 'px') + ';')}}">
             <image class="_image data-v-5655221d lotteryImg" src="{{item.thumb}}" style=" {{('height:' + (imgHeight + 'px') + ';')}}"></image>
             <view class="_view data-v-5655221d addLotteryImg">更改奖品图片</view>
           </view>
           <view class="_view data-v-5655221d lottery_part1">
-            <image bindtap="handleProxy" class="_image data-v-5655221d delImg" src="../../static/images/del.png" wx:if="{{index>0}}" data-eventid="{{'xNR-1-'+index}}" data-comkey="{{$k}}"></image>
+            <image bindtap="handleProxy" class="_image data-v-5655221d delImg" src="../../static/images/del.png" wx:if="{{index>0}}" data-eventid="{{'dnF-1-'+index}}" data-comkey="{{$k}}"></image>
             <view class="_view data-v-5655221d lotteryName {{[index > 0 ? 'lotteryName1' : '']}}">
               <view class="_view data-v-5655221d part1_left">奖品名称</view>
               <view class="_view data-v-5655221d part1_right">
-                <input class="_input data-v-5655221d lotteryNameInput" data-index="{{index}}" name="{{item.name}}" placeholder="请输入奖品名称" placeholderStyle="color:#cccccc;font-size:30rpx" value="{{item.title}}" bindinput="handleProxy" data-eventid="{{'OaE-2-'+index}}"
+                <input class="_input data-v-5655221d lotteryNameInput" data-index="{{index}}" name="{{item.name}}" placeholder="请输入奖品名称" placeholderStyle="color:#cccccc;font-size:30rpx" value="{{item.title}}" bindinput="handleProxy" data-eventid="{{'1EH-2-'+index}}"
                   data-comkey="{{$k}}" />
               </view>
             </view>
@@ -20,18 +20,18 @@
               <view class="_view data-v-5655221d part1_left">奖品数量</view>
               <view class="_view data-v-5655221d part1Sum_right">
                 <input class="_input data-v-5655221d lotterySumInput" data-index="{{index}}" maxlength="{{digit}}" name="{{item.num}}" placeholder="数量" placeholderStyle="color:#cccccc;font-size:30rpx" type="number" value="{{item.count}}" bindinput="handleProxy"
-                  data-eventid="{{'E6J-3-'+index}}" data-comkey="{{$k}}" />
+                  data-eventid="{{'xIA-3-'+index}}" data-comkey="{{$k}}" />
                 <text class="_text data-v-5655221d">个</text>
               </view>
             </view>
           </view>
         </block>
-        <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'j7W-4'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+        <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'pEp-4'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
           <button class="_button data-v-5655221d addLotteryBtn" formType="submit">+ 添加奖品</button>
         </form>
         <view class="_view data-v-5655221d lotteryChoose">
           <view class="_view data-v-5655221d part2_left">{{open_type_tips}}</view>
-          <view bindtap="handleProxy" class="_view data-v-5655221d part2_right" data-eventid="{{'LyV-5'}}" data-comkey="{{$k}}">
+          <view bindtap="handleProxy" class="_view data-v-5655221d part2_right" data-eventid="{{'bxJ-5'}}" data-comkey="{{$k}}">
             <text class="_text data-v-5655221d">修改开奖条件></text>
           </view>
         </view>
@@ -40,13 +40,13 @@
           <view class="_view data-v-5655221d lotterySum">
             <view class="_view data-v-5655221d part1_left">开奖人数</view>
             <view class="_view data-v-5655221d part1Sum_right">
-              <input class="_input data-v-5655221d lotterySumInput" maxlength="5" name="lotteryNumber" placeholder="人数" placeholderStyle="color:#ababab;font-size:30rpx" type="number" value="{{people}}" bindinput="handleProxy" data-eventid="{{'Iuu-6'}}"
+              <input class="_input data-v-5655221d lotterySumInput" maxlength="5" name="lotteryNumber" placeholder="人数" placeholderStyle="color:#ababab;font-size:30rpx" type="number" value="{{people}}" bindinput="handleProxy" data-eventid="{{'Q9T-6'}}"
                 data-comkey="{{$k}}" />
               <text class="_text data-v-5655221d">人</text>
             </view>
           </view>
         </view>
-        <picker bindchange="handleProxy" mode="multiSelector" range="{{multiArray}}" value="{{multiIndex}}" wx:if="{{opentype==1}}" data-eventid="{{'HId-7'}}" data-comkey="{{$k}}" class="_picker data-v-5655221d">
+        <picker bindchange="handleProxy" mode="multiSelector" range="{{multiArray}}" value="{{multiIndex}}" wx:if="{{opentype==1}}" data-eventid="{{'75S-7'}}" data-comkey="{{$k}}" class="_picker data-v-5655221d">
           <view class="_view data-v-5655221d lotteryTime">
             <view class="_view data-v-5655221d lotteryTime_left">开奖时间</view>
             <view class="_view data-v-5655221d lotteryTime_right">{{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}}:{{multiArray[2][multiIndex[2]]}}
@@ -57,7 +57,7 @@
         <view class="_view data-v-5655221d lotteryCopy senior">
           <view class="_view data-v-5655221d partCopy_left">高级功能</view>
           <view class="_view data-v-5655221d partCopy_right">
-            <switch bindchange="handleProxy" checked="{{isSenior}}" color="#e9564f" data-eventid="{{'btc-8'}}" data-comkey="{{$k}}" class="_switch data-v-5655221d" />
+            <switch bindchange="handleProxy" checked="{{isSenior}}" color="#e9564f" data-eventid="{{'Zud-8'}}" data-comkey="{{$k}}" class="_switch data-v-5655221d" />
           </view>
         </view>
         <block wx:if="{{isSenior}}">
@@ -66,7 +66,7 @@
             <view class="_view data-v-5655221d part2_right">非必填</view>
           </view>
           <view class="_view data-v-5655221d lotteryArea">
-            <textarea class="_textarea data-v-5655221d lotteryTextarea" maxlength="1000" placeholder="请输入此次抽奖的说明" placeholderStyle="color:#cccccc;font-size:30rpx;" value="{{content}}" bindinput="handleProxy" wx:if="{{iscontent}}" data-eventid="{{'TYx-9'}}"
+            <textarea class="_textarea data-v-5655221d lotteryTextarea" maxlength="1000" placeholder="请输入此次抽奖的说明" placeholderStyle="color:#cccccc;font-size:30rpx;" value="{{content}}" bindinput="handleProxy" wx:if="{{iscontent}}" data-eventid="{{'nSo-9'}}"
               data-comkey="{{$k}}" />
             <view class="_view data-v-5655221d lotteryTextarea" style="font-size:30rpx;color:#cccccc" wx:if="{{!iscontent}}">{{content}}</view>
           </view>
@@ -74,21 +74,21 @@
             <view class="_view data-v-5655221d part2_left">上传二维码
               <text class="_text data-v-5655221d">（{{qrcode_tips}}）</text>
             </view>
-            <view bindtap="handleProxy" class="_view data-v-5655221d part2_right" data-eventid="{{'Cq4-10'}}" data-comkey="{{$k}}">
+            <view bindtap="handleProxy" class="_view data-v-5655221d part2_right" data-eventid="{{'Ozu-10'}}" data-comkey="{{$k}}">
               <text class="_text data-v-5655221d">更换类型 ></text>
             </view>
           </view>
           <view class="_view data-v-5655221d lottery_code_container">
             <view class="_view data-v-5655221d lottery_code_container_left">
-              <input class="_input data-v-5655221d lottery_code_container_left_txt1" placeholder="二维码名称" placeholderStyle="color:#cccccc;font-size:30rpx;" value="{{qrcodename}}" bindinput="handleProxy" data-eventid="{{'MeA-11'}}" data-comkey="{{$k}}" />
+              <input class="_input data-v-5655221d lottery_code_container_left_txt1" placeholder="二维码名称" placeholderStyle="color:#cccccc;font-size:30rpx;" value="{{qrcodename}}" bindinput="handleProxy" data-eventid="{{'Obx-11'}}" data-comkey="{{$k}}" />
               <view class="_view data-v-5655221d lottery_code_container_left_txt2">*可以上传微信号、公众号、小程序等二维码</view>
             </view>
             <view class="_view data-v-5655221d lottery_code_container_right">
               <block wx:if="{{qrcode}}">
                 <image class="_image data-v-5655221d lottery_code_container_right1" src="{{qrcode}}"></image>
-                <image bindtap="handleProxy" class="_image data-v-5655221d lottery_code_continer_imgclose" src="../../static/images/icon_close2.png" data-eventid="{{'xg3-12'}}" data-comkey="{{$k}}"></image>
+                <image bindtap="handleProxy" class="_image data-v-5655221d lottery_code_continer_imgclose" src="../../static/images/icon_close2.png" data-eventid="{{'nBE-12'}}" data-comkey="{{$k}}"></image>
               </block>
-              <image bindtap="handleProxy" class="_image data-v-5655221d lottery_code_container_right1" src="../../static/images/icon_add.png" wx:else data-eventid="{{'gRQ-13'}}" data-comkey="{{$k}}"></image>
+              <image bindtap="handleProxy" class="_image data-v-5655221d lottery_code_container_right1" src="../../static/images/icon_add.png" wx:else data-eventid="{{'Gyc-13'}}" data-comkey="{{$k}}"></image>
             </view>
           </view>
           <view hidden class="_view data-v-5655221d lotteryChoose">
@@ -97,9 +97,9 @@
           </view>
           <view hidden class="_view data-v-5655221d lotteryWxCopy">
             <view class="_view data-v-5655221d lotteryWxCopy_left">
-              <input class="_input data-v-5655221d copyTxtInput" placeholder="点此填写需要被复制的内容" placeholderStyle="color:#cccccc" value="{{copytext}}" bindinput="handleProxy" data-eventid="{{'5nI-14'}}" data-comkey="{{$k}}" />
+              <input class="_input data-v-5655221d copyTxtInput" placeholder="点此填写需要被复制的内容" placeholderStyle="color:#cccccc" value="{{copytext}}" bindinput="handleProxy" data-eventid="{{'5ry-14'}}" data-comkey="{{$k}}" />
             </view>
-            <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'jeP-15'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+            <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'Tf2-15'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
               <button formType="submit" class="_button data-v-5655221d lotteryWxCopy_right">一键复制</button>
             </form>
           </view>
@@ -108,88 +108,88 @@
             <view class="_view data-v-5655221d part2_right">非必填</view>
           </view>
           <view class="_view data-v-5655221d lotteryArea">
-            <textarea class="_textarea data-v-5655221d lotteryTextarea" placeholder="请输入此次奖品的介绍" placeholderStyle="color:#cccccc;font-size:30rpx;" value="{{content}}" bindinput="handleProxy" data-eventid="{{'UW8-16'}}" data-comkey="{{$k}}" />
+            <textarea class="_textarea data-v-5655221d lotteryTextarea" placeholder="请输入此次奖品的介绍" placeholderStyle="color:#cccccc;font-size:30rpx;" value="{{content}}" bindinput="handleProxy" data-eventid="{{'ZAM-16'}}" data-comkey="{{$k}}" />
           </view>
           <view class="_view data-v-5655221d lotteryPassword">
             <view class="_view data-v-5655221d lotteryPassword_left">
               <view class="_view data-v-5655221d lotteryPassword_txt">口令</view>
-              <image bindtap="handleProxy" class="_image data-v-5655221d lotteryPasswordImg" src="../../static/images/icon_password.png" data-eventid="{{'UaR-17'}}" data-comkey="{{$k}}"></image>
+              <image bindtap="handleProxy" class="_image data-v-5655221d lotteryPasswordImg" src="../../static/images/icon_password.png" data-eventid="{{'n5v-17'}}" data-comkey="{{$k}}"></image>
             </view>
-            <view bindtap="handleProxy" class="_view data-v-5655221d lotteryPassword_right" wx:if="{{!passwordShow}}" data-eventid="{{'7IM-18'}}" data-comkey="{{$k}}">
+            <view bindtap="handleProxy" class="_view data-v-5655221d lotteryPassword_right" wx:if="{{!passwordShow}}" data-eventid="{{'aZg-18'}}" data-comkey="{{$k}}">
               <image class="_image data-v-5655221d lotteryPassword_rightImg" src="../../static/images/icon_down.png"></image>
             </view>
-            <view bindtap="handleProxy" class="_view data-v-5655221d lotteryPassword_right" wx:if="{{passwordShow}}" data-eventid="{{'jXA-19'}}" data-comkey="{{$k}}">
+            <view bindtap="handleProxy" class="_view data-v-5655221d lotteryPassword_right" wx:if="{{passwordShow}}" data-eventid="{{'vGf-19'}}" data-comkey="{{$k}}">
               <image class="_image data-v-5655221d lotteryPassword_rightImg" src="../../static/images/icon_up.png"></image>
             </view>
           </view>
           <view class="_view data-v-5655221d lotteryPasswordInput" wx:if="{{passwordShow}}">
-            <input class="_input data-v-5655221d PasswordInput" maxlength="20" placeholder="填写口令内容（20字以内）" placeholderStyle="font-size:30rpx;color:#cccccc" value="{{password}}" bindinput="handleProxy" data-eventid="{{'ACQ-20'}}" data-comkey="{{$k}}" />
+            <input class="_input data-v-5655221d PasswordInput" maxlength="20" placeholder="填写口令内容（20字以内）" placeholderStyle="font-size:30rpx;color:#cccccc" value="{{password}}" bindinput="handleProxy" data-eventid="{{'5X0-20'}}" data-comkey="{{$k}}" />
           </view>
           <view class="_view data-v-5655221d lotteryCopy senior">
             <view class="_view data-v-5655221d partCopy_left">分享提升中奖率
-              <image bindtap="handleProxy" class="_image data-v-5655221d winningRateImg" src="../../static/images/icon_password.png" data-eventid="{{'xLO-21'}}" data-comkey="{{$k}}"></image>
+              <image bindtap="handleProxy" class="_image data-v-5655221d winningRateImg" src="../../static/images/icon_password.png" data-eventid="{{'AHi-21'}}" data-comkey="{{$k}}"></image>
             </view>
             <view class="_view data-v-5655221d partCopy_right">
-              <switch bindchange="handleProxy" checked="{{isShare}}" color="#e9564f" data-eventid="{{'1gQ-22'}}" data-comkey="{{$k}}" class="_switch data-v-5655221d" />
+              <switch bindchange="handleProxy" checked="{{isShare}}" color="#e9564f" data-eventid="{{'99F-22'}}" data-comkey="{{$k}}" class="_switch data-v-5655221d" />
             </view>
           </view>
         </block>
         <view class="_view data-v-5655221d footer_txt">
-          <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'X5Y-23'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+          <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'H4a-23'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
             <button class="_button data-v-5655221d relief" formType="submit" openType="feedback">意见反馈</button>
           </form>
           <view class="_view data-v-5655221d footer_txt_xian"></view>
-          <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'CO9-24'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+          <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'fUR-24'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
             <button class="_button data-v-5655221d relief" formType="submit">我要上首页</button>
           </form>
         </view>
         <view class="_view data-v-5655221d lottery_return" wx:if="{{isreturn}}">
-          <image bindtap="handleProxy" class="_image data-v-5655221d returnImg" src="../../static/images/icon_return.png" data-eventid="{{'h5p-25'}}" data-comkey="{{$k}}"></image>
+          <image bindtap="handleProxy" class="_image data-v-5655221d returnImg" src="../../static/images/icon_return.png" data-eventid="{{'G3Y-25'}}" data-comkey="{{$k}}"></image>
         </view>
         <button class="_button data-v-5655221d lottery_footerX" formType="submit" hoverClass="button_hover2" wx:if="{{userInfo.mobile}}"> {{saveText}} </button>
-        <button bindgetphonenumber="handleProxy" class="_button data-v-5655221d lottery_footerX" formType="submit" hoverClass="button_hover2" openType="getPhoneNumber" wx:else data-eventid="{{'X3k-26'}}" data-comkey="{{$k}}"> {{saveText}} </button>
+        <button bindgetphonenumber="handleProxy" class="_button data-v-5655221d lottery_footerX" formType="submit" hoverClass="button_hover2" openType="getPhoneNumber" wx:else data-eventid="{{'CHo-26'}}" data-comkey="{{$k}}"> {{saveText}} </button>
         <view class="_view data-v-5655221d lottery_phone" wx:if="{{isIos}}"></view>
       </form>
     </view>
-    <view bindtap="handleProxy" class="_view data-v-5655221d popup_mask" wx:if="{{maskShow}}" data-eventid="{{'OHI-28'}}" data-comkey="{{$k}}"></view>
+    <view bindtap="handleProxy" class="_view data-v-5655221d popup_mask" wx:if="{{maskShow}}" data-eventid="{{'WkK-28'}}" data-comkey="{{$k}}"></view>
     <view class="_view data-v-5655221d upMenu" wx:if="{{opentypeShow}}">
-      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'GZN-29'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'VF5-29'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
         <button class="_button data-v-5655221d upMenu_btn" formType="submit" hoverClass="button_hover4">按时间自动开奖</button>
       </form>
-      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'Rm3-30'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'Rax-30'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
         <button class="_button data-v-5655221d upMenu_btn" formType="submit" hoverClass="button_hover4">按人数自动开奖</button>
       </form>
-      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'tNo-31'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'mhE-31'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
         <button class="_button data-v-5655221d upMenu_btn" formType="submit" hoverClass="button_hover4">手动开奖</button>
       </form>
-      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'ad4-32'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'ftE-32'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
         <button class="_button data-v-5655221d upMenu_btn upMenu_cancel" formType="submit" hoverClass="button_hover5">取消</button>
       </form>
     </view>
     <view class="_view data-v-5655221d code_menu" wx:if="{{qrcodeShow}}">
-      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'VL9-33'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'jrf-33'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
         <button class="_button data-v-5655221d upMenu_btn" formType="submit" hoverClass="button_hover4">微信号</button>
       </form>
-      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'hQ3-34'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'pwr-34'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
         <button class="_button data-v-5655221d upMenu_btn" formType="submit" hoverClass="button_hover4">公众号</button>
       </form>
-      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'Zmh-35'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'wvb-35'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
         <button class="_button data-v-5655221d upMenu_btn" formType="submit" hoverClass="button_hover4">小程序</button>
       </form>
-      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'JCw-36'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'pTQ-36'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
         <button class="_button data-v-5655221d upMenu_btn" formType="submit" hoverClass="button_hover4">其他</button>
       </form>
-      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'XVs-37'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'XMx-37'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
         <button class="_button data-v-5655221d upMenu_btn upMenu_cancel" formType="submit" hoverClass="button_hover5">取消</button>
       </form>
     </view>
     <view class="_view data-v-5655221d auth_popup partInReply" wx:if="{{tipsShow}}">
-      <image bindtap="handleProxy" class="_image data-v-5655221d closetip" src="../../static/images/icon_close.png" data-eventid="{{'Cpy-38'}}" data-comkey="{{$k}}"></image>
+      <image bindtap="handleProxy" class="_image data-v-5655221d closetip" src="../../static/images/icon_close.png" data-eventid="{{'2k5-38'}}" data-comkey="{{$k}}"></image>
       <view class="_view data-v-5655221d tip_content">
         <text class="_text data-v-5655221d tip_content1">{{tipsTitle}}</text>
         <text class="_text data-v-5655221d tip_content2">{{tipsText}}</text>
       </view>
-      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'Lak-39'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+      <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'nSH-39'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
         <button class="_button data-v-5655221d tip_btn" formType="submit" hoverClass="button_hover2" style="margin-top:60rpx;">{{tipsBtn}}</button>
       </form>
     </view>
@@ -200,12 +200,12 @@
       </view>
       <view class="_view data-v-5655221d password_btn">
         <view class="_view data-v-5655221d password_btn_left">
-          <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'lLf-40'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+          <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'yxE-40'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
             <button class="_button data-v-5655221d pwCancelBtn" formType="submit" hoverClass="button_hover21">取消</button>
           </form>
         </view>
         <view class="_view data-v-5655221d password_btn_right">
-          <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'Wdu-41'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
+          <form bindsubmit="handleProxy" reportSubmit="true" data-eventid="{{'FnN-41'}}" data-comkey="{{$k}}" class="_form data-v-5655221d">
             <button class="_button data-v-5655221d pwConfirmBtn" formType="submit" hoverClass="button_hover2">发起抽奖</button>
           </form>
         </view>

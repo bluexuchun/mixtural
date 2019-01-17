@@ -2,7 +2,7 @@
   <view class="_view data-v-3c7b25cc container">
     <view class="_view data-v-3c7b25cc box-1">
       <view class="_view data-v-3c7b25cc locator-address">
-        <view class="_view data-v-3c7b25cc locator-address-button" bindtap="handleProxy" wx:if="{{isShow==1}}" data-eventid="{{'NjA-0'}}" data-comkey="{{$k}}">
+        <view class="_view data-v-3c7b25cc locator-address-button" bindtap="handleProxy" wx:if="{{isShow==1}}" data-eventid="{{'84a-0'}}" data-comkey="{{$k}}">
           <view class="_view data-v-3c7b25cc locator-address-city"> {{location.city}} </view>
           <view class="_view data-v-3c7b25cc locator-address-list-down">
             <image class="_image data-v-3c7b25cc locator-address-list-down-image" mode="aspectFit" src="../../static/images/xiajt.png"></image>

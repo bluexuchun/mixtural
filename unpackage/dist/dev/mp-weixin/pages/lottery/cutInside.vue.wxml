@@ -1,10 +1,10 @@
 <import src="/modules/mpvue-cropper/mpvue-cropper.vue.wxml" />
 <template name="36c6c99b">
   <view class="_view data-v-ff6b3628 cropper-wrapper">
-    <template ref="cropper" bindready="handleProxy" bindbeforeDraw="handleProxy" bindbeforeImageLoad="handleProxy" bindbeforeLoad="handleProxy" data-eventid="{{'Jhc-0'}}" data-comkey="{{$k}}" data="{{...$root['0'], ...$root[$kk+'hWO-0'],$root}}" is="148a3b14"></template>
+    <template ref="cropper" bindready="handleProxy" bindbeforeDraw="handleProxy" bindbeforeImageLoad="handleProxy" bindbeforeLoad="handleProxy" data-eventid="{{'rUr-0'}}" data-comkey="{{$k}}" data="{{...$root['0'], ...$root[$kk+'S8b-0'],$root}}" is="148a3b14"></template>
     <view class="_view data-v-ff6b3628 cropper-buttons">
       <view class="_view data-v-ff6b3628 cropper_txt">剪裁后图片尺寸为 900*450px</view>
-      <view bindtap="handleProxy" class="_view data-v-ff6b3628 getCropperImage" data-eventid="{{'PVo-1'}}" data-comkey="{{$k}}">完成</view>
+      <view bindtap="handleProxy" class="_view data-v-ff6b3628 getCropperImage" data-eventid="{{'As8-1'}}" data-comkey="{{$k}}">完成</view>
     </view>
   </view>
 </template>

@@ -6,7 +6,7 @@
         <label class="_span data-v-25e6755a iconfont {{item.icon}}"></label>
         <view class="_div data-v-25e6755a txt">{{ item.text }}</view>
       </navigator>
-      <view class="_div data-v-25e6755a cover" catchtap="handleProxy" data-eventid="{{'lfr-0'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-25e6755a cover" catchtap="handleProxy" data-eventid="{{'IUO-0'}}" data-comkey="{{$k}}">
         <view class="_div data-v-25e6755a home {{['/pages/scan/index' == path ? 'active' : '']}}">
           <view class="_div data-v-25e6755a circle">
             <label class="_span data-v-25e6755a iconfont icon-scan"></label>
