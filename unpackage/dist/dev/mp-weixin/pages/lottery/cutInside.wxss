@@ -1,54 +1,229 @@
-@import "../../common/vendor.wxss";
-
-.cropper-wrapper {
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  height: 100%;
-  background-color: #e5e5e5;
-}
-.cropper-buttons {
+.footer.data-v-9afc5d36 {
+  height: 80rpx;
   position: fixed;
+  right: 0;
   bottom: 0;
   left: 0;
+  z-index: 50;
+  text-align: center;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top: 1rpx solid #ECECEB;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.footer .default.data-v-9afc5d36 {
   width: 100%;
-  height: 120px;
+  height: 80rpx;
+  position: fixed;
+  padding: 0;
+  bottom: 0;
+  right: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
-.cropper-buttons .getCropperImage {
-  margin-top: 40rpx;
-  margin-bottom: 20rpx;
-  margin-left: 3%;
-  width: 94%;
-  height: 88rpx;
-  color: #ffffff;
-  line-height: 88rpx;
+.footer .default .navigator.data-v-9afc5d36 {
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  color: #000;
   text-align: center;
-  background-color: #e9564f;
 }
-.cropper {
-  position: absolute;
-  top: 0;
+.footer .default .navigator .iconfont.data-v-9afc5d36 {
+  font-size: 36rpx;
+}
+.footer .default .navigator .txt.data-v-9afc5d36 {
+  font-size: 22rpx;
+  padding: 0;
+}
+.footer .active .iconfont.data-v-9afc5d36,
+.footer .active .txt.data-v-9afc5d36 {
+  color: #ffd300 !important;
+}
+.footer .item-center.data-v-9afc5d36 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-box-align: flex-end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+      align-items: flex-end;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.footer .home.data-v-9afc5d36 {
+  position: fixed;
   left: 0;
-}
-.cropper_txt {
-  margin-top: 40rpx;
+  right: 0;
+  background-color: #fff;
+  padding: 6rpx;
+  bottom: 32rpx;
+  width: 78rpx;
+  height: 78rpx;
+  line-height: 78rpx;
   text-align: center;
+  margin: auto;
+  border-radius: 50%;
+  border-top: 1rpx solid #ECECEB;
+}
+.footer .home .circle.data-v-9afc5d36 {
+  width: 78rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  text-align: center;
+  border-radius: 50%;
+  background: #ffd300;
+}
+.footer .home .circle .iconfont.data-v-9afc5d36 {
+  font-size: 40rpx;
+}
+.footer .cover.data-v-9afc5d36 {
+  position: fixed;
+  bottom: 0;
+  width: 12%;
+  height: 135rpx;
+}
+
+.loading.data-v-510bbd62 {
+  margin: 15rpx auto;
+  width: 220rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.empty-placeholder.data-v-510bbd62 {
+  margin-top: 10rpx;
+  width: 100%;
+  text-align: center;
+}
+.empty-placeholder text.data-v-510bbd62 {
+  color: #666;
+  font-size: 40rpx;
+  margin-left: 30rpx;
+}
+.txt.data-v-510bbd62 {
   font-size: 26rpx;
-  color: #7e7e7e;
+  color: #888888;
+  margin: 20rpx 0;
+}
+.ball-beat > ._div.data-v-510bbd62 {
+  width: 15rpx;
+  height: 15rpx;
+  margin: 4rpx;
+  background-color: #ffd300;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: ball-beat-data-v-510bbd62 0.7s 0s infinite linear;
+  animation: ball-beat-data-v-510bbd62 0.7s 0s infinite linear;
+}
+.ball-beat > ._div.data-v-510bbd62:nth-child(2n-1) {
+  -webkit-animation-delay: -0.35s !important;
+  animation-delay: -0.35s !important;
+}
+@-webkit-keyframes ball-beat-data-v-510bbd62 {
+50% {
+    opacity: 0.2;
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+}
+100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+}
+@keyframes ball-beat-data-v-510bbd62 {
+50% {
+    opacity: 0.2;
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+}
+100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+}
+
+
+.cropper-wrapper {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
+    background-color: #e5e5e5;
 }
 .cropper-buttons {
-  width: 100%;
-  color: #04b00f;
-  background-color: rgba(0, 0, 0, 0.95);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
 }
+.cropper-buttons .getCropperImage {
+    margin-top: 40rpx;
+    margin-bottom: 20rpx;
+    margin-left: 3%;
+    width: 94%;
+    height: 88rpx;
+    color: #ffffff;
+    line-height: 88rpx;
+    text-align: center;
+    background-color: #e9564f;
+}
+.cropper {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.cropper_txt {
+    margin-top: 40rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #7e7e7e;
+}
+.cropper-buttons {
+    width: 100%;
+    color: #04b00f;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+

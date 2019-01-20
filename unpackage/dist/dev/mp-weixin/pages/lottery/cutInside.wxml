@@ -1,1 +1,2 @@
-<import src="/pages/lottery/cutInside.vue.wxml" /><template is="36c6c99b" data="{{ ...$root['0'], $root }}"/>
+<import src="./cutInside.vue.wxml" />
+    <template is="efa01034" data="{{ ...$root['0'], $root }}"/>

@@ -1,5 +1,3 @@
-@import "../../common/vendor.wxss";
-
 .mine {
   width: 100%;
   height: 100%;
@@ -12,16 +10,20 @@
   height: 200rpx;
   display: -webkit-box;
   display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   background: #FFDB4D;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
-  flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-align: center;
   -webkit-align-items: center;
-  align-items: center;
-  box-sizing: border-box;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0rpx 20rpx;
 }
 .mine .mine_header .mine_avatar {
@@ -33,42 +35,68 @@
 .mine .mine_header .mine_userinfo {
   display: -webkit-box;
   display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-size: 32rpx;
   color: #fff;
 }
 .mine .mine_lists {
   width: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 16rpx 20rpx;
 }
 .mine .mine_lists .mine_item {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
-  flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
   -webkit-align-items: center;
-  align-items: center;
-  box-sizing: border-box;
-  padding: 20rpx 0rpx;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 24rpx 0rpx;
   border-bottom: 1px solid #eaeaea;
 }
 .mine .mine_lists .mine_item .item_left {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 28rpx;
   color: #999;
+}
+.mine .mine_lists .mine_item .item_left image {
+  width: 40rpx;
+  margin: 0rpx 16rpx;
 }
 .mine .mine_lists .mine_item .item_right .icon_more {
   width: 35rpx;
 }
+

@@ -1,0 +1,3 @@
+<import src="/node-modules/mpvue-cropper/mpvue-cropper.vue.wxml" />
+<import src="/components/upload-image.vue.wxml" />
+

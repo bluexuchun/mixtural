@@ -9,16 +9,18 @@
 			</view>
 		</view>
 		<view class="mine_lists">
-			<view class="mine_item">
+			<view class="mine_item" @click="navigateto('useredit')">
 				<view class="item_left">
+					<image src="../../static/images/usercenter/icon_user.png" mode="widthFix"></image>
 					个人资料
 				</view>
 				<view class="item_right">
 					<image class="icon_more" src="../../static/images/usercenter/more.png" mode="widthFix"></image>
 				</view>
 			</view>
-			<view class="mine_item">
+			<view class="mine_item" @click="navigateto('usershop')">
 				<view class="item_left">
+					<image src="../../static/images/usercenter/icon_shop.png" mode="widthFix"></image>
 					商家入驻
 				</view>
 				<view class="item_right">
@@ -27,27 +29,31 @@
 			</view>
 			<view class="mine_item">
 				<view class="item_left">
+					<image src="../../static/images/usercenter/icon_xy.png" mode="widthFix"></image>
+					用户协议
+				</view>
+				<view class="item_right"></view>
+					
+			</view>
+			<view class="mine_item" @click="scanVerify()">
+				<view class="item_left">
+					<image src="../../static/images/usercenter/icon_scan.png" mode="widthFix"></image>
 					扫码核销
 				</view>
 				<view class="item_right">
 					<image class="icon_more" src="../../static/images/usercenter/more.png" mode="widthFix"></image>
 				</view>
 			</view>
-			<view class="mine_item">
+			<view class="mine_item" @click="contactUs()">
 				<view class="item_left">
-					用户协议
-				</view>
-				<view class="item_right"></view>
-					
-			</view>
-			<view class="mine_item">
-				<view class="item_left">
+					<image src="../../static/images/usercenter/icon_contact.png" mode="widthFix"></image>
 					联系我们
 				</view>
 				<view class="item_right">
 					<image class="icon_more" src="../../static/images/usercenter/more.png" mode="widthFix"></image>
 				</view>
 			</view>
+			
 		</view>
 	</view>
 </template>
@@ -73,6 +79,24 @@
 			async init(){
 				console.log('123')
 				console.log(this.userInfo)
+			},
+			navigateto(type){
+				console.log(type)
+				uni.navigateTo({
+					url:type
+				})
+			},
+			scanVerify(){
+				uni.scanCode({
+					success:function(res){
+						console.log(res)
+					}
+				})
+			},
+			contactUs(){
+				uni.makePhoneCall({
+					phoneNumber: '114' //仅为示例
+				});
 			}
 		},
 		onShow(){

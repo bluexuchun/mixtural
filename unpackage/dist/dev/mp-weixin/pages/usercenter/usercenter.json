@@ -1,1 +1,5 @@
-{"navigationBarTextStyle":"white","navigationBarTitleText":"个人中心","navigationBarBackgroundColor":"#FFDB4D"}
+{
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "个人中心",
+  "navigationBarBackgroundColor": "#FFDB4D"
+}
