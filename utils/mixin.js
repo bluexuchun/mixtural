@@ -1,4 +1,4 @@
-import stores from 'stores'
+import stores from '../stores/index.js'
 import is from 'is'
 const mixin = {
     data() {

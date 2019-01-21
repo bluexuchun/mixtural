@@ -28,75 +28,105 @@
       "current": 0,
       "list": [
         {
-          "name": "个人中心",
+          "name": "首页",
           "query": "",
           "id": 0,
           "pathName": "pages/usercenter/usercenter"
         },
         {
-          "name": "用户编辑",
+          "name": "等级详情",
           "query": "",
           "id": 1,
+          "pathName": "pages/shop/leveldetail"
+        },
+        {
+          "name": "等级列表",
+          "query": "",
+          "id": 2,
+          "pathName": "pages/shop/level"
+        },
+        {
+          "name": "店员列表",
+          "query": "",
+          "id": 3,
+          "pathName": "pages/shop/member"
+        },
+        {
+          "name": "VIP权益",
+          "query": "",
+          "id": 4,
+          "pathName": "pages/usercenter/vipdetail"
+        },
+        {
+          "name": "任务详情",
+          "query": "",
+          "id": 5,
+          "pathName": "pages/usercenter/missiondetail"
+        },
+        {
+          "name": "用户编辑",
+          "query": "",
+          "id": 6,
           "pathName": "pages/usercenter/useredit"
         },
         {
           "name": "商家入驻",
           "query": "",
-          "id": 2,
+          "id": 7,
           "pathName": "pages/usercenter/usershop"
         },
         {
           "name": "我的",
           "query": "",
-          "id": 3,
+          "id": 8,
           "pathName": "pages/usercenter/mine"
         },
         {
           "name": "首页",
           "query": "",
-          "id": 4,
+          "id": 9,
           "pathName": "pages/home/index"
         },
         {
           "name": "商品详情",
           "query": "id=1",
-          "id": 5,
+          "id": 10,
           "pathName": "pages/product/detail"
         },
         {
           "name": "地址列表",
           "query": "",
-          "id": 6,
+          "id": 11,
           "pathName": "pages/address/list"
         },
         {
           "name": "编辑地址",
           "query": "",
-          "id": 7,
+          "id": 12,
           "pathName": "pages/address/edit"
         },
         {
           "name": "选择城市",
           "query": "",
-          "id": 8,
+          "id": 13,
           "pathName": "pages/address/city"
         },
         {
           "name": "地址定位",
           "query": "",
-          "id": 9,
+          "id": 14,
           "pathName": "pages/address/location"
         },
         {
           "name": "发布抽奖",
           "query": "",
-          "id": 10,
+          "id": 15,
           "pathName": "pages/lottery/publish"
         },
         {
           "name": "图片裁剪",
           "query": "",
-          "id": 11,
+          "id": 16,
           "pathName": "pages/lottery/cutInside"
         }
       ]

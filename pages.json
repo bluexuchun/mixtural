@@ -52,7 +52,7 @@
 		    "path": "pages/usercenter/usercenter",
 		    "style": {
 				"navigationBarTextStyle":"white",
-		        "navigationBarTitleText": "个人中心",
+		        "navigationBarTitleText": "首页",
 				"navigationBarBackgroundColor": "#FFDB4D"
 		    }
 		},{
@@ -74,6 +74,41 @@
 			"style": {
 				"navigationBarTextStyle":"white",
 			    "navigationBarTitleText": "商家入驻",
+				"navigationBarBackgroundColor": "#FFDB4D"
+			}
+		},{
+			"path": "pages/usercenter/missiondetail",
+			"style": {
+				"navigationBarTextStyle":"white",
+			    "navigationBarTitleText": "任务详情",
+				"navigationBarBackgroundColor": "#FFDB4D"
+			}
+		},{
+			"path": "pages/usercenter/vipdetail",
+			"style": {
+				"navigationBarTextStyle":"black",
+			    "navigationBarTitleText": "VIP权益",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},{
+			"path": "pages/shop/member",
+			"style": {
+				"navigationBarTextStyle":"black",
+			    "navigationBarTitleText": "店员列表",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},{
+			"path": "pages/shop/level",
+			"style": {
+				"navigationBarTextStyle":"black",
+			    "navigationBarTitleText": "等级列表",
+				"navigationBarBackgroundColor": "#ffffff"
+			}
+		},{
+			"path": "pages/shop/leveldetail",
+			"style": {
+				"navigationBarTextStyle":"white",
+			    "navigationBarTitleText": "等级详情",
 				"navigationBarBackgroundColor": "#FFDB4D"
 			}
 		}
@@ -112,8 +147,28 @@
         //模式配置，仅开发期间生效
         "current": 0, //当前激活的模式（list 的索引项）
         "list": [{
-		    "name": "个人中心", //模式名称
+		    "name": "首页", //模式名称
 		    "path": "pages/usercenter/usercenter",
+		    "query": "" //启动参数，在页面的onLoad函数里面得到。
+		},{
+		    "name": "等级详情", //模式名称
+		    "path": "pages/shop/leveldetail",
+		    "query": "" //启动参数，在页面的onLoad函数里面得到。
+		},{
+		    "name": "等级列表", //模式名称
+		    "path": "pages/shop/level",
+		    "query": "" //启动参数，在页面的onLoad函数里面得到。
+		},{
+		    "name": "店员列表", //模式名称
+		    "path": "pages/shop/member",
+		    "query": "" //启动参数，在页面的onLoad函数里面得到。
+		},{
+		    "name": "VIP权益", //模式名称
+		    "path": "pages/usercenter/vipdetail",
+		    "query": "" //启动参数，在页面的onLoad函数里面得到。
+		},{
+		    "name": "任务详情", //模式名称
+		    "path": "pages/usercenter/missiondetail",
 		    "query": "" //启动参数，在页面的onLoad函数里面得到。
 		},{
 		    "name": "用户编辑", //模式名称

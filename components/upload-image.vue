@@ -263,6 +263,7 @@ export default {
                 let result = await Utils.uploader(pictures[key].url);
                 console.log(result);
                 if (result.status == 1) {
+					console.log(_this.lists)
                     _this.lists.push({
                         image: result.data.url,
                         displayorder: 1

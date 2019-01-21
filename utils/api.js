@@ -1,5 +1,5 @@
 import request from './request'
-import stores from 'stores'
+import stores from '../stores/index.js'
 const baseUrlApi = 'https://verf.centralsofts.cn'
 const api = {
     updateInfo: (token, rawData) => request.get(baseUrlApi + '/api.php?entry=app&c=normal&a=mina&do=updateInfo', {

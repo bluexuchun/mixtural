@@ -1,5 +1,5 @@
-import Vue from 'mpVue'
-import stores from '../stores'
+import Vue from 'vue'
+import stores from '../stores/index'
 export default class request {
     static get(url, data, header) {
         let _this = this;
@@ -7,7 +7,7 @@ export default class request {
         uni.showNavigationBarLoading();
         return new Promise((resolve, reject) => {
             uni.request({
-                url: url, //仅为示例，并非真实接口地址。
+                url: url,
                 data: data,
                 header: header,
                 success: res => {

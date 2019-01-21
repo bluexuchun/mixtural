@@ -60,7 +60,7 @@
 
 <script>
 	import is from 'is'
-	import Utils from 'utils'
+	import Utils from '@/utils/index'
 	import api from '@/utils/api'
 	import mixin from '@/utils/mixin'
 	export default {
@@ -88,6 +88,7 @@
 			},
 			scanVerify(){
 				uni.scanCode({
+					onlyFromCamera: true,
 					success:function(res){
 						console.log(res)
 					}

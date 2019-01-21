@@ -19,7 +19,7 @@
     </view>
 </template>
 <script>
-import Utils from 'utils';
+import Utils from '@/utils/index';
 import is from 'is';
 import api from '@/utils/api';
 let key = 'ECSBZ-DYVKU-ZMEVX-4UQSY-C35FJ-FJF3G';
@@ -87,6 +87,7 @@ export default {
             console.log('点击授权2');
             _this.code = codeData.code;
             let data = await Utils.getUserInfo();
+			console.log(data.rawData, _this.code)
             let loginData = await api.login(data.rawData, _this.code);
             console.log(loginData);
             _this.$store.commit('set_token', loginData.data.token);

@@ -1,7 +1,7 @@
 import is from 'is'
 import api from '../utils/api'
-import stores from '../stores'
-import Vue from 'mpVue'
+import stores from '../stores/index'
+import Vue from 'vue'
 export default class Utils {
     static socketInit() {
         let _this = this;
@@ -278,7 +278,7 @@ export default class Utils {
      * 上传图片
      */
     static uploader(filePath, type = 'image') {
-        const url = 'https://mh.geeklib.cn/api.php?entry=app&c=utility&a=file&do=upload&type=' + type + '&token=' + stores.state.app.token;
+        const url = 'https://verf.centralsofts.cn/api.php?entry=app&c=utility&a=file&do=upload&type=' + type + '&token=' + stores.state.app.token;
         const token = stores.state.app.token;
         console.log('上传token:', token)
         let uploadHandler = new Promise((resolve, reject) => {

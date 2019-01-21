@@ -1,0 +1,2 @@
+<import src="./leveldetail.vue.wxml" />
+    <template is="4ec20383" data="{{ ...$root['0'], $root }}"/>

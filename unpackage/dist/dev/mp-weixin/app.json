@@ -12,7 +12,12 @@
     "pages/usercenter/usercenter",
     "pages/usercenter/mine",
     "pages/usercenter/useredit",
-    "pages/usercenter/usershop"
+    "pages/usercenter/usershop",
+    "pages/usercenter/missiondetail",
+    "pages/usercenter/vipdetail",
+    "pages/shop/member",
+    "pages/shop/level",
+    "pages/shop/leveldetail"
   ],
   "subPackages": [],
   "window": {

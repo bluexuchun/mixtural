@@ -1,0 +1,157 @@
+.mission_detail{
+	width:100%;
+	height:100%;
+	overflow: hidden;
+	overflow-y: auto;
+	background: #ffffff;
+	.mission_head{
+		width:100%;
+		height:250rpx;
+		background: url('../../images/usercenter/head.png') no-repeat;
+		background-size: cover;
+		background-position: center;
+		position: relative;
+		.headava{
+			width:120rpx;
+			height:120rpx;
+			position: absolute;
+			bottom:-60rpx;
+			left:50%;
+			margin-left:-60rpx;
+			.img_ava{
+				width:100%;
+				height:100%;
+				border-radius: 50%;
+			}
+		}
+		.sign_btn{
+			width:50rpx;
+			height:50rpx;
+			border-radius: 50%;
+			border:1px solid #ffffff;
+			color:#fff;
+			font-size:26rpx;
+			position: absolute;
+			right:18rpx;
+			top:12rpx;
+			text-align: center;
+			line-height: 50rpx;
+		}
+		.mission_rule{
+			position: absolute;
+			top:14rpx;
+			left:14rpx;
+			text-decoration: underline;
+			text-decoration-color: #ffffff;
+			color:#ffffff;
+			font-size: 26rpx;
+		}
+	}
+	.mission_star{
+		width:100%;
+		padding:20rpx 0rpx;
+		margin-top:60rpx;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		.star_item{
+			margin-right:20rpx
+		}
+		.star_item:last-child{
+			margin-right:0rpx
+		}
+		.star_img{
+			width:50rpx;
+		}
+	}
+	.mission_starword{
+		width:100%;
+		text-align: center;
+		font-size:27rpx;
+		color:#999;
+	}
+	.mission_ruledetail{
+		width:100%;
+		box-sizing: border-box;
+		margin-top:20rpx;
+		padding:20rpx 38rpx;
+		color:#999;
+		.mission_rulehead{
+			font-size: 27rpx;
+		}
+		.mission_rulecontent{
+			font-size:25rpx;
+			padding:16rpx 0rpx;
+		}
+	}
+	.mission_submit{
+		width:100%;
+		height:100rpx;
+		text-align: center;
+		line-height: 100rpx;
+		position: fixed;
+		bottom:0px;
+		left:0px;
+		background: #FFDB4D;
+		color:#fff;
+		font-size:28rpx;
+	}
+	.model_back{
+		width:100%;
+		height:100%;
+		background: rgba(0,0,0,0.7);
+		position: fixed;
+		top:0px;
+		left:0px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.model{
+			width:80%;
+			height:60%;
+			background: #ffffff;
+			border-radius:8px;
+			.model_head{
+				width:100%;
+				height:17%;
+				box-sizing: border-box;
+				padding:0rpx 14rpx;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				position: relative;
+				font-size:28rpx;
+				.icon_close{
+					width:40rpx;
+					height:40rpx;
+					position: absolute;
+					top:50%;
+					margin-top:-20rpx;
+					right:18rpx;
+				}
+			}
+			.model_content{
+				width:100%;
+				height:70%;
+				box-sizing: border-box;
+				padding:10rpx 20rpx;
+			}
+			.model_confirm{
+				width:100%;
+				height:13%;
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				background: #FFDB4D;
+				color:#fff;
+				border-bottom-left-radius: 8px;
+				border-bottom-right-radius: 8px;
+			}
+		}
+	}
+}

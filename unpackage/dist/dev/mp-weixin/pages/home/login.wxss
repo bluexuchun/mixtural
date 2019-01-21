@@ -1,27 +1,27 @@
-.main.data-v-5c8ad67a {
+.main.data-v-a6c1f70e {
   background-color: #fff;
   height: 100%;
   padding-top: 100rpx;
 }
-.main .logo.data-v-5c8ad67a {
+.main .logo.data-v-a6c1f70e {
   width: 150rpx;
   height: 150rpx;
   margin: auto;
 }
-.main .logo image.data-v-5c8ad67a {
+.main .logo image.data-v-a6c1f70e {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
-.main .tips.data-v-5c8ad67a {
+.main .tips.data-v-a6c1f70e {
   margin-top: 50rpx;
   padding: 0 60rpx;
   font-size: 28rpx;
 }
-.main .button.data-v-5c8ad67a {
+.main .button.data-v-a6c1f70e {
   margin-top: 50rpx;
 }
-.main .button ._button.data-v-5c8ad67a {
+.main .button ._button.data-v-a6c1f70e {
   padding: 0;
   margin: auto;
   width: 400rpx;

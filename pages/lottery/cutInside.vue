@@ -10,7 +10,7 @@
 <script>
 import MpvueCropper from 'mpvue-cropper'
 import is from 'is';
-import Utils from 'utils';
+import Utils from '@/utils/index';
 import api from '@/utils/api';
 let key = 'ECSBZ-DYVKU-ZMEVX-4UQSY-C35FJ-FJF3G';
 import mixin from '@/utils/mixin';
