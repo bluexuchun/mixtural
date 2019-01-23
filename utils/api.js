@@ -6,6 +6,12 @@ const api = {
         token: token,
         rawData: rawData
     }),
+	addShop: (username,mobile,business_title,business_license) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=enter&do=hold',{
+		username:username,
+		mobile:mobile,
+		business_title:business_title,
+		business_license:business_license
+	}),
     login: (rawData, code) => request.get(baseUrlApi + '/api.php?entry=app&c=normal&a=mina&do=login', {
         rawData: rawData,
         code: code,

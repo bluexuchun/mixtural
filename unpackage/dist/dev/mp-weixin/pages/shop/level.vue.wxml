@@ -1,17 +1,1 @@
-<template name="e6a68e9c"><view class="_view e6a68e9c level"><view class="_view e6a68e9c level_list"><view class="_view e6a68e9c level_item" wx:key="itemindex" key="{{itemindex}}" wx:for="{{levellist}}" wx:for-index="itemindex" wx:for-item="item"><view class="_view e6a68e9c item_left"><image class="_image e6a68e9c level_ava" src="{{item.level_ava}}" mode="widthFix"></image><view class="_view e6a68e9c level_info"><view class="_view e6a68e9c level_name">
-						{{item.level_title}}
-					</view><view class="_view e6a68e9c level_time">
-						{{item.level_desc}}
-					</view></view></view><view class="_view e6a68e9c item_right"><view class="_view e6a68e9c level_view" bindtap="handleProxy" data-eventid="{{'e6a68e9c-0-'+itemindex}}" data-comkey="{{$k}}">
-					查看
-				</view><view class="_view e6a68e9c level_delete" bindtap="handleProxy" data-eventid="{{'e6a68e9c-1-'+itemindex}}" data-comkey="{{$k}}">
-					删除
-				</view></view></view></view><view class="_view e6a68e9c level_addbtn" bindtap="handleProxy" data-eventid="{{'e6a68e9c-2'}}" data-comkey="{{$k}}">
-		添加任务
-	</view><view class="_view e6a68e9c model_back" wx:if="{{is_show}}"><view class="_view e6a68e9c model"><view class="_view e6a68e9c model_head">
-				店员二维码
-				<image bindtap="handleProxy" class="_image e6a68e9c icon_close" src="../../static/images/icon_close.png" mode="widthFix" data-eventid="{{'e6a68e9c-3'}}" data-comkey="{{$k}}"></image></view><view class="_view e6a68e9c model_content">
-				二维码图片
-			</view><view class="_view e6a68e9c model_confirm" bindtap="handleProxy" data-eventid="{{'e6a68e9c-4'}}" data-comkey="{{$k}}">
-				确定
-			</view></view></view></view></template>
+<template name="f17a2ec6"><view class="_view f17a2ec6 level"><view class="_view f17a2ec6 level_list"><view class="_view f17a2ec6 level_item" wx:key="itemindex" key="{{itemindex}}" wx:for="{{levellist}}" wx:for-index="itemindex" wx:for-item="item"><view class="_view f17a2ec6 item_left"><image class="_image f17a2ec6 level_ava" src="{{item.level_ava}}" mode="widthFix"></image><view class="_view f17a2ec6 level_info"><view class="_view f17a2ec6 level_name">{{item.level_title}}</view><view class="_view f17a2ec6 level_time">{{item.level_desc}}</view></view></view><view class="_view f17a2ec6 item_right"><view class="_view f17a2ec6 level_view" bindtap="handleProxy" data-eventid="{{'f17a2ec6-0-'+itemindex}}" data-comkey="{{$k}}">查看</view><view class="_view f17a2ec6 level_delete" bindtap="handleProxy" data-eventid="{{'f17a2ec6-1-'+itemindex}}" data-comkey="{{$k}}">删除</view></view></view></view><view class="_view f17a2ec6 level_addbtn" bindtap="handleProxy" data-eventid="{{'f17a2ec6-2'}}" data-comkey="{{$k}}">添加任务</view><view class="_view f17a2ec6 model_back" wx:if="{{is_show}}"><view class="_view f17a2ec6 model"><view class="_view f17a2ec6 model_head">店员二维码<image bindtap="handleProxy" class="_image f17a2ec6 icon_close" src="../../static/images/icon_close.png" mode="widthFix" data-eventid="{{'f17a2ec6-3'}}" data-comkey="{{$k}}"></image></view><view class="_view f17a2ec6 model_content">二维码图片</view><view class="_view f17a2ec6 model_confirm" bindtap="handleProxy" data-eventid="{{'f17a2ec6-4'}}" data-comkey="{{$k}}">确定</view></view></view></view></template>
