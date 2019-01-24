@@ -206,7 +206,25 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
   methods: {
     init: function () {var _init = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
                 console.log('123');
-                console.log(this.userInfo);case 2:case "end":return _context.stop();}}}, _callee, this);}));function init() {return _init.apply(this, arguments);}return init;}() },
+                console.log(this.userInfo);case 2:case "end":return _context.stop();}}}, _callee, this);}));function init() {return _init.apply(this, arguments);}return init;}(),
+
+    uploadimg: function () {var _uploadimg = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var _this, tempFilePaths, pictures, key, result;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                _this = this;_context2.next = 3;return (
+                  _index.default.chooseImage(1));case 3:tempFilePaths = _context2.sent;
+                pictures = tempFilePaths.map(function (item) {
+                  return {
+                    url: item };
+
+                });
+                _index.default.loading();_context2.t0 = _regenerator.default.keys(
+                pictures);case 7:if ((_context2.t1 = _context2.t0()).done) {_context2.next = 16;break;}key = _context2.t1.value;_context2.next = 11;return (
+                  _index.default.uploader(pictures[key].url));case 11:result = _context2.sent;
+                console.log(result);
+                if (result.status == 1) {
+                  _this.level_pic = result.data.url;
+                }_context2.next = 7;break;case 16:
+
+                _index.default.loaded();case 17:case "end":return _context2.stop();}}}, _callee2, this);}));function uploadimg() {return _uploadimg.apply(this, arguments);}return uploadimg;}() },
 
 
   onShow: function onShow() {
@@ -260,8 +278,10 @@ var render = function() {
                   staticClass: "icon_input",
                   attrs: {
                     src: "../../static/images/icon_default.png",
-                    mode: ""
-                  }
+                    mode: "",
+                    eventid: "5511572e-0"
+                  },
+                  on: { click: _vm.uploadimg }
                 })
           ])
         ]),
@@ -280,7 +300,7 @@ var render = function() {
               attrs: {
                 type: "text",
                 placeholder: "请填写等级名称",
-                eventid: "5511572e-0"
+                eventid: "5511572e-1"
               },
               domProps: { value: _vm.level_name },
               on: {
@@ -309,7 +329,7 @@ var render = function() {
               attrs: {
                 type: "text",
                 placeholder: "请填写等级描述",
-                eventid: "5511572e-1"
+                eventid: "5511572e-2"
               },
               domProps: { value: _vm.level_desc },
               on: {
@@ -341,7 +361,7 @@ var render = function() {
               attrs: {
                 type: "text",
                 placeholder: "请填写签到次数",
-                eventid: "5511572e-2"
+                eventid: "5511572e-3"
               },
               domProps: { value: _vm.signnum },
               on: {
@@ -370,7 +390,7 @@ var render = function() {
               attrs: {
                 "placeholder-style": "color:#eaeaea",
                 placeholder: "输入任务详情的内容",
-                eventid: "5511572e-3"
+                eventid: "5511572e-4"
               },
               domProps: { value: _vm.mission_content },
               on: {
@@ -388,7 +408,7 @@ var render = function() {
             { staticClass: "container-header" },
             [
               _c("v-upload-image", {
-                attrs: { eventid: "5511572e-4", mpcomid: "5511572e-0" },
+                attrs: { eventid: "5511572e-5", mpcomid: "5511572e-0" },
                 model: {
                   value: _vm.images,
                   callback: function($$v) {
@@ -407,7 +427,7 @@ var render = function() {
       "view",
       {
         staticClass: "level_save",
-        attrs: { eventid: "5511572e-5" },
+        attrs: { eventid: "5511572e-6" },
         on: {
           click: function($event) {
             _vm.save()

@@ -11,7 +11,7 @@
 					</view>
 					<view class="item_input">
 						<image v-if="level_pic" class="icon_input" :src="level_pic" mode=""></image>
-						<image v-else class="icon_input" src="../../static/images/icon_default.png" mode=""></image>
+						<image v-else class="icon_input" src="../../static/images/icon_default.png" mode="" @click="uploadimg"></image>
 					</view>
 				</view>
 				<view class="item_info">
@@ -93,6 +93,24 @@
 				console.log('123')
 				console.log(this.userInfo)
 			},
+			async uploadimg(){
+				let _this = this;
+				const tempFilePaths = await Utils.chooseImage(1);
+				const pictures = tempFilePaths.map(item => {
+					return {
+						url: item
+					}
+				});
+				Utils.loading();
+				for (let key in pictures) {
+				    let result = await Utils.uploader(pictures[key].url);
+				    console.log(result);
+					if(result.status == 1){
+						_this.level_pic = result.data.url
+					}
+				}
+				Utils.loaded();
+			}
 		},
 		onShow(){
 			let _this = this

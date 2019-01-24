@@ -150,148 +150,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var _is = _interopRequireDefault(__webpack_require__(/*! is */ "../../../../../../Users/cybob/Desktop/GitProject/mixtural/node_modules/is/index.js"));
 var _api = _interopRequireDefault(__webpack_require__(/*! ../../utils/api */ "../../../../../../Users/cybob/Desktop/GitProject/mixtural/utils/api.js"));
 var _utils = _interopRequireDefault(__webpack_require__(/*! ../../utils */ "../../../../../../Users/cybob/Desktop/GitProject/mixtural/utils/index.js"));
@@ -309,91 +167,19 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
 
   data: function data() {
     return {
-      images: [],
-      info: {},
-      maskShow: false,
-      setGenderShow: false,
-      setEmotionShow: false,
-      nickname: '',
-      gender: '',
-      genderText: '',
-      emotion: '',
-      emotionText: '',
-      birth: '2011-01-01',
-      province: '北京市',
-      city: '市辖区',
-      area: '东城区',
-      reside: '',
-      profession: '',
-      school: '',
-      mobile: '' };
+      realname: '',
+      mobile: '',
+      address: '' };
 
   },
   methods: {
     init: function init() {
       var _this = this;
-      _this.nickname = _this.userInfo.nickname;
+      _this.realname = _this.userInfo.realname;
       _this.mobile = _this.userInfo.mobile;
-      _this.gender = _this.userInfo.gender;
-      _this.genderText = _this.userInfo.genderText;
-      _this.emotion = _this.userInfo.emotion;
-      _this.emotionText = _this.userInfo.emotionText;
-      _this.province = _this.userInfo.profile.resideprovince;
-      _this.city = _this.userInfo.profile.residecity;
-      _this.area = _this.userInfo.profile.residedist;
-      _this.reside = _this.province && _this.city && _this.area ? [_this.province, _this.city, _this.area] : ['广东省', '深圳市', '南山区'];
-      _this.birth = _this.userInfo.profile.birthyear && _this.userInfo.profile.birthmonth && _this.userInfo.profile.birthday ? _this.userInfo.profile.birthyear + '-' + _this.userInfo.profile.birthmonth + '-' + _this.userInfo.profile.birthday : '1993-02-02';
-      _this.profession = _this.userInfo.profile.profession;
-      _this.school = _this.userInfo.profile.school;
-      _this.images = [{
-        displayorder: 1,
-        image: _this.userInfo.avatar }];
+      _this.address = _this.userInfo.address;
+    },
 
-    },
-    setBirth: function setBirth(e) {
-      var _this = this;
-      console.log(e);
-      _this.birth = e.mp.detail.value;
-    },
-    setReside: function setReside(e) {
-      var _this = this;
-      console.log(e);
-    },
-    close: function close() {
-      this.maskShow = false;
-      this.setGenderShow = false;
-      this.setEmotionShow = false;
-    },
-    showSetGender: function showSetGender() {
-      this.setGenderShow = true;
-      this.maskShow = true;
-    },
-    setGender: function setGender(gender) {
-      var _this = this;
-      _this.gender = gender;
-      _this.genderText = _this.gender == 1 ? '男' : '女';
-      _this.close();
-    },
-    showSetEmotion: function showSetEmotion() {
-      this.setEmotionShow = true;
-      this.maskShow = true;
-    },
-    setEmotion: function setEmotion(emotion) {
-      var _this = this;
-      _this.emotion = emotion;
-      if (_this.emotion == 1) {
-        _this.emotionText = '保密';
-      } else if (_this.emotion == 2) {
-        _this.emotionText = '单身';
-      } else if (_this.emotion == 3) {
-        _this.emotionText = '恋爱中';
-      } else if (_this.emotion == 4) {
-        _this.emotionText = '已婚';
-      } else if (_this.emotion == 5) {
-        _this.emotionText = '同性';
-      }
-      _this.close();
-    },
     getPhoneNumber: function () {var _getPhoneNumber = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(e) {var _this;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
                 _this = this;
                 _utils.default.loading('正在获取手机号');
@@ -415,7 +201,20 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
                   } });case 3:case "end":return _context.stop();}}}, _callee, this);}));function getPhoneNumber(_x) {return _getPhoneNumber.apply(this, arguments);}return getPhoneNumber;}(),
 
 
+    getAddress: function getAddress() {
+      uni.chooseAddress({
+        success: function success(res) {
+          console.log(res.userName);
+          console.log(res.postalCode);
+          console.log(res.provinceName);
+          console.log(res.cityName);
+          console.log(res.countyName);
+          console.log(res.detailInfo);
+          console.log(res.nationalCode);
+          console.log(res.telNumber);
+        } });
 
+    },
     getMobile: function () {var _getMobile = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(encryptedData, iv) {var _this, response;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
                 _this = this;_context2.next = 3;return (
                   _api.default.getPhoneNumber(encryptedData, iv));case 3:response = _context2.sent;
@@ -431,15 +230,9 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
                 _this = this;
                 _utils.default.loading('正在保存信息');
                 data = {
-                  avatar: _this.images[0].image,
-                  nickname: _this.nickname,
+                  realname: _this.realname,
                   mobile: _this.mobile,
-                  gender: _this.gender,
-                  emotion: _this.emotion,
-                  reside: _this.reside,
-                  birth: _this.birth,
-                  profession: _this.profession,
-                  school: _this.school };
+                  address: _this.address };
 
                 console.log(data);_context3.next = 6;return (
                   _api.default.updateProfile(data));case 6:response = _context3.sent;
@@ -493,141 +286,41 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "container-header" },
-      [
-        _c("v-upload-image", {
-          attrs: { eventid: "5462ef1c-0", mpcomid: "5462ef1c-0" },
-          model: {
-            value: _vm.images,
-            callback: function($$v) {
-              _vm.images = $$v
-            },
-            expression: "images"
-          }
-        }),
-        _c("div", { staticClass: "tips" }, [
-          _vm._v("点击操作图片，长按可拖拽排序，共8张")
-        ])
-      ],
-      1
-    ),
     _c("div", { staticClass: "container-body" }, [
-      _c("div", { staticClass: "function-title" }, [_vm._v("基本资料")]),
       _c("div", { staticClass: "function" }, [
         _c("div", { staticClass: "function-item" }, [
-          _c("div", { staticClass: "function-item-left" }, [_vm._v("昵称")]),
+          _c("div", { staticClass: "function-item-left" }, [
+            _vm._v("真实姓名")
+          ]),
           _c("div", { staticClass: "function-item-right" }, [
             _c("input", {
               directives: [
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.nickname,
-                  expression: "nickname"
+                  value: _vm.realname,
+                  expression: "realname"
                 }
               ],
               staticClass: "txt",
               attrs: {
                 type: "text",
                 placeholder: "请填写昵称",
-                eventid: "5462ef1c-1"
+                eventid: "5462ef1c-0"
               },
-              domProps: { value: _vm.nickname },
+              domProps: { value: _vm.realname },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.nickname = $event.target.value
+                  _vm.realname = $event.target.value
                 }
               }
             }),
             _c("span", { staticClass: "iconfont icon-right" })
           ])
         ]),
-        _c("div", { staticClass: "function-item" }, [
-          _c("div", { staticClass: "function-item-left" }, [
-            _vm._v("出生日期")
-          ]),
-          _c(
-            "div",
-            { staticClass: "function-item-right" },
-            [
-              _c(
-                "picker",
-                {
-                  staticClass: "txt",
-                  attrs: {
-                    mode: "date",
-                    start: "2015-09-01",
-                    end: "2017-09-01",
-                    eventid: "5462ef1c-2"
-                  },
-                  on: { change: _vm.setBirth },
-                  model: {
-                    value: _vm.birth,
-                    callback: function($$v) {
-                      _vm.birth = $$v
-                    },
-                    expression: "birth"
-                  }
-                },
-                [
-                  _c("view", [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(_vm.birth) +
-                        "\n                        "
-                    )
-                  ])
-                ]
-              ),
-              _c("span", { staticClass: "iconfont icon-right" })
-            ],
-            1
-          )
-        ]),
-        _c(
-          "div",
-          {
-            staticClass: "function-item",
-            attrs: { eventid: "5462ef1c-3" },
-            on: { click: _vm.showSetGender }
-          },
-          [
-            _c("div", { staticClass: "function-item-left" }, [_vm._v("性别")]),
-            _c("div", { staticClass: "function-item-right" }, [
-              _c("div", { staticClass: "txt" }, [
-                _vm._v(_vm._s(_vm.genderText ? _vm.genderText : "请选择"))
-              ]),
-              _c("span", { staticClass: "iconfont icon-right" })
-            ])
-          ]
-        ),
-        _c(
-          "div",
-          {
-            staticClass: "function-item",
-            attrs: { eventid: "5462ef1c-4" },
-            on: { click: _vm.showSetEmotion }
-          },
-          [
-            _c("div", { staticClass: "function-item-left" }, [
-              _vm._v("情感状态")
-            ]),
-            _c("div", { staticClass: "function-item-right" }, [
-              _c("div", { staticClass: "txt" }, [
-                _vm._v(_vm._s(_vm.emotionText ? _vm.emotionText : "请选择"))
-              ]),
-              _c("span", { staticClass: "iconfont icon-right" })
-            ])
-          ]
-        )
-      ]),
-      _c("div", { staticClass: "function-title" }, [_vm._v("个人信息")]),
-      _c("div", { staticClass: "function" }, [
         _c(
           "div",
           { staticClass: "function-item" },
@@ -641,7 +334,7 @@ var render = function() {
                   plain: "",
                   "hover-class": "none",
                   "open-type": "getPhoneNumber",
-                  eventid: "5462ef1c-5"
+                  eventid: "5462ef1c-1"
                 },
                 on: { getphonenumber: _vm.getPhoneNumber }
               },
@@ -655,7 +348,7 @@ var render = function() {
         ),
         _c("div", { staticClass: "function-item" }, [
           _c("div", { staticClass: "function-item-left" }, [
-            _vm._v("个人签名")
+            _vm._v("收货地址")
           ]),
           _c("div", { staticClass: "function-item-right" }, [
             _c("input", {
@@ -663,328 +356,43 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.nickname,
-                  expression: "nickname"
+                  value: _vm.address,
+                  expression: "address"
                 }
               ],
               staticClass: "txt",
               attrs: {
                 type: "text",
                 placeholder: "请填写昵称",
-                eventid: "5462ef1c-6"
+                eventid: "5462ef1c-2"
               },
-              domProps: { value: _vm.nickname },
+              domProps: { value: _vm.address },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.nickname = $event.target.value
-                }
-              }
-            }),
-            _c("span", { staticClass: "iconfont icon-right" })
-          ])
-        ]),
-        _c("div", { staticClass: "function-item" }, [
-          _c("div", { staticClass: "function-item-left" }, [
-            _vm._v("所在地区")
-          ]),
-          _c(
-            "div",
-            { staticClass: "function-item-right" },
-            [
-              _c(
-                "picker",
-                {
-                  staticClass: "txt",
-                  attrs: {
-                    mode: "region",
-                    start: "2015-09-01",
-                    end: "2017-09-01",
-                    eventid: "5462ef1c-7"
-                  },
-                  on: { change: _vm.setReside },
-                  model: {
-                    value: _vm.reside,
-                    callback: function($$v) {
-                      _vm.reside = $$v
-                    },
-                    expression: "reside"
-                  }
-                },
-                [
-                  _c("view", [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(_vm.reside) +
-                        "\n                        "
-                    )
-                  ])
-                ]
-              ),
-              _c("span", { staticClass: "iconfont icon-right" })
-            ],
-            1
-          )
-        ]),
-        _c("div", { staticClass: "function-item" }, [
-          _c("div", { staticClass: "function-item-left" }, [_vm._v("职业")]),
-          _c("div", { staticClass: "function-item-right" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.profession,
-                  expression: "profession"
-                }
-              ],
-              staticClass: "txt",
-              attrs: {
-                type: "text",
-                placeholder: "请填写职业",
-                eventid: "5462ef1c-8"
-              },
-              domProps: { value: _vm.profession },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.profession = $event.target.value
-                }
-              }
-            }),
-            _c("span", { staticClass: "iconfont icon-right" })
-          ])
-        ]),
-        _c("div", { staticClass: "function-item" }, [
-          _c("div", { staticClass: "function-item-left" }, [_vm._v("学校")]),
-          _c("div", { staticClass: "function-item-right" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.school,
-                  expression: "school"
-                }
-              ],
-              staticClass: "txt",
-              attrs: {
-                type: "text",
-                placeholder: "请填写学校",
-                eventid: "5462ef1c-9"
-              },
-              domProps: { value: _vm.school },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.school = $event.target.value
+                  _vm.address = $event.target.value
                 }
               }
             }),
             _c("span", { staticClass: "iconfont icon-right" })
           ])
         ])
-      ]),
-      _c("div", { staticClass: "function-title" }, [_vm._v("其他信息")]),
-      _vm._m(0)
+      ])
     ]),
     _c(
       "div",
       {
         staticClass: "save-button",
-        attrs: { eventid: "5462ef1c-10" },
+        attrs: { eventid: "5462ef1c-3" },
         on: { click: _vm.updateInfo }
       },
       [_vm._v("保存")]
-    ),
-    _vm.maskShow
-      ? _c("div", {
-          staticClass: "mask",
-          attrs: { eventid: "5462ef1c-11" },
-          on: { click: _vm.close }
-        })
-      : _vm._e(),
-    _vm.setGenderShow
-      ? _c("div", { staticClass: "modal users" }, [
-          _c("div", { staticClass: "tabBar border-radius" }, [
-            _c("span", { staticClass: "title" }, [_vm._v("选择性别")]),
-            _c("span", {
-              staticClass: "iconfont icon-close close",
-              attrs: { eventid: "5462ef1c-12" },
-              on: { click: _vm.close }
-            })
-          ]),
-          _c(
-            "div",
-            { staticClass: "users-button" },
-            [
-              _c(
-                "button",
-                {
-                  class: { active: _vm.gender == 1 },
-                  attrs: { plain: "", eventid: "5462ef1c-13" },
-                  on: {
-                    click: function($event) {
-                      _vm.setGender(1)
-                    }
-                  }
-                },
-                [_vm._v("男")]
-              ),
-              _c(
-                "button",
-                {
-                  class: { active: _vm.gender == 2 },
-                  attrs: { plain: "", eventid: "5462ef1c-14" },
-                  on: {
-                    click: function($event) {
-                      _vm.setGender(2)
-                    }
-                  }
-                },
-                [_vm._v("女")]
-              )
-            ],
-            1
-          )
-        ])
-      : _vm._e(),
-    _vm.setEmotionShow
-      ? _c("div", { staticClass: "modal users" }, [
-          _c("div", { staticClass: "tabBar border-radius" }, [
-            _c("span", { staticClass: "title" }, [_vm._v("情感状态")]),
-            _c("span", {
-              staticClass: "iconfont icon-close close",
-              attrs: { eventid: "5462ef1c-15" },
-              on: { click: _vm.close }
-            })
-          ]),
-          _c(
-            "div",
-            { staticClass: "users-button" },
-            [
-              _c(
-                "button",
-                {
-                  class: { active: _vm.emotion == 1 },
-                  attrs: { plain: "", eventid: "5462ef1c-16" },
-                  on: {
-                    click: function($event) {
-                      _vm.setEmotion(1)
-                    }
-                  }
-                },
-                [_vm._v("保密")]
-              ),
-              _c(
-                "button",
-                {
-                  class: { active: _vm.emotion == 2 },
-                  attrs: { plain: "", eventid: "5462ef1c-17" },
-                  on: {
-                    click: function($event) {
-                      _vm.setEmotion(2)
-                    }
-                  }
-                },
-                [_vm._v("单身")]
-              ),
-              _c(
-                "button",
-                {
-                  class: { active: _vm.emotion == 3 },
-                  attrs: { plain: "", eventid: "5462ef1c-18" },
-                  on: {
-                    click: function($event) {
-                      _vm.setEmotion(3)
-                    }
-                  }
-                },
-                [_vm._v("恋爱中")]
-              ),
-              _c(
-                "button",
-                {
-                  class: { active: _vm.emotion == 4 },
-                  attrs: { plain: "", eventid: "5462ef1c-19" },
-                  on: {
-                    click: function($event) {
-                      _vm.setEmotion(4)
-                    }
-                  }
-                },
-                [_vm._v("已婚")]
-              ),
-              _c(
-                "button",
-                {
-                  class: { active: _vm.emotion == 5 },
-                  attrs: { plain: "", eventid: "5462ef1c-20" },
-                  on: {
-                    click: function($event) {
-                      _vm.setEmotion(5)
-                    }
-                  }
-                },
-                [_vm._v("同性")]
-              )
-            ],
-            1
-          )
-        ])
-      : _vm._e()
+    )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "function" }, [
-      _c("div", { staticClass: "function-item" }, [
-        _c("div", { staticClass: "function-item-left" }, [_vm._v("标签")]),
-        _c("div", { staticClass: "function-item-right" }, [
-          _c("div", { staticClass: "txt" }),
-          _c("span", { staticClass: "iconfont icon-right" })
-        ])
-      ]),
-      _c("div", { staticClass: "function-item" }, [
-        _c("div", { staticClass: "function-item-left" }, [_vm._v("个人说明")]),
-        _c("div", { staticClass: "function-item-right" }, [
-          _c("div", { staticClass: "txt" }),
-          _c("span", { staticClass: "iconfont icon-right" })
-        ])
-      ]),
-      _c("div", { staticClass: "function-item" }, [
-        _c("div", { staticClass: "function-item-left" }, [_vm._v("电影")]),
-        _c("div", { staticClass: "function-item-right" }, [
-          _c("div", { staticClass: "txt" }),
-          _c("span", { staticClass: "iconfont icon-right" })
-        ])
-      ]),
-      _c("div", { staticClass: "function-item" }, [
-        _c("div", { staticClass: "function-item-left" }, [_vm._v("音乐")]),
-        _c("div", { staticClass: "function-item-right" }, [
-          _c("div", { staticClass: "txt" }),
-          _c("span", { staticClass: "iconfont icon-right" })
-        ])
-      ]),
-      _c("div", { staticClass: "function-item" }, [
-        _c("div", { staticClass: "function-item-left" }, [_vm._v("书籍")]),
-        _c("div", { staticClass: "function-item-right" }, [
-          _c("div", { staticClass: "txt" }),
-          _c("span", { staticClass: "iconfont icon-right" })
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
