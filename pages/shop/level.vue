@@ -3,13 +3,13 @@
 		<view class="level_list">
 			<view class="level_item" v-for="(item,itemindex) in levellist" :key="itemindex">
 				<view class="item_left">
-					<image class="level_ava" :src="item.level_ava" mode="widthFix"></image>
+					<image class="level_ava" :src="item.grade_photo" mode="widthFix"></image>
 					<view class="level_info">
 						<view class="level_name">
-							{{item.level_title}}
+							{{item.grade_title}}
 						</view>
 						<view class="level_time">
-							{{item.level_desc}}
+							{{item.description}}
 						</view>
 					</view>
 				</view>
@@ -26,7 +26,7 @@
 		<view class="level_addbtn" @click="viewlevel('add')">
 			添加任务
 		</view>
-		<!-- 任务规则 -->
+		<!-- 店员二维码 -->
 		<view class="model_back" v-if="is_show">
 			<view class="model">
 				<view class="model_head">
@@ -58,59 +58,60 @@
 		},
 		data() {
 			return {
-				levellist:[
-					{
-						id:1,
-						level_title:'VIP1',
-						level_ava:'http://wq.centralsofts.cn/attachment/headimg_2.jpg?time=1548080876',
-						level_desc:'VIP1的描述'
-					},{
-						id:2,
-						level_title:'VIP2',
-						level_ava:'http://wq.centralsofts.cn/attachment/headimg_2.jpg?time=1548080876',
-						level_desc:'VIP2的描述'
-					},{
-						id:3,
-						level_title:'VIP3',
-						level_ava:'http://wq.centralsofts.cn/attachment/headimg_2.jpg?time=1548080876',
-						level_desc:'VIP3的描述'
-					},{
-						id:4,
-						level_title:'VIP4',
-						level_ava:'http://wq.centralsofts.cn/attachment/headimg_2.jpg?time=1548080876',
-						level_desc:'VIP4的描述'
-					}
-				],
+				levellist:[],
 				is_show:false,
+				page:1
 			};
 		},
 		methods:{
 			async init(){
-				console.log('123')
-				console.log(this.userInfo)
+				let _this = this;
+				Utils.loading('正在加载');
+				//获取等级列表
+				let data = {
+					page : _this.page
+				};
+				let response = await api.getLevel(data);
+				console.log(response)
+				if(response.status == 1){
+					Utils.loaded();
+					_this.levellist = response.data.data
+				}
 			},
 			deletelevel(id){
 				console.log(id)
+				let _this = this
 				uni.showModal({
 					title: '提示',
 					content: '是否确认删除该等级？',
 					success: function (res) {
 						if (res.confirm) {
-							console.log('用户点击确定');
+							Utils.loading('正在删除');
+							_this.deleteList(id)
 						} else if (res.cancel) {
 							console.log('用户点击取消');
 						}
 					}
 				});
 			},
+			async deleteList(id){
+				let response = await api.deleteLevel({id:id})
+				console.log(response)
+				if(response.status == 1){
+					Utils.loaded();
+					Utils.toast(response.message)
+					this.init()
+				}else{
+					Utils.loaded();
+					Utils.toast(response.message)
+				}
+			},
 			viewlevel(type,id){
 				if(type == 'add'){
-					console.log('add')
 					uni.navigateTo({
 						url:'/pages/shop/leveldetail'
 					})
 				}else{
-					console.log(id)
 					uni.navigateTo({
 						url:'/pages/shop/leveldetail?id='+id
 					})

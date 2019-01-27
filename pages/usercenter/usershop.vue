@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-		<view class="shop_submit" @click="updateInfo">
+		<view class="shop_submit" @click="save">
 			保存
 		</view>
     </div>
@@ -68,11 +68,22 @@ export default {
         }
     },
     methods: {
-        init() {
+        async init() {
             let _this = this;
-            _this.nickname = _this.userInfo.nickname;
-            _this.mobile = _this.userInfo.mobile;
-			// _this.shopname = _this.userInfo.shopname
+			Utils.loading('正在加载');
+			let response = await api.getShop({uid:_this.userInfo.uid});
+			console.log(response)
+			if(response.status == 1){
+				Utils.loaded()
+				let data = response.data
+				_this.nickname = data.username
+				_this.mobile = data.mobile
+				_this.images = data.business_license
+				_this.shopname = data.business_title
+			}else{
+				Utils.loaded();
+				Utils.toast(response.message);
+			}
         },
         async getPhoneNumber(e) {
             let _this = this;
@@ -124,27 +135,30 @@ export default {
                 Utils.toast(response.message);
             }
         },
-        async updateInfo() {
+        async save() {
             let _this = this;
             Utils.loading('正在保存信息');
             let data = {
+				uid:_this.userInfo.uid,
                 username: _this.nickname,
                 mobile: _this.mobile,
 				business_title:_this.shopname,
 				business_license:_this.images
             };
-            console.log(data);
             let response = await api.addShop(data);
-			console.log(response)
-//             if (response.status == 1) {
-//                 _this.$store.commit('set_userInfo', response.data.userInfo);
-//                 _this.$store.commit('set_token', response.data.token);
-//                 Utils.loaded();
-//                 Utils.success(response.message);
-//             } else {
-//                 Utils.loaded();
-//                 Utils.toast(response.message);
-//             }
+            if (response.status == 1) {
+                Utils.loaded();
+                Utils.success(response.message);
+				setTimeout(() => {
+					uni.navigateBack({
+						delta:1
+					})
+				},2000)
+				
+            } else {
+                Utils.loaded();
+                Utils.toast(response.message);
+            }
         }
 
     },

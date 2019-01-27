@@ -185,8 +185,18 @@
 		},
 		methods:{
 			async init(){
-				console.log('123')
-				console.log(this.userInfo)
+				Utils.loading('正在加载')
+				let response = await api.initIdentify({uid:this.userInfo.uid})
+				console.log(response)
+				
+				if(response.status == 1){
+					Utils.loaded()
+					let data = response.data;
+					this.$store.commit('set_userInfo', data);
+					this.userInfo = data
+				}
+				
+				
 				if(this.userInfo.identity == 1){
 					if(!this.is_show){
 						uni.showTabBar({

@@ -5,11 +5,11 @@
 				基本信息
 			</view>
 			<view class="level_info">
-				<view class="item_info">
+				<view class="item_info" style="height:120rpx">
 					<view class="item_label">
 						等级图片
 					</view>
-					<view class="item_input">
+					<view class="item_input" @click="uploadLevelIcon">
 						<image v-if="level_pic" class="icon_input" :src="level_pic" mode=""></image>
 						<image v-else class="icon_input" src="../../static/images/icon_default.png" mode="" @click="uploadimg"></image>
 					</view>
@@ -80,6 +80,7 @@
 		},
 		data() {
 			return {
+				id:'',
 				level_name:'',
 				level_desc:'',
 				level_pic:'',
@@ -89,9 +90,31 @@
 			};
 		},
 		methods:{
-			async init(){
-				console.log('123')
-				console.log(this.userInfo)
+			async init(id){
+				let _this = this
+				_this.id = id
+				let data = {
+					id:id
+				}
+				if(id){
+					Utils.loading('正在加载');
+					let response = await api.editLevel(data);
+					console.log(response);
+					if(response.status == 1){
+						Utils.loaded();
+						let data = response.data;
+						_this.images = data.detail_photo ? JSON.parse(data.detail_photo) : []
+						_this.level_name = data.grade_title
+						_this.level_pic = data.grade_photo
+						_this.level_desc = data.description
+						_this.signnum = data.sign_time
+						_this.mission_content = data.detail
+					} else {
+						Utils.loaded();
+						Utils.toast(response.message);
+					}
+				}
+				
 			},
 			async uploadimg(){
 				let _this = this;
@@ -110,12 +133,59 @@
 					}
 				}
 				Utils.loaded();
+			},
+			async uploadLevelIcon(){
+				let _this = this;
+				const tempFilePaths = await Utils.chooseImage(1);
+				const pictures = tempFilePaths.map(item => {
+					return {
+						url: item
+					}
+				});
+				Utils.loading();
+				for (let key in pictures) {
+				    let result = await Utils.uploader(pictures[key].url);
+				    console.log(result);
+					if(result.status == 1){
+						_this.level_pic = result.data.url
+					}
+				}
+				Utils.loaded();
+			},
+			async save() {
+			    let _this = this;
+			    Utils.loading('正在保存信息');
+			    let data = {
+					id:_this.id,
+			        grade_photo: _this.level_pic,
+			        grade_title: _this.level_name,
+					description:_this.level_desc,
+					sign_time:_this.signnum,
+					detail:_this.mission_content,
+					detail_photo:_this.images
+			    };
+			    let response = await api.addLevel(data);
+			    if (response.status == 1) {
+			        Utils.loaded();
+			        Utils.success(response.message);
+					setTimeout(() => {
+						uni.navigateTo({
+							url:'/pages/shop/level'
+						})
+					},1500)
+					
+			    } else {
+			        Utils.loaded();
+			        Utils.toast(response.message);
+			    }
 			}
+			
 		},
-		onShow(){
+		onLoad(option) {
 			let _this = this
+			let levelId = option.id
 			if(!_this.shouldLogin){
-				_this.init()
+				_this.init(levelId)
 			}
 		}
 	}

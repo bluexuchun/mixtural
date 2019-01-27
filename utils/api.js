@@ -6,11 +6,14 @@ const api = {
         token: token,
         rawData: rawData
     }),
-	addShop: (username,mobile,business_title,business_license) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=enter&do=hold',{
-		username:username,
-		mobile:mobile,
-		business_title:business_title,
-		business_license:business_license
+	addShop: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=enter&do=hold',{
+		...data
+	}),
+	getShop:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=enter&do=edit',{
+		...data
+	}),
+	initIdentify:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=member&a=member&do=userinfo',{
+		...data
 	}),
     login: (rawData, code) => request.get(baseUrlApi + '/api.php?entry=app&c=normal&a=mina&do=login', {
         rawData: rawData,
@@ -18,6 +21,18 @@ const api = {
         lng: stores.state.app.location.lng,
         lat: stores.state.app.location.lat
     }),
+	editLevel: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=task&do=edit',{
+		...data
+	}),
+	getLevel: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=tasklist&do=display',{
+		...data
+	}),
+	addLevel: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=task&do=hold',{
+		...data
+	}),
+	deleteLevel: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=task&do=delete',{
+		...data
+	}),
     getBanners: () => request.get(baseUrlApi + '/api.php?entry=app&c=home&a=index&do=getBanners', {
         token: stores.state.app.token
     }),
