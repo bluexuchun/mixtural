@@ -16,6 +16,9 @@
 					<view class="user_identify">
 						身份: {{userInfo.identity == 1 ? '用户' : userInfo.identity == 2 ? '店员' : '商户'}}
 					</view>
+					<view class="user_identify">
+						商家: {{business.business_title}}
+					</view>
 				</view>
 			</view>
 		</view>
@@ -26,7 +29,7 @@
 			<view class="user_progress">
 				<view class="progress_word">
 					<view class="progress_pword">
-						当前任务进度：<view class="progress_num">20%</view>
+						当前签到进度：<view class="progress_num">{{currect_speed}}%</view>
 					</view>
 					<!-- <view class="progress_more" @click="navigateto('missiondetail')">
 						查看详情
@@ -34,7 +37,7 @@
 					</view> -->
 				</view>
 				<view class="progress_box">
-					<view class="progress_line">
+					<view class="progress_line" :style="{width:currect_speed + '%'}">
 						
 					</view>
 				</view>
@@ -42,11 +45,11 @@
 			<!-- award -->
 			<view class="user_award">
 				<view class="award_word">
-					当前任务奖励
+					当前任务详情
 				</view>
 				<view class="award_more">
 					<view class="more_word" @click="navigateto('missiondetail')">
-						查看奖励
+						查看详情
 					</view>
 					<image class="more_icon" src="../../static/images/usercenter/more.png" mode="widthFix"></image>
 				</view>
@@ -160,34 +163,19 @@
 				indicatorDots: false,
 				autoplay: false,
 				duration: 500,
-				vipawardlist:[
-					{
-						id:1,
-						title:'VIP1',
-						desc:'VIP1的权益',
-						current:true
-					},
-					{
-						id:2,
-						title:'VIP2',
-						desc:'VIP2的权益',
-						current:false
-					},
-					{
-						id:3,
-						title:'VIP3',
-						desc:'VIP3的权益',
-						current:false
-					}
-				],
+				vipawardlist:[],
 				is_show:true,
+				bid:'',
+				business:{},
+				currect_grade:{},
+				currect_speed:'',
+				left_grade:''
 			};
 		},
 		methods:{
 			async init(){
 				Utils.loading('正在加载')
 				let response = await api.initIdentify({uid:this.userInfo.uid})
-				console.log(response)
 				
 				if(response.status == 1){
 					Utils.loaded()
@@ -215,6 +203,27 @@
 					})
 				}
 				
+				// 获取首页的信息
+				let data = {
+					uid:this.userInfo.uid,
+					bid:this.bid
+				}
+				let indexInfo = await api.getIndex(data)
+				
+				if(indexInfo.status == 1){
+					this.business = indexInfo.data.business
+					this.currect_grade = indexInfo.data.currect_grade
+					this.vipawardlist[0] = {
+						id:this.currect_grade.id,
+						title:this.currect_grade.grade_title,
+						desc:this.currect_grade.description,
+						current:true
+					}
+					this.currect_speed = indexInfo.data.currect_speed
+					this.left_grade = indexInfo.data.left_grade
+				}else{
+					Utils.toast(response.message)
+				}
 			},
 			navigateto(type){
 				console.log(type)
@@ -250,6 +259,16 @@
 			let _this = this
 			if(!_this.shouldLogin){
 				_this.init()
+			}
+		},
+		onLoad(options){
+			// 拿到扫码的bid值
+			let bid = options.bid
+			bid = 2
+			if(bid){
+				this.bid = bid
+			}else{
+				Utils.toast('请扫码进入小程序')
 			}
 		}
 	}

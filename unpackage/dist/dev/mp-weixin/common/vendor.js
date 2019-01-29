@@ -1229,6 +1229,9 @@ var api = {
       token: token,
       rawData: rawData });},
 
+  getIndex: function getIndex(data) {return _request.default.get(baseUrlApi + '/api.php?entry=app&c=task&a=member&do=sweep', _objectSpread({},
+    data));},
+
   addShop: function addShop(data) {return _request.default.get(baseUrlApi + '/api.php?entry=app&c=business&a=enter&do=hold', _objectSpread({},
     data));},
 

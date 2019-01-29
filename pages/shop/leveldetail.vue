@@ -16,7 +16,7 @@
 				</view>
 				<view class="item_info">
 					<view class="item_label">
-						等级名城
+						等级名城                                                                                  
 					</view>
 					<view class="item_input">
 						<input type="text" v-model="level_name" placeholder="请填写等级名称" />
@@ -30,6 +30,18 @@
 						<input type="text" v-model="level_desc" placeholder="请填写等级描述" />
 					</view>
 				</view>
+				<view class="item_info">
+					<view class="item_label">
+						等级排序
+					</view>
+					<view class="item_input">
+						<input type="text" v-model="displayorder" placeholder="请填写等级排序" />
+					</view>
+				</view>
+				<view class="item_tips">
+					温馨提示：等级排序与等级息息相关<br>如VIP1->等级排序为1,VIP2-等级排序为2
+				</view>
+				
 			</view>
 			<view class="level_t">
 				设置任务
@@ -84,6 +96,7 @@
 				level_name:'',
 				level_desc:'',
 				level_pic:'',
+				displayorder:'',
 				signnum:'',
 				mission_content:'',
 				images:[]
@@ -91,6 +104,7 @@
 		},
 		methods:{
 			async init(id){
+				console.log(this.userInfo)
 				let _this = this
 				_this.id = id
 				let data = {
@@ -156,13 +170,15 @@
 			    let _this = this;
 			    Utils.loading('正在保存信息');
 			    let data = {
+					bid:_this.userInfo.bid,
 					id:_this.id,
 			        grade_photo: _this.level_pic,
 			        grade_title: _this.level_name,
 					description:_this.level_desc,
 					sign_time:_this.signnum,
 					detail:_this.mission_content,
-					detail_photo:_this.images
+					detail_photo:_this.images,
+					displayorder:_this.displayorder
 			    };
 			    let response = await api.addLevel(data);
 			    if (response.status == 1) {

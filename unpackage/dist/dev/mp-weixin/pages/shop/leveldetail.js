@@ -178,6 +178,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 var _is = _interopRequireDefault(__webpack_require__(/*! is */ "../../../GitProject/mixtural/node_modules/is/index.js"));
 var _index = _interopRequireDefault(__webpack_require__(/*! @/utils/index */ "../../../GitProject/mixtural/utils/index.js"));
 var _api = _interopRequireDefault(__webpack_require__(/*! @/utils/api */ "../../../GitProject/mixtural/utils/api.js"));
@@ -199,6 +211,7 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
       level_name: '',
       level_desc: '',
       level_pic: '',
+      displayorder: '',
       signnum: '',
       mission_content: '',
       images: [] };
@@ -206,14 +219,15 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
   },
   methods: {
     init: function () {var _init = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(id) {var _this, data, response, _data;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                console.log(this.userInfo);
                 _this = this;
                 _this.id = id;
                 data = {
                   id: id };if (!
 
-                id) {_context.next = 10;break;}
-                _index.default.loading('正在加载');_context.next = 7;return (
-                  _api.default.editLevel(data));case 7:response = _context.sent;
+                id) {_context.next = 11;break;}
+                _index.default.loading('正在加载');_context.next = 8;return (
+                  _api.default.editLevel(data));case 8:response = _context.sent;
                 console.log(response);
                 if (response.status == 1) {
                   _index.default.loaded();
@@ -227,7 +241,7 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
                 } else {
                   _index.default.loaded();
                   _index.default.toast(response.message);
-                }case 10:case "end":return _context.stop();}}}, _callee, this);}));function init(_x) {return _init.apply(this, arguments);}return init;}(),
+                }case 11:case "end":return _context.stop();}}}, _callee, this);}));function init(_x) {return _init.apply(this, arguments);}return init;}(),
 
 
 
@@ -271,13 +285,15 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
                 _this = this;
                 _index.default.loading('正在保存信息');
                 data = {
+                  bid: _this.userInfo.bid,
                   id: _this.id,
                   grade_photo: _this.level_pic,
                   grade_title: _this.level_name,
                   description: _this.level_desc,
                   sign_time: _this.signnum,
                   detail: _this.mission_content,
-                  detail_photo: _this.images };_context4.next = 5;return (
+                  detail_photo: _this.images,
+                  displayorder: _this.displayorder };_context4.next = 5;return (
 
                   _api.default.addLevel(data));case 5:response = _context4.sent;
                 if (response.status == 1) {
@@ -425,7 +441,46 @@ var render = function() {
               }
             })
           ])
-        ])
+        ]),
+        _c("view", { staticClass: "item_info" }, [
+          _c("view", { staticClass: "item_label" }, [_vm._v("等级排序")]),
+          _c("view", { staticClass: "item_input" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.displayorder,
+                  expression: "displayorder"
+                }
+              ],
+              attrs: {
+                type: "text",
+                placeholder: "请填写等级排序",
+                eventid: "4ec20383-4"
+              },
+              domProps: { value: _vm.displayorder },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.displayorder = $event.target.value
+                }
+              }
+            })
+          ])
+        ]),
+        _c(
+          "view",
+          { staticClass: "item_tips" },
+          [
+            _vm._v("温馨提示：等级排序与等级息息相关"),
+            _c("br"),
+            _vm._v("如VIP1->等级排序为1,VIP2-等级排序为2")
+          ],
+          1
+        )
       ]),
       _c("view", { staticClass: "level_t" }, [_vm._v("设置任务")]),
       _c("view", { staticClass: "level_info" }, [
@@ -444,7 +499,7 @@ var render = function() {
               attrs: {
                 type: "text",
                 placeholder: "请填写签到次数",
-                eventid: "4ec20383-4"
+                eventid: "4ec20383-5"
               },
               domProps: { value: _vm.signnum },
               on: {
@@ -473,7 +528,7 @@ var render = function() {
               attrs: {
                 "placeholder-style": "color:#eaeaea",
                 placeholder: "输入任务详情的内容",
-                eventid: "4ec20383-5"
+                eventid: "4ec20383-6"
               },
               domProps: { value: _vm.mission_content },
               on: {
@@ -491,7 +546,7 @@ var render = function() {
             { staticClass: "container-header" },
             [
               _c("v-upload-image", {
-                attrs: { eventid: "4ec20383-6", mpcomid: "4ec20383-0" },
+                attrs: { eventid: "4ec20383-7", mpcomid: "4ec20383-0" },
                 model: {
                   value: _vm.images,
                   callback: function($$v) {
@@ -510,7 +565,7 @@ var render = function() {
       "view",
       {
         staticClass: "level_save",
-        attrs: { eventid: "4ec20383-7" },
+        attrs: { eventid: "4ec20383-8" },
         on: {
           click: function($event) {
             _vm.save()

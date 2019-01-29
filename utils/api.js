@@ -6,6 +6,9 @@ const api = {
         token: token,
         rawData: rawData
     }),
+	getIndex: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=task&a=member&do=sweep',{
+		...data
+	}),
 	addShop: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=enter&do=hold',{
 		...data
 	}),

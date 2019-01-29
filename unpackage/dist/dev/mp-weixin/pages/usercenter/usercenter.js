@@ -255,6 +255,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 var _is = _interopRequireDefault(__webpack_require__(/*! is */ "../../../GitProject/mixtural/node_modules/is/index.js"));
 var _index = _interopRequireDefault(__webpack_require__(/*! @/utils/index */ "../../../GitProject/mixtural/utils/index.js"));
 var _api = _interopRequireDefault(__webpack_require__(/*! @/utils/api */ "../../../GitProject/mixtural/utils/api.js"));
@@ -275,40 +278,25 @@ var _footer = _interopRequireDefault(__webpack_require__(/*! @/components/footer
       indicatorDots: false,
       autoplay: false,
       duration: 500,
-      vipawardlist: [
-      {
-        id: 1,
-        title: 'VIP1',
-        desc: 'VIP1的权益',
-        current: true },
-
-      {
-        id: 2,
-        title: 'VIP2',
-        desc: 'VIP2的权益',
-        current: false },
-
-      {
-        id: 3,
-        title: 'VIP3',
-        desc: 'VIP3的权益',
-        current: false }],
-
-
-      is_show: true };
+      vipawardlist: [],
+      is_show: true,
+      bid: '',
+      business: {},
+      currect_grade: {},
+      currect_speed: '',
+      left_grade: '' };
 
   },
   methods: {
-    init: function () {var _init = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var response, data;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+    init: function () {var _init = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var response, _data, data, indexInfo;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
                 _index.default.loading('正在加载');_context.next = 3;return (
                   _api.default.initIdentify({ uid: this.userInfo.uid }));case 3:response = _context.sent;
-                console.log(response);
 
                 if (response.status == 1) {
                   _index.default.loaded();
-                  data = response.data;
-                  this.$store.commit('set_userInfo', data);
-                  this.userInfo = data;
+                  _data = response.data;
+                  this.$store.commit('set_userInfo', _data);
+                  this.userInfo = _data;
                 }
 
 
@@ -328,8 +316,29 @@ var _footer = _interopRequireDefault(__webpack_require__(/*! @/components/footer
                   uni.hideTabBar({});
 
 
-                }case 7:case "end":return _context.stop();}}}, _callee, this);}));function init() {return _init.apply(this, arguments);}return init;}(),
+                }
 
+                // 获取首页的信息
+                data = {
+                  uid: this.userInfo.uid,
+                  bid: this.bid };_context.next = 9;return (
+
+                  _api.default.getIndex(data));case 9:indexInfo = _context.sent;
+
+                if (indexInfo.status == 1) {
+                  this.business = indexInfo.data.business;
+                  this.currect_grade = indexInfo.data.currect_grade;
+                  this.vipawardlist[0] = {
+                    id: this.currect_grade.id,
+                    title: this.currect_grade.grade_title,
+                    desc: this.currect_grade.description,
+                    current: true };
+
+                  this.currect_speed = indexInfo.data.currect_speed;
+                  this.left_grade = indexInfo.data.left_grade;
+                } else {
+                  _index.default.toast(response.message);
+                }case 11:case "end":return _context.stop();}}}, _callee, this);}));function init() {return _init.apply(this, arguments);}return init;}(),
 
     navigateto: function navigateto(type) {
       console.log(type);
@@ -365,6 +374,16 @@ var _footer = _interopRequireDefault(__webpack_require__(/*! @/components/footer
     var _this = this;
     if (!_this.shouldLogin) {
       _this.init();
+    }
+  },
+  onLoad: function onLoad(options) {
+    // 拿到扫码的bid值
+    var bid = options.bid;
+    bid = 2;
+    if (bid) {
+      this.bid = bid;
+    } else {
+      _index.default.toast('请扫码进入小程序');
     }
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
@@ -422,15 +441,33 @@ var render = function() {
                       : "商户"
                 )
             )
+          ]),
+          _c("view", { staticClass: "user_identify" }, [
+            _vm._v("商家: " + _vm._s(_vm.business.business_title))
           ])
         ])
       ])
     ]),
     _vm.userInfo.identity == 1
       ? _c("view", { staticClass: "user_mission" }, [
-          _vm._m(1),
+          _c("view", { staticClass: "user_progress" }, [
+            _c("view", { staticClass: "progress_word" }, [
+              _c("view", { staticClass: "progress_pword" }, [
+                _vm._v("当前签到进度："),
+                _c("view", { staticClass: "progress_num" }, [
+                  _vm._v(_vm._s(_vm.currect_speed) + "%")
+                ])
+              ])
+            ]),
+            _c("view", { staticClass: "progress_box" }, [
+              _c("view", {
+                staticClass: "progress_line",
+                style: { width: _vm.currect_speed + "%" }
+              })
+            ])
+          ]),
           _c("view", { staticClass: "user_award" }, [
-            _c("view", { staticClass: "award_word" }, [_vm._v("当前任务奖励")]),
+            _c("view", { staticClass: "award_word" }, [_vm._v("当前任务详情")]),
             _c("view", { staticClass: "award_more" }, [
               _c(
                 "view",
@@ -443,7 +480,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("查看奖励")]
+                [_vm._v("查看详情")]
               ),
               _c("image", {
                 staticClass: "more_icon",
@@ -534,7 +571,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._m(2), _vm._m(3)]
+              [_vm._m(1), _vm._m(2)]
             ),
             _c(
               "view",
@@ -547,7 +584,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._m(4), _vm._m(5)]
+              [_vm._m(3), _vm._m(4)]
             ),
             _c(
               "view",
@@ -560,7 +597,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._m(6), _vm._m(7)]
+              [_vm._m(5), _vm._m(6)]
             ),
             _c(
               "view",
@@ -573,7 +610,7 @@ var render = function() {
                   }
                 }
               },
-              [_vm._m(8), _vm._m(9)]
+              [_vm._m(7), _vm._m(8)]
             )
           ])
         : _vm._e(),
@@ -621,22 +658,6 @@ var staticRenderFns = [
         staticClass: "icon_setting",
         attrs: { src: "../../static/images/usercenter/setting.png", mode: "" }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "user_progress" }, [
-      _c("view", { staticClass: "progress_word" }, [
-        _c("view", { staticClass: "progress_pword" }, [
-          _vm._v("当前任务进度："),
-          _c("view", { staticClass: "progress_num" }, [_vm._v("20%")])
-        ])
-      ]),
-      _c("view", { staticClass: "progress_box" }, [
-        _c("view", { staticClass: "progress_line" })
-      ])
     ])
   },
   function() {
