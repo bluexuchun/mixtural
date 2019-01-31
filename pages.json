@@ -2,6 +2,13 @@
     "pages": [
         //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+		    "path": "pages/usercenter/usercenter",
+		    "style": {
+				"navigationBarTextStyle":"white",
+		        "navigationBarTitleText": "首页",
+				"navigationBarBackgroundColor": "#FFDB4D"
+		    }
+		},{
             "path": "pages/home/index",
             "style": {
                 "navigationBarTitleText": "首页",
@@ -49,13 +56,6 @@
                 "navigationBarTitleText": "图片裁剪"
             }
         },{
-		    "path": "pages/usercenter/usercenter",
-		    "style": {
-				"navigationBarTextStyle":"white",
-		        "navigationBarTitleText": "首页",
-				"navigationBarBackgroundColor": "#FFDB4D"
-		    }
-		},{
 		    "path": "pages/usercenter/mine",
 		    "style": {
 				"navigationBarTextStyle":"white",

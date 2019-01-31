@@ -25,7 +25,7 @@
 				        收货地址
 				    </div>
 				    <div class="function-item-right">
-				        <input type="text" placeholder="请填写昵称" v-model="address" class="txt" />
+				        <input type="text" style="width:100%" placeholder="请选择收获地址" v-model="address" @click="getAddress" class="txt" readonly/>
 				        <span class="iconfont icon-right"></span>
 				    </div>
 				</div>
@@ -62,7 +62,8 @@ export default {
             let _this = this;
             _this.realname = _this.userInfo.realname;
             _this.mobile = _this.userInfo.mobile;
-			_this.address = _this.userInfo.address;
+			let addressDetail = uni.getStorageSync("addressSh")
+			_this.address = addressDetail;
         },
         
         async getPhoneNumber(e) {
@@ -89,14 +90,14 @@ export default {
 		getAddress(){
 			uni.chooseAddress({
 				success(res) {
-					console.log(res.userName)
-					console.log(res.postalCode)
-					console.log(res.provinceName)
-					console.log(res.cityName)
-					console.log(res.countyName)
-					console.log(res.detailInfo)
-					console.log(res.nationalCode)
-					console.log(res.telNumber)
+					let addressDetail = res.cityName + res.countyName + res.detailInfo
+					this.address = addressDetail
+					let addressInfo = {
+						username:res.userName,
+						address:addressDetail,
+						telNumber:res.telNumber
+					}
+					uni.setStorageSync("addressSh",addressInfo)
 				}
 			})
 		},

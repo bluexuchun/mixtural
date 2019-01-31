@@ -58,7 +58,6 @@
 						<textarea v-model="mission_award" placeholder-style="color:#eaeaea" placeholder="输入该等级的福利"/>
 					</view>
 				</view>
-				
 			</view>
 			<view class="level_t">
 				设置任务
@@ -71,6 +70,17 @@
 					<view class="item_input">
 						<input type="text" v-model="signnum" placeholder="请填写签到次数" />
 					</view>
+				</view>
+				<view class="item_infospe">
+					<view class="item_label">
+						任务规则/步骤
+					</view>
+					<view class="item_inputspe">
+						<textarea v-model="mission_rule" placeholder-style="color:#eaeaea" placeholder="输入任务规则/步骤"/>
+					</view>
+					<div class="container-header">
+					    <v-upload-image v-model="ruleimages"></v-upload-image>
+					</div>
 				</view>
 				<view class="item_infospe">
 					<view class="item_label">
@@ -118,7 +128,9 @@
 				signnum:'',
 				mission_content:'',
 				mission_award:'',
-				images:[]
+				mission_rule:'',
+				images:[],
+				ruleimages:[]
 			};
 		},
 		methods:{
@@ -145,6 +157,8 @@
 						_this.mission_content = data.detail
 						_this.mission_award = data.award
 						_this.displayorder = data.displayorder
+						_this.mission_rule = data.task_rules
+						_this.ruleimages = data.rules_photo ? JSON.parse(data.rules_photo) : []
 					} else {
 						Utils.loaded();
 						Utils.toast(response.message);
@@ -202,7 +216,9 @@
 					detail:_this.mission_content,
 					detail_photo:_this.images,
 					displayorder:_this.displayorder,
-					award:_this.mission_award
+					award:_this.mission_award,
+					task_rules:_this.mission_rule,
+					rules_photo:_this.ruleimages
 			    };
 			    let response = await api.addLevel(data);
 			    if (response.status == 1) {

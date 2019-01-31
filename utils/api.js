@@ -10,6 +10,10 @@ const api = {
 	actionSign: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=task&a=sign&do=sign',{
 		...data
 	}),
+	// 完成任务
+	finishMission: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=code&do=taskcode',{
+		...data
+	}),
 	// 获取任务详情
 	getMission: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=task&a=member&do=detail',{
 		...data

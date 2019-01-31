@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/usercenter/usercenter",
     "pages/home/index",
     "pages/home/login",
     "pages/product/detail",
@@ -9,7 +10,6 @@
     "pages/address/location",
     "pages/lottery/publish",
     "pages/lottery/cutInside",
-    "pages/usercenter/usercenter",
     "pages/usercenter/mine",
     "pages/usercenter/useredit",
     "pages/usercenter/usershop",
@@ -45,5 +45,10 @@
         "text": "我的"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "发货"
+    }
   }
 }

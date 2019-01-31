@@ -94,7 +94,7 @@ export default {
             _this.$store.commit('set_userInfo', loginData.data.userInfo);
             console.log(_this.token, _this.userInfo);
             uni.navigateBack({
-				delta:1
+				delta:2
 			});
         },
         showProtocol() {

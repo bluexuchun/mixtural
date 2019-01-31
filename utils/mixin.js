@@ -14,17 +14,17 @@ const mixin = {
         }
     },
     onLoad() {
-        let _this = this;
-        if (is.empty(stores.state.app.token) || is.empty(stores.state.app.userInfo) || is.empty(stores.state.app.userInfo.nickname) || is.empty(stores.state.app.userInfo.avatar) || is.empty(stores.state.app.userInfo.gender)) {
-            console.log('需要更新信息');
-            _this.shouldLogin = true;
-            uni.navigateTo({
-                url: '/pages/home/login'
-            });
-        } else {
-            _this.shouldLogin = false;
-            console.log('不需要更新信息');
-        }
+//         let _this = this;
+//         if (is.empty(stores.state.app.token) || is.empty(stores.state.app.userInfo) || is.empty(stores.state.app.userInfo.nickname) || is.empty(stores.state.app.userInfo.avatar) || is.empty(stores.state.app.userInfo.gender)) {
+//             console.log('需要更新信息');
+//             _this.shouldLogin = true;
+//             uni.navigateTo({
+//                 url: '/pages/home/login'
+//             });
+//         } else {
+//             _this.shouldLogin = false;
+//             console.log('不需要更新信息');
+//         }
     },
     onShow() {
         let _this = this;

@@ -248,7 +248,7 @@
 					}
 					this.currect_speed = indexInfo.data.currect_speed
 					this.left_grade = indexInfo.data.left_grade
-					this.currect_total = indexInfo.data.currect_total
+					this.currect_total = indexInfo.data.currect_total || 0
 					this.nosign = this.currect_grade.sign_time - this.currect_total
 				}else{
 					Utils.toast(response.message)

@@ -54,6 +54,11 @@
             "es6" : true,
             "minified" : true,
             "postcss" : true
+        },
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "发货"
+            }
         }
     }
 }
