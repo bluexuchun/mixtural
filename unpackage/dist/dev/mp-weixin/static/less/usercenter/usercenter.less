@@ -156,12 +156,16 @@
 		}
 		.vipdetail{
 			width:100%;
-			height:300rpx;
+			min-height:350rpx;
 			padding:10rpx 0rpx;
 			font-size:24rpx;
 			color:#666;
+			.swiper{
+				height:350rpx;
+			}
 			.vip-box{
 				width:100%;
+				height:100%;
 				box-sizing: border-box;
 				padding:16rpx 40rpx;
 				.vipboxhid{
@@ -172,31 +176,53 @@
 				}
 				.vipbox{
 					width:100%;
-					height:260rpx;
+					height:300rpx;
 					box-sizing: border-box;
 					padding:10rpx 20rpx;
 					box-shadow: 0px 1px 8px rgba(0,0,0,0.6);
 					border-radius: 10px;
 					background: #ffffff;
 					position:relative;
-					.vipbox-head{
+					.vipbox-bg{
 						width:100%;
+						height:100%;
+						position: absolute;
+						top:0px;
+						left:0px;
+						border-radius: 10px;
+					}
+					.vipbox-logo{
+						width:50rpx;
+						border-radius: 50%;
+						margin-right:16rpx;
+					}
+					.vipbox-head{
+						width:50%;
 						height:20%;
 						display: flex;
 						flex-direction: row;
-						justify-content: center;
+						justify-content: flex-start;
 						align-items: center;
 						font-size: 28rpx;
-						color:#000;
+						color:#fff;
+						position: absolute;
+						top:20rpx;
+						left:20rpx;
 					}
 					.vipbox-content{
 						width:100%;
-						height:80%;
+						height:100%;
 						font-size: 26rpx;
-						color:#999;
+						color:#fff;
 						box-sizing: border-box;
-						padding: 14rpx 0rpx;
-						
+						padding: 58rpx 40rpx;
+						position: absolute;
+						top:0px;
+						left:0px;
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						justify-content: center;
 					}
 				}
 			}
@@ -261,12 +287,11 @@
 	z-index:999;
 	.model{
 		width:80%;
-		height:60%;
 		background: #ffffff;
 		border-radius:8px;
 		.model_head{
 			width:100%;
-			height:17%;
+			height:60rpx;
 			box-sizing: border-box;
 			padding:0rpx 14rpx;
 			display: flex;
@@ -276,6 +301,10 @@
 			text-align: center;
 			position: relative;
 			font-size:28rpx;
+			background: #FFDB4D;
+			border-top-left-radius: 8px;
+			border-top-right-radius: 8px;
+			color:#fff;
 			.icon_close{
 				width:40rpx;
 				height:40rpx;
@@ -284,24 +313,77 @@
 				margin-top:-20rpx;
 				right:18rpx;
 			}
+			
 		}
 		.model_content{
 			width:100%;
-			height:70%;
 			box-sizing: border-box;
-			padding:10rpx 20rpx;
+			padding:0rpx 30rpx 10rpx;
+			background: #FFDB4D;
+			color:#fff;
+			.content_head{
+				width:100%;
+				text-align: center;
+				padding:8rpx 0rpx;
+			}
+			.content_sign{
+				width:100%;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				padding:15rpx 0rpx;
+			}
+			.sign_item{
+				width:22%;
+				height:140rpx;
+				background: #fff;
+				margin-right:4%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				margin-top:10rpx;
+				margin-bottom:10rpx;
+				border-radius: 8px;
+				color:#FFDB4D;
+				.item_icon{
+					width:40rpx;
+					margin-top:8rpx;
+				}
+			}
+				
+			.sign_active{
+				background: #289ffa;
+				color:#fff;
+			}
+			.sign_item:nth-child(4n){
+				margin-right:0px;
+			}
+		}
+			
+		.model_word{
+			width:100%;
+			background: #fff;
+			text-align: center;
+			padding:16rpx 0rpx 20rpx;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			border-bottom-left-radius: 8px;
+			border-bottom-right-radius: 8px;
 		}
 		.model_confirm{
-			width:100%;
-			height:13%;
+			width:160rpx;
+			height:60rpx;
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
-			background: #FFDB4D;
-			color:#fff;
-			border-bottom-left-radius: 8px;
-			border-bottom-right-radius: 8px;
+			background: #fff;
+			border:1px solid #FFDB4D;
+			border-radius: 25px;
+			color:#FFDB4D;
+			margin-top:8rpx;
 		}
 	}
 }

@@ -3,14 +3,18 @@
 		<!-- 各个vip -->
 		<view class="vipwallet">
 			<view class="vipcurrent">
-				您目前的VIP等级为VIP1
+				您目前的等级为{{missionList[currentid].title}}
 			</view>
-            <swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :duration="duration" @change="changeVip">
+            <swiper class="swiper vipdetail-box" :indicator-dots="indicatorDots" :autoplay="autoplay" :duration="duration" :current="currenid" @change="changeVip">
                 <swiper-item v-for="(item,itemindex) in missionList" :key="itemindex">
                     <view class="vip-box">
-						<view class="vipbox">
+                    	<view class="vipbox">
+							<image class="vipbox-bg" :src="item.bg"></image>
 							<view class="vipbox-head">
-								{{item.title}}
+								<image class="vipbox-logo" :src="item.photo" mode="widthFix"></image>
+								<view>
+									{{item.title}}
+								</view>  
 							</view>
 							<view class="vipbox-content">
 								{{item.desc}}
@@ -23,32 +27,17 @@
 		
 		<!-- vip card -->
 		<view class="vipinfo">
-			<view class="vipinfo_head">
+			<view class="vipinfo_head" v-if="missionList[currenid].title">
 				{{missionList[currenid].title}}
 			</view>
 			<view class="vipinfo_content">
-				{{missionList[currenid].desc}}
+				{{missionList[currenid].award}}
 			</view>
 		</view>
 		<view class="vip_missionbtn" @click="navigateto('missiondetail')">
 			去做任务
 		</view>
 		
-		<!-- 任务规则 -->
-		<view class="model_back" v-if="is_show">
-			<view class="model">
-				<view class="model_head">
-					任务规则/步骤
-					<image @click="showModel" class="icon_close" src="../../static/images/icon_close.png" mode="widthFix"></image>
-				</view>
-				<view class="model_content">
-					任务规则/步骤任务规则/步骤任务规则/步骤任务规则/步骤任务规则/步骤
-				</view>
-				<view class="model_confirm" @click="showModel">
-					确定
-				</view>
-			</view>
-		</view>
 	</view>
 </template>
 
@@ -70,33 +59,45 @@
 				autoplay: false,
 				duration: 500,
 				is_show:false,
+				// swiper变动的id值
 				currenid:0,
-				missionList:[
-					{
-						id:1,
-						title:'VIP1',
-						desc:'权益描述VIP1',
-						current:true
-					},
-					{
-						id:2,
-						title:'VIP2',
-						desc:'权益描述VIP2',
-						current:false
-					},
-					{
-						id:3,
-						title:'VIP3',
-						desc:'权益描述VIP3',
-						current:false
-					}
-				]
+				missionList:[{
+					title:'',
+					award:''
+				}],
+				// 从首页传来的当前等级的id
+				current_id:0,
+				// 当前等级的id
+				currentid:0
 			};
 		},
 		methods:{
 			async init(){
-				console.log('123')
-				console.log(this.userInfo)
+				let bid = uni.getStorageSync("bid");
+				console.log(bid)
+				Utils.loading('加载中')
+				let levelList = await api.getAlltask({bid:bid})
+				console.log(levelList)
+				if(levelList.status == 1){
+					Utils.loaded()
+					let list = []
+					levelList.data.map((v,i) => {
+						if(v.id == this.current_id){
+							this.currenid = i
+							this.currentid = i
+						}
+						list.push({
+							title:v.grade_title,
+							desc:v.description,
+							bg:v.grade_bg,
+							photo:v.grade_photo,
+							award:v.award
+						})
+					})
+					this.missionList = list
+				}else{
+					Utils.error(levelList.message)
+				}
 			},
 			showModel(){
 				let isshow = this.is_show
@@ -111,6 +112,7 @@
 			changeVip(e) {
 				let vipid = e.detail.current
 				this.currenid = vipid
+				console.log(this.missionList[this.currenid].title)
 			},
 			navigateto(type){
 				console.log(type)
@@ -125,7 +127,12 @@
 			if(!_this.shouldLogin){
 				_this.init()
 			}
+		},
+		onLoad(options){
+			let currentid = options.id;
+			this.current_id = currentid
 		}
+		
 	}
 </script>
 

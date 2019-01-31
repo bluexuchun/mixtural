@@ -289,7 +289,7 @@ export default {
     padding-bottom: 10rpx;
     z-index: 1000;
     &-sort {
-        width: 750rpx;
+        width: 100%;
         min-height: 185rpx;
         &-item {
             display: inline-block;
@@ -335,7 +335,7 @@ export default {
 .delete {
     position: fixed;
     bottom: 0;
-    width: 750rpx;
+    width: 100%;
     height: 80rpx;
     z-index: 1000;
     background-color: #D85F58;

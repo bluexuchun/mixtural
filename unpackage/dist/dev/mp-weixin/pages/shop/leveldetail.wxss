@@ -124,6 +124,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 14rpx 26rpx;
+  border-bottom: 1px solid #eaeaea;
 }
 .level_basic .level_info .item_info:last-child {
   border-bottom: none;

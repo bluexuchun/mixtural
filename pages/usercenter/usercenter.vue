@@ -57,14 +57,16 @@
 			<!-- vip -->
 			<view class="user_vip">
 				<view class="viplevel">
-					VIP等级：vip1
+					当前等级：{{currect_grade.grade_title}}
 				</view>
 				<view class="vipdetail">
 					<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :duration="duration" @change="changeVip">
 					    <swiper-item v-for="(item,itemindex) in vipawardlist" :key="itemindex">
 					        <view class="vip-box">
 								<view class="vipbox">
+									<image class="vipbox-bg" :src="item.bg" mode="widthFix"></image>
 									<view class="vipbox-head">
+										<image class="vipbox-logo" :src="item.photo" mode="widthFix"></image>
 										{{item.title}}
 									</view>
 									<view class="vipbox-content">
@@ -75,7 +77,7 @@
 					    </swiper-item>
 					</swiper>
 				</view>
-				<view class="vipmore" @click="navigateto('vipdetail')">
+				<view class="vipmore" @click="navigateto('vipdetail',currect_grade.id)">
 					点击查看所有VIP等级与福利
 					<image class="more_icon" src="../../static/images/usercenter/more.png" mode="widthFix"></image>
 				</view>
@@ -122,18 +124,37 @@
 			</view>
 		</view>
 		
-		<!-- 任务规则 -->
+		<!-- 签到提示 -->
 		<view class="model_back" v-if="is_show">
 			<view class="model">
 				<view class="model_head">
-					任务规则/步骤
+					签到
 					<image @click="showModel" class="icon_close" src="../../static/images/icon_close.png" mode="widthFix"></image>
 				</view>
 				<view class="model_content">
-					任务规则/步骤任务规则/步骤任务规则/步骤任务规则/步骤任务规则/步骤
+					<view class="content_head">
+						您已连续签到{{currect_total}}天
+					</view>
+					<view class="content_sign">
+						<view v-for="aindex in currect_total" class="sign_item sign_active">
+							<view class="item_title">
+								第{{aindex + 1}}天
+							</view>
+							<image class="item_icon" src="../../static/images/usercenter/gou.png" mode="widthFix"></image>
+						</view>
+						<view v-for="nindex in nosign" class="sign_item">
+							<view class="item_title">
+								第{{currect_total + nindex + 1}}天
+							</view>
+							<image class="item_icon" src="../../static/images/usercenter/star_active.png" mode="widthFix"></image>
+						</view>
+					</view>
 				</view>
-				<view class="model_confirm" @click="showModel">
-					确定
+				<view class="model_word">
+					明天继续保持噢
+					<view class="model_confirm" @click="showModel">
+						确定
+					</view>
 				</view>
 			</view>
 		</view>
@@ -169,7 +190,9 @@
 				business:{},
 				currect_grade:{},
 				currect_speed:'',
-				left_grade:''
+				left_grade:'',
+				currect_total:0,
+				nosign:0
 			};
 		},
 		methods:{
@@ -177,8 +200,10 @@
 				Utils.loading('正在加载')
 				let response = await api.initIdentify({uid:this.userInfo.uid})
 				
+				console.log(response)
 				if(response.status == 1){
 					Utils.loaded()
+					console.log('123')
 					let data = response.data;
 					this.$store.commit('set_userInfo', data);
 					this.userInfo = data
@@ -217,19 +242,28 @@
 						id:this.currect_grade.id,
 						title:this.currect_grade.grade_title,
 						desc:this.currect_grade.description,
+						photo:this.currect_grade.grade_photo,
+						bg:this.currect_grade.grade_bg,
 						current:true
 					}
 					this.currect_speed = indexInfo.data.currect_speed
 					this.left_grade = indexInfo.data.left_grade
+					this.currect_total = indexInfo.data.currect_total
+					this.nosign = this.currect_grade.sign_time - this.currect_total
 				}else{
 					Utils.toast(response.message)
 				}
 			},
-			navigateto(type){
-				console.log(type)
-				uni.navigateTo({
-					url:type
-				})
+			navigateto(type,params){
+				if(params){
+					uni.navigateTo({
+						url:type+'?id='+params
+					})
+				}else{
+					uni.navigateTo({
+						url:type
+					})
+				}
 			},
 			changeVip(e) {
 				let vipid = e.detail.current
@@ -267,6 +301,7 @@
 			bid = 2
 			if(bid){
 				this.bid = bid
+				uni.setStorageSync("bid",bid)
 			}else{
 				Utils.toast('请扫码进入小程序')
 			}

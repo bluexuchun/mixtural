@@ -92,13 +92,13 @@ export default class Utils {
             title: title,
             icon: icon,
             mask: true,
-            duration: 500
+            duration: 1500
         })
         // 隐藏结束回调
         if (onHide) {
             setTimeout(() => {
                 onHide()
-            }, 500)
+            }, 1000)
         }
     }
     /**
@@ -109,12 +109,12 @@ export default class Utils {
             title: title,
             image: '/static/images/alert.png',
             mask: true,
-            duration: 500
+            duration: 1500
         });
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve();
-            }, 500);
+            }, 1000);
         });
     }
     /**
@@ -125,13 +125,13 @@ export default class Utils {
             title: title,
             image: '/static/images/error.png',
             mask: true,
-            duration: 500
+            duration: 1500
         })
         // 隐藏结束回调
         if (onHide) {
             setTimeout(() => {
                 onHide()
-            }, 500)
+            }, 1000)
         }
     }
     /**

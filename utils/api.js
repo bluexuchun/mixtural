@@ -6,15 +6,31 @@ const api = {
         token: token,
         rawData: rawData
     }),
+	// 签到
+	actionSign: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=task&a=sign&do=sign',{
+		...data
+	}),
+	// 获取任务详情
+	getMission: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=task&a=member&do=detail',{
+		...data
+	}),
+	// 查看所有VIP等级和福利
+	getAlltask: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=tasklist&do=alltask',{
+		...data
+	}),
+	// 获取首页的所有信息
 	getIndex: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=task&a=member&do=sweep',{
 		...data
 	}),
+	// 商家入驻
 	addShop: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=enter&do=hold',{
 		...data
 	}),
+	// 编辑商家
 	getShop:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=enter&do=edit',{
 		...data
 	}),
+	// 用户编辑信息
 	initIdentify:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=member&a=member&do=userinfo',{
 		...data
 	}),
@@ -24,15 +40,19 @@ const api = {
         lng: stores.state.app.location.lng,
         lat: stores.state.app.location.lat
     }),
+	// 编辑任务
 	editLevel: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=task&do=edit',{
 		...data
 	}),
+	// 获取任务
 	getLevel: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=tasklist&do=display',{
 		...data
 	}),
+	// 添加任务
 	addLevel: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=task&do=hold',{
 		...data
 	}),
+	// 删除任务
 	deleteLevel: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=task&do=delete',{
 		...data
 	}),

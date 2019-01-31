@@ -11,12 +11,12 @@
 					</view>
 					<view class="item_input" @click="uploadLevelIcon">
 						<image v-if="level_pic" class="icon_input" :src="level_pic" mode=""></image>
-						<image v-else class="icon_input" src="../../static/images/icon_default.png" mode="" @click="uploadimg"></image>
+						<image v-else class="icon_input" src="../../static/images/icon_default.png" mode=""></image>
 					</view>
 				</view>
 				<view class="item_info">
 					<view class="item_label">
-						等级名城                                                                                  
+						等级名称                                                                              
 					</view>
 					<view class="item_input">
 						<input type="text" v-model="level_name" placeholder="请填写等级名称" />
@@ -30,6 +30,15 @@
 						<input type="text" v-model="level_desc" placeholder="请填写等级描述" />
 					</view>
 				</view>
+				<view class="item_info" style="height:150rpx">
+					<view class="item_label">
+						等级背景图(默认白色背景图)
+					</view>
+					<view class="item_input" @click="uploadimg">
+						<image style="width:200rpx;height:100rpx;box-shadow: 0px 2px 8px rgba(0,0,0,0.5);border-radius:6px;" v-if="level_bg" class="icon_input" :src="level_bg" mode=""></image>
+						<view v-else class="icon_input" style="width:200rpx;height:100rpx;box-shadow: 0px 2px 8px rgba(0,0,0,0.5);border-radius:6px;background: #fff;"></view>
+					</view>
+				</view>
 				<view class="item_info">
 					<view class="item_label">
 						等级排序
@@ -40,6 +49,14 @@
 				</view>
 				<view class="item_tips">
 					温馨提示：等级排序与等级息息相关<br>如VIP1->等级排序为1,VIP2-等级排序为2
+				</view>
+				<view class="item_infospe">
+					<view class="item_label">
+						等级福利
+					</view>
+					<view class="item_inputspe">
+						<textarea v-model="mission_award" placeholder-style="color:#eaeaea" placeholder="输入该等级的福利"/>
+					</view>
 				</view>
 				
 			</view>
@@ -96,9 +113,11 @@
 				level_name:'',
 				level_desc:'',
 				level_pic:'',
+				level_bg:'',
 				displayorder:'',
 				signnum:'',
 				mission_content:'',
+				mission_award:'',
 				images:[]
 			};
 		},
@@ -121,8 +140,11 @@
 						_this.level_name = data.grade_title
 						_this.level_pic = data.grade_photo
 						_this.level_desc = data.description
+						_this.level_bg = data.grade_bg
 						_this.signnum = data.sign_time
 						_this.mission_content = data.detail
+						_this.mission_award = data.award
+						_this.displayorder = data.displayorder
 					} else {
 						Utils.loaded();
 						Utils.toast(response.message);
@@ -143,7 +165,7 @@
 				    let result = await Utils.uploader(pictures[key].url);
 				    console.log(result);
 					if(result.status == 1){
-						_this.level_pic = result.data.url
+						_this.level_bg = result.data.url
 					}
 				}
 				Utils.loaded();
@@ -170,15 +192,17 @@
 			    let _this = this;
 			    Utils.loading('正在保存信息');
 			    let data = {
-					bid:_this.userInfo.bid,
+					bid:uni.getStorageSync("bid"),
 					id:_this.id,
 			        grade_photo: _this.level_pic,
 			        grade_title: _this.level_name,
+					grade_bg:_this.level_bg,
 					description:_this.level_desc,
 					sign_time:_this.signnum,
 					detail:_this.mission_content,
 					detail_photo:_this.images,
-					displayorder:_this.displayorder
+					displayorder:_this.displayorder,
+					award:_this.mission_award
 			    };
 			    let response = await api.addLevel(data);
 			    if (response.status == 1) {

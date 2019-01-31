@@ -66,10 +66,12 @@
 		methods:{
 			async init(){
 				let _this = this;
+				let bid = uni.getStorageSync("bid")
 				Utils.loading('正在加载');
 				//获取等级列表
 				let data = {
-					page : _this.page
+					page : _this.page,
+					bid:bid
 				};
 				let response = await api.getLevel(data);
 				console.log(response)

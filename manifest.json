@@ -48,10 +48,12 @@
     /* 快应用特有相关 */
     "mp-weixin" : {
         /* 小程序特有相关 */
-        "appid" : "wxfb90af0419c04d77",
+        "appid" : "wx05c64f43d10fad57",
         "setting" : {
             "urlCheck" : true,
-            "es6" : false
+            "es6" : true,
+            "minified" : true,
+            "postcss" : true
         }
     }
 }

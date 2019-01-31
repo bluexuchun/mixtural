@@ -93,7 +93,9 @@ export default {
             _this.$store.commit('set_token', loginData.data.token);
             _this.$store.commit('set_userInfo', loginData.data.userInfo);
             console.log(_this.token, _this.userInfo);
-            uni.navigateBack();
+            uni.navigateBack({
+				delta:1
+			});
         },
         showProtocol() {
             let _this = this;
