@@ -26,7 +26,7 @@
 				    </div>
 				    <div class="function-item-right">
 				        <input type="text" style="width:100%" placeholder="请选择收获地址" v-model="address" @click="getAddress" class="txt" readonly/>
-				        <span class="iconfont icon-right"></span>
+				        <span class="iconfont icon-right"A</span>
 				    </div>
 				</div>
             </div>
@@ -88,10 +88,11 @@ export default {
             });
         },
 		getAddress(){
+			let _this = this
 			uni.chooseAddress({
 				success(res) {
 					let addressDetail = res.cityName + res.countyName + res.detailInfo
-					this.address = addressDetail
+					_this.address = addressDetail
 					let addressInfo = {
 						username:res.userName,
 						address:addressDetail,
@@ -143,4 +144,4 @@ export default {
     },
 }
 </script>
-<style lang="less" src="../../static/less/user/profile.less" scoped></style>
+<style lang="less" src="../../static/less/usercenter/profile.less" scoped></style>

@@ -9,53 +9,11 @@
 				"navigationBarBackgroundColor": "#FFDB4D"
 		    }
 		},{
-            "path": "pages/home/index",
-            "style": {
-                "navigationBarTitleText": "首页",
-                "enablePullDownRefresh": true
-            }
-        }, {
             "path": "pages/home/login",
             "style": {
                 "navigationBarTitleText": "登录"
             }
         }, {
-            "path": "pages/product/detail",
-            "style": {
-                "navigationBarTitleText": "商品详情"
-            }
-        }, {
-            "path": "pages/address/list",
-            "style": {
-                "navigationBarTitleText": "地址列表",
-                "enablePullDownRefresh": true
-            }
-        }, {
-            "path": "pages/address/edit",
-            "style": {
-                "navigationBarTitleText": "编辑地址"
-            }
-        }, {
-            "path": "pages/address/city",
-            "style": {
-                "navigationBarTitleText": "选择城市"
-            }
-        }, {
-            "path": "pages/address/location",
-            "style": {
-                "navigationBarTitleText": "地址定位"
-            }
-        }, {
-            "path": "pages/lottery/publish",
-            "style": {
-                "navigationBarTitleText": "发布抽奖"
-            }
-        }, {
-            "path": "pages/lottery/cutInside",
-            "style": {
-                "navigationBarTitleText": "图片裁剪"
-            }
-        },{
 		    "path": "pages/usercenter/mine",
 		    "style": {
 				"navigationBarTextStyle":"white",
@@ -182,38 +140,6 @@
 		    "name": "我的", //模式名称
 		    "path": "pages/usercenter/mine",
 		    "query": "" //启动参数，在页面的onLoad函数里面得到。
-		},{
-            "name": "首页", //模式名称
-            "path": "pages/home/index", //启动页面，必选
-            "query": "" //启动参数，在页面的onLoad函数里面得到。
-        }, {
-            "name": "商品详情", //模式名称
-            "path": "pages/product/detail", //启动页面，必选
-            "query": "id=1" //启动参数，在页面的onLoad函数里面得到。
-        }, {
-            "name": "地址列表", //模式名称
-            "path": "pages/address/list", //启动页面，必选
-            "query": "" //启动参数，在页面的onLoad函数里面得到。
-        }, {
-            "name": "编辑地址", //模式名称
-            "path": "pages/address/edit", //启动页面，必选
-            "query": "" //启动参数，在页面的onLoad函数里面得到。
-        }, {
-            "name": "选择城市", //模式名称
-            "path": "pages/address/city", //启动页面，必选
-            "query": "" //启动参数，在页面的onLoad函数里面得到。
-        }, {
-            "name": "地址定位", //模式名称
-            "path": "pages/address/location", //启动页面，必选
-            "query": "" //启动参数，在页面的onLoad函数里面得到。
-        }, {
-            "name": "发布抽奖", //模式名称
-            "path": "pages/lottery/publish", //启动页面，必选
-            "query": "" //启动参数，在页面的onLoad函数里面得到。
-        }, {
-            "name": "图片裁剪", //模式名称
-            "path": "pages/lottery/cutInside",
-            "query": "" //启动参数，在页面的onLoad函数里面得到。
-        }]
+		}]
     }
 }

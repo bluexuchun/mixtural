@@ -1,3 +1,104 @@
+.footer.data-v-342b586f {
+  height: 80rpx;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  text-align: center;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top: 1rpx solid #ECECEB;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.footer .default.data-v-342b586f {
+  width: 100%;
+  height: 80rpx;
+  position: fixed;
+  padding: 0;
+  bottom: 0;
+  right: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.footer .default .navigator.data-v-342b586f {
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+}
+.footer .default .navigator .iconfont.data-v-342b586f {
+  font-size: 36rpx;
+}
+.footer .default .navigator .txt.data-v-342b586f {
+  font-size: 22rpx;
+  padding: 0;
+}
+.footer .active .iconfont.data-v-342b586f,
+.footer .active .txt.data-v-342b586f {
+  color: #ffd300 !important;
+}
+.footer .item-center.data-v-342b586f {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-box-align: flex-end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+      align-items: flex-end;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.footer .home.data-v-342b586f {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 6rpx;
+  bottom: 32rpx;
+  width: 78rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  text-align: center;
+  margin: auto;
+  border-radius: 50%;
+  border-top: 1rpx solid #ECECEB;
+}
+.footer .home .circle.data-v-342b586f {
+  width: 78rpx;
+  height: 78rpx;
+  line-height: 78rpx;
+  text-align: center;
+  border-radius: 50%;
+  background: #ffd300;
+}
+.footer .home .circle .iconfont.data-v-342b586f {
+  font-size: 40rpx;
+}
+.footer .cover.data-v-342b586f {
+  position: fixed;
+  bottom: 0;
+  width: 12%;
+  height: 135rpx;
+}
+
 .usercenter.data-v-136de142 {
   height: 100%;
   background-color: #fff;

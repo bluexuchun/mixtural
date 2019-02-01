@@ -82,54 +82,6 @@
           "query": "",
           "id": 8,
           "pathName": "pages/usercenter/mine"
-        },
-        {
-          "name": "首页",
-          "query": "",
-          "id": 9,
-          "pathName": "pages/home/index"
-        },
-        {
-          "name": "商品详情",
-          "query": "id=1",
-          "id": 10,
-          "pathName": "pages/product/detail"
-        },
-        {
-          "name": "地址列表",
-          "query": "",
-          "id": 11,
-          "pathName": "pages/address/list"
-        },
-        {
-          "name": "编辑地址",
-          "query": "",
-          "id": 12,
-          "pathName": "pages/address/edit"
-        },
-        {
-          "name": "选择城市",
-          "query": "",
-          "id": 13,
-          "pathName": "pages/address/city"
-        },
-        {
-          "name": "地址定位",
-          "query": "",
-          "id": 14,
-          "pathName": "pages/address/location"
-        },
-        {
-          "name": "发布抽奖",
-          "query": "",
-          "id": 15,
-          "pathName": "pages/lottery/publish"
-        },
-        {
-          "name": "图片裁剪",
-          "query": "",
-          "id": 16,
-          "pathName": "pages/lottery/cutInside"
         }
       ]
     }

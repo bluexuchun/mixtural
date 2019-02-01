@@ -207,6 +207,9 @@
 					let data = response.data;
 					this.$store.commit('set_userInfo', data);
 					this.userInfo = data
+				}else{
+					Utils.loaded()
+					Utils.toast(response.message)
 				}
 				
 				
