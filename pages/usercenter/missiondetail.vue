@@ -169,7 +169,8 @@
 				finisherror:false,
 				finishcode:false,
 				ewmcode:'',
-				rules_photo:[]
+				rules_photo:[],
+				codeid:0
 			};
 		},
 		methods:{
@@ -254,14 +255,43 @@
 						uid:this.userInfo.uid,
 						bid:this.bid
 					})
-					console.log(response)
 					if(response.status == 1){
 						// this.init()
 						this.ewmcode = response.data
 						this.finishcode = true
+						// 定时循环判断用户是否被扫成功 成功刷新
+						let time = setInterval(() => {
+							let code = this.getCode()
+							if(code == 1){
+								this.changeCode()
+								clearInterval(time)
+							}
+						},1000)
 					}
 				}else{
 					this.finisherror = true
+				}
+			},
+			
+			// 动态获取状态值
+			async getCode(){
+				let getStatus = await api.getCodeStatus({
+					uid:this.userInfo.uid,
+					bid:this.bid
+				})
+				let code = getStatus.data.code_status
+				this.codeid = getStatus.data.id
+				return code
+			},
+			
+			// 改变状态值
+			async changeCode(){
+				let changeResult = await api.changeCode({
+					current_id:this.codeid
+				})
+				if(changeResult.status == 1){
+					Utils.toast('完成任务！')
+					this.finishcode = false
 				}
 			}
 			

@@ -73,7 +73,7 @@
 		},{
 			"path": "pages/scan/scan",
 			"style": {
-				"navigationBarTextStyle":"white",
+				"navigationBarTextStyle":"black",
 			    "navigationBarTitleText": "扫码",
 				"navigationBarBackgroundColor": "#fff"
 			}

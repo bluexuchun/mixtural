@@ -6,8 +6,20 @@ const api = {
         token: token,
         rawData: rawData
     }),
+	// 获取二维码是否被核销
+	getCodeStatus:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=task&a=statusCode&do=gain',{
+		...data
+	}),
+	// 改变核销状态值
+	changeCode:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=task&a=statusCode&do=change',{
+		...data
+	}),
 	// 生成店员二维码
 	makeCode:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=code&do=clerkcode',{
+		...data
+	}),
+	//获取店员列表
+	getMemberList:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=clerklist&do=display',{
 		...data
 	}),
 	//添加店员
@@ -16,6 +28,10 @@ const api = {
 	}),
 	// 删除店员
 	deleteMember:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=clerk&do=del',{
+		...data
+	}),
+	// 提交任务
+	submitMission: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=task&a=sign&do=post',{
 		...data
 	}),
 	// 签到

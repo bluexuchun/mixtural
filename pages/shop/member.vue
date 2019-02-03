@@ -55,29 +55,7 @@
 		},
 		data() {
 			return {
-				memberlist:[
-					{
-						id:1,
-						member_title:'JustMyDream',
-						member_ava:'http://wq.centralsofts.cn/attachment/headimg_2.jpg?time=1548080876',
-						member_time:'2019-1-21'
-					},{
-						id:2,
-						member_title:'JustMyDream',
-						member_ava:'http://wq.centralsofts.cn/attachment/headimg_2.jpg?time=1548080876',
-						member_time:'2019-1-22'
-					},{
-						id:3,
-						member_title:'JustMyDream',
-						member_ava:'http://wq.centralsofts.cn/attachment/headimg_2.jpg?time=1548080876',
-						member_time:'2019-1-23'
-					},{
-						id:4,
-						member_title:'JustMyDream',
-						member_ava:'http://wq.centralsofts.cn/attachment/headimg_2.jpg?time=1548080876',
-						member_time:'2019-1-24'
-					}
-				],
+				memberlist:[],
 				is_show:false,
 				code:''
 			};
@@ -88,23 +66,58 @@
 				Utils.loading('正在加载')
 				let codeResult = await api.makeCode({bid:this.userInfo.bid})
 				if(codeResult.status == 1){
-					Utils.loaded()
 					this.code = codeResult.data
+				}
+				this.initMember()
+			},
+			// 获取店员列表
+			async initMember(){
+				let memberResult = await api.getMemberList({
+					bid:this.userInfo.bid
+				})
+				if(memberResult.status == 1){
+					Utils.loaded()
+					let memberList = []
+					let memberData = memberResult.data
+					memberData ? memberData.map((v,i) => {
+						memberList.push({
+							id:v.uid,
+							member_title:v.nickname,
+							member_ava:v.avatar,
+							member_time:v.createtime
+						})
+					}):[]
+					this.memberlist = memberList
+				}else{
+					Utils.toast(memberResult.message)
 				}
 			},
 			deleteMember(id){
-				console.log(id)
+				let _this = this
 				uni.showModal({
 					title: '提示',
 					content: '是否确认删除该店员？',
 					success: function (res) {
 						if (res.confirm) {
-							console.log('用户点击确定');
+							_this.deleteAction(id)
 						} else if (res.cancel) {
-							console.log('用户点击取消');
+							
 						}
 					}
 				});
+			},
+			async deleteAction(id){
+				Utils.loading('正在删除..')
+				let deleteResult = await api.deleteMember({
+					uid:id
+				})
+				if(deleteResult.status == 1){
+					Utils.loaded()
+					this.initMember()
+				}else{
+					Utils.loaded()
+					Utils.toast(deleteResult.message)
+				}
 			},
 			showModel(){
 				let isshow = this.is_show

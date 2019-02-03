@@ -3,7 +3,7 @@
 		<!-- userheader -->
 		<view class="user_header">
 			<view class="settings">
-				<image class="icon_setting" src="../../static/images/usercenter/setting.png" mode=""></image>
+				<!-- <image class="icon_setting" src="../../static/images/usercenter/setting.png" mode=""></image> -->
 			</view>
 			<view class="user_info">
 				<view class="user_ava">
@@ -14,7 +14,7 @@
 						{{userInfo.nickname}}
 					</view>
 					<view class="user_identify">
-						身份: {{userInfo.identity == 1 ? '用户' : userInfo.identity == 2 ? '店员' : '商户'}}
+						身份: {{userInfo.identity == 1 && !isSeller ? '用户' : userInfo.identity == 3 ? '商户' : isSeller ? '店员' : ''}}
 					</view>
 					<view class="user_identify">
 						商家: {{business.business_title}}
@@ -23,8 +23,19 @@
 			</view>
 		</view>
 		
+		<view class="shop_list" v-if="isSeller && userInfo.identity == 1">
+			<view class="shop_item" @click="scanVerify()">
+				<view class="item_left">
+					<image src="../../static/images/usercenter/icon_scan.png" mode="widthFix"></image>
+					扫码核销
+				</view>
+				<view class="item_right">
+					<image class="icon_more" src="../../static/images/usercenter/more.png" mode="widthFix"></image>
+				</view>
+			</view>
+		</view>
 		<!-- usermission -->
-		<view class="user_mission" v-if="userInfo.identity == 1">
+		<view class="user_mission" v-else-if="userInfo.identity == 1 && !isSeller">
 			<!-- progress -->
 			<view class="user_progress">
 				<view class="progress_word">
@@ -197,7 +208,8 @@
 				currect_total:0,
 				nosign:0,
 				allowLoad:true,
-				error_show:false
+				error_show:false,
+				isSeller:false
 			};
 		},
 		methods:{
@@ -209,14 +221,18 @@
 				console.log(response)
 				if(response.status == 1){
 					Utils.loaded()
-					console.log('123')
 					let data = response.data;
 					this.$store.commit('set_userInfo', data);
 					this.userInfo = data
-					this.allowLoad = false
+					// 商家端判断
 					if(this.userInfo.identity == 3){
 						this.allowLoad = true
 						this.bid = this.userInfo.bid
+					}
+					// 店员端判断
+					if(this.userInfo.seller == this.bid){
+						console.log('laile')
+						this.isSeller = true
 					}
 				}else{
 					Utils.loaded()
@@ -224,7 +240,7 @@
 				}
 				
 				
-				if(this.userInfo.identity == 1){
+				if(this.userInfo.identity == 1 && !this.isSeller){
 					if(!this.is_show){
 						uni.showTabBar({
 							
@@ -320,7 +336,6 @@
 				let sceneData = options.scene.split('_')
 				let type = sceneData[1]
 				if(type == 'user'){
-					console.log('234')
 					let bid = sceneData[0]
 					if(bid){
 						this.bid = bid
@@ -329,12 +344,13 @@
 						this.allowLoad = false
 					}
 				}else{
-					console.log('123')
 					let dataid = sceneData[0]
 					uni.navigateTo({
 						url:'/pages/scan/scan?id='+dataid+'&type='+type
 					})
 				}
+			}else{
+				this.allowLoad = false
 			}
 		}
 	}

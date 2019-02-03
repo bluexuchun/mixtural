@@ -34,7 +34,21 @@
 						Utils.loaded()
 						this.result = addResult.message
 					}else{
+						Utils.loaded()
 						this.result = addResult.message
+					}
+				}else if(this.type == 'verf'){
+					let submitResult = await api.submitMission({
+						current_id:this.id,
+						uid:this.userInfo.uid
+					})
+					console.log(submitResult)
+					if(submitResult.status == 1){
+						Utils.loaded()
+						this.result = submitResult.message
+					}else{
+						Utils.loaded()
+						this.result = submitResult.message
 					}
 				}
 			}
@@ -63,5 +77,6 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		font-size:30rpx;
 	}
 </style>
