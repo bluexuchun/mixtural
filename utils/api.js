@@ -6,6 +6,18 @@ const api = {
         token: token,
         rawData: rawData
     }),
+	// 生成店员二维码
+	makeCode:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=code&do=clerkcode',{
+		...data
+	}),
+	//添加店员
+	addMember:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=clerk&do=clerk',{
+		...data
+	}),
+	// 删除店员
+	deleteMember:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=business&a=clerk&do=del',{
+		...data
+	}),
 	// 签到
 	actionSign: (data) => request.get(baseUrlApi + '/api.php?entry=app&c=task&a=sign&do=sign',{
 		...data

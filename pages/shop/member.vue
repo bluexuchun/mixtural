@@ -31,7 +31,7 @@
 					<image @click="showModel" class="icon_close" src="../../static/images/icon_close.png" mode="widthFix"></image>
 				</view>
 				<view class="model_content">
-					二维码图片
+					<image :src="code" mode="widthFix" style="width:100%;"></image>
 				</view>
 				<view class="model_confirm" @click="showModel">
 					确定
@@ -79,12 +79,18 @@
 					}
 				],
 				is_show:false,
+				code:''
 			};
 		},
 		methods:{
 			async init(){
-				console.log('123')
-				console.log(this.userInfo)
+				// 生成二维码
+				Utils.loading('正在加载')
+				let codeResult = await api.makeCode({bid:this.userInfo.bid})
+				if(codeResult.status == 1){
+					Utils.loaded()
+					this.code = codeResult.data
+				}
 			},
 			deleteMember(id){
 				console.log(id)

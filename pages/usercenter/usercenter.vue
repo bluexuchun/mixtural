@@ -158,6 +158,9 @@
 				</view>
 			</view>
 		</view>
+		<view class="error" v-if="error_show" style="width:100%;height:100vh;background: rgba(0,0,0,0.6);position: fixed;top:0px;left:0px;z-index:999;display: flex;flex-direction: column;justify-content: center;align-items: center;color:#fff;font-size:28rpx;">
+			请扫码登陆小程序
+		</view>
 	</view>
 	
 	
@@ -192,11 +195,14 @@
 				currect_speed:'',
 				left_grade:'',
 				currect_total:0,
-				nosign:0
+				nosign:0,
+				allowLoad:true,
+				error_show:false
 			};
 		},
 		methods:{
 			async init(){
+				
 				Utils.loading('正在加载')
 				let response = await api.initIdentify({uid:this.userInfo.uid})
 				
@@ -207,6 +213,11 @@
 					let data = response.data;
 					this.$store.commit('set_userInfo', data);
 					this.userInfo = data
+					this.allowLoad = false
+					if(this.userInfo.identity == 3){
+						this.allowLoad = true
+						this.bid = this.userInfo.bid
+					}
 				}else{
 					Utils.loaded()
 					Utils.toast(response.message)
@@ -230,32 +241,37 @@
 						
 					})
 				}
-				
-				// 获取首页的信息
-				let data = {
-					uid:this.userInfo.uid,
-					bid:this.bid
-				}
-				let indexInfo = await api.getIndex(data)
-				
-				if(indexInfo.status == 1){
-					this.business = indexInfo.data.business
-					this.currect_grade = indexInfo.data.currect_grade
-					this.vipawardlist[0] = {
-						id:this.currect_grade.id,
-						title:this.currect_grade.grade_title,
-						desc:this.currect_grade.description,
-						photo:this.currect_grade.grade_photo,
-						bg:this.currect_grade.grade_bg,
-						current:true
+				if(this.allowLoad){
+					// 获取首页的信息
+					let data = {
+						uid:this.userInfo.uid,
+						bid:this.bid
 					}
-					this.currect_speed = indexInfo.data.currect_speed
-					this.left_grade = indexInfo.data.left_grade
-					this.currect_total = indexInfo.data.currect_total || 0
-					this.nosign = this.currect_grade.sign_time - this.currect_total
+					let indexInfo = await api.getIndex(data)
+					
+					if(indexInfo.status == 1){
+						this.business = indexInfo.data.business
+						this.currect_grade = indexInfo.data.currect_grade
+						this.vipawardlist[0] = {
+							id:this.currect_grade.id,
+							title:this.currect_grade.grade_title,
+							desc:this.currect_grade.description,
+							photo:this.currect_grade.grade_photo,
+							bg:this.currect_grade.grade_bg,
+							current:true
+						}
+						this.currect_speed = indexInfo.data.currect_speed
+						this.left_grade = indexInfo.data.left_grade
+						this.currect_total = indexInfo.data.currect_total || 0
+						this.nosign = this.currect_grade.sign_time - this.currect_total
+					}else{
+						Utils.toast(response.message)
+					}
 				}else{
-					Utils.toast(response.message)
+					this.is_show = false
+					this.error_show = true
 				}
+				
 			},
 			navigateto(type,params){
 				if(params){
@@ -300,13 +316,25 @@
 		},
 		onLoad(options){
 			// 拿到扫码的bid值
-			let bid = options.bid
-			bid = 2
-			if(bid){
-				this.bid = bid
-				uni.setStorageSync("bid",bid)
-			}else{
-				Utils.toast('请扫码进入小程序')
+			if(options.scene){
+				let sceneData = options.scene.split('_')
+				let type = sceneData[1]
+				if(type == 'user'){
+					console.log('234')
+					let bid = sceneData[0]
+					if(bid){
+						this.bid = bid
+						uni.setStorageSync("bid",bid)
+					}else{
+						this.allowLoad = false
+					}
+				}else{
+					console.log('123')
+					let dataid = sceneData[0]
+					uni.navigateTo({
+						url:'/pages/scan/scan?id='+dataid+'&type='+type
+					})
+				}
 			}
 		}
 	}

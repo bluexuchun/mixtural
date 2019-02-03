@@ -1,0 +1,67 @@
+<template>
+	<div class="box">{{result}}</div>
+</template>
+
+<script>
+	import is from 'is'
+	import Utils from '@/utils/index'
+	import api from '@/utils/api'
+	import mixin from '@/utils/mixin'
+	export default {
+		mixins:[mixin],
+		computed: {
+		    userInfo() {
+		        return this.$store.state.app.userInfo;
+		    }
+		},
+		data() {
+			return {
+				type:0,
+				id:0,
+				result:''
+			};
+		},
+		methods:{
+			async init(){
+				Utils.loading('正在处理中')
+				if(this.type == 'add'){
+					let addResult = await api.addMember({
+						bid:this.id,
+						uid:this.userInfo.uid
+					})
+					console.log(addResult) 
+					if(addResult.status == 1){
+						Utils.loaded()
+						this.result = addResult.message
+					}else{
+						this.result = addResult.message
+					}
+				}
+			}
+		},
+		onShow(){
+			let _this = this
+			if(!_this.shouldLogin){
+				_this.init()
+			}
+		},
+		onLoad(options){
+			let type = options.type
+			let id = options.id
+			this.type = type
+			this.id = id
+		}
+	}
+</script>
+	
+<style>
+	.box{
+		width:100%;
+		height:100vh;
+		background: #fff;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+</style>

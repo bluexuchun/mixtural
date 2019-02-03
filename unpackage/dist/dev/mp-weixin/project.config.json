@@ -82,6 +82,12 @@
           "query": "",
           "id": 8,
           "pathName": "pages/usercenter/mine"
+        },
+        {
+          "name": "扫码",
+          "query": "",
+          "id": 9,
+          "pathName": "pages/scan/scan"
         }
       ]
     }

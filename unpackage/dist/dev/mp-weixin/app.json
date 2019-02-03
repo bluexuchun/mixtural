@@ -9,7 +9,8 @@
     "pages/usercenter/vipdetail",
     "pages/shop/member",
     "pages/shop/level",
-    "pages/shop/leveldetail"
+    "pages/shop/leveldetail",
+    "pages/scan/scan"
   ],
   "subPackages": [],
   "window": {

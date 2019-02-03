@@ -35,15 +35,6 @@
 				<view class="item_right"></view>
 					
 			</view>
-			<view class="mine_item" @click="scanVerify()">
-				<view class="item_left">
-					<image src="../../static/images/usercenter/icon_scan.png" mode="widthFix"></image>
-					扫码核销
-				</view>
-				<view class="item_right">
-					<image class="icon_more" src="../../static/images/usercenter/more.png" mode="widthFix"></image>
-				</view>
-			</view>
 			<view class="mine_item" @click="contactUs()">
 				<view class="item_left">
 					<image src="../../static/images/usercenter/icon_contact.png" mode="widthFix"></image>
@@ -84,14 +75,6 @@
 				console.log(type)
 				uni.navigateTo({
 					url:type
-				})
-			},
-			scanVerify(){
-				uni.scanCode({
-					onlyFromCamera: true,
-					success:function(res){
-						console.log(res)
-					}
 				})
 			},
 			contactUs(){
