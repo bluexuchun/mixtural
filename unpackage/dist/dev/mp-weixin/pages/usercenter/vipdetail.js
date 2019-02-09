@@ -156,7 +156,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var _is = _interopRequireDefault(__webpack_require__(/*! is */ "../../../GitProject/mixtural/node_modules/is/index.js"));
 var _index = _interopRequireDefault(__webpack_require__(/*! @/utils/index */ "../../../GitProject/mixtural/utils/index.js"));
 var _api = _interopRequireDefault(__webpack_require__(/*! @/utils/api */ "../../../GitProject/mixtural/utils/api.js"));
@@ -170,8 +169,6 @@ var _mixin = _interopRequireDefault(__webpack_require__(/*! @/utils/mixin */ "..
 
   data: function data() {
     return {
-      indicatorDots: false,
-      autoplay: false,
       duration: 500,
       is_show: false,
       // swiper变动的id值
@@ -225,9 +222,11 @@ var _mixin = _interopRequireDefault(__webpack_require__(/*! @/utils/mixin */ "..
 
     },
     changeVip: function changeVip(e) {
+      console.log(e.detail);
       var vipid = e.detail.current;
-      this.currenid = vipid;
-      console.log(this.missionList[this.currenid].title);
+      if (e.detail.source == "touch") {
+        this.currenid = vipid;
+      }
     },
     navigateto: function navigateto(type) {
       console.log(type);
@@ -292,8 +291,6 @@ var render = function() {
           {
             staticClass: "swiper vipdetail-box",
             attrs: {
-              "indicator-dots": _vm.indicatorDots,
-              autoplay: _vm.autoplay,
               duration: _vm.duration,
               current: _vm.currenid,
               eventid: "94a8eff4-0"
@@ -306,22 +303,31 @@ var render = function() {
               { key: itemindex, attrs: { mpcomid: "94a8eff4-0-" + itemindex } },
               [
                 _c("view", { staticClass: "vip-box" }, [
-                  _c("view", { staticClass: "vipbox" }, [
-                    _c("image", {
-                      staticClass: "vipbox-bg",
-                      attrs: { src: item.bg }
-                    }),
-                    _c("view", { staticClass: "vipbox-head" }, [
-                      _c("image", {
-                        staticClass: "vipbox-logo",
-                        attrs: { src: item.photo, mode: "widthFix" }
-                      }),
-                      _c("view", [_vm._v(_vm._s(item.title))])
-                    ]),
-                    _c("view", { staticClass: "vipbox-content" }, [
-                      _vm._v(_vm._s(item.desc))
-                    ])
-                  ])
+                  _c(
+                    "view",
+                    {
+                      staticClass: "vipbox",
+                      style: {
+                        background: "url(" + item.bg + ")",
+                        backgroundSize: "cover",
+                        overflow: "hidden",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat"
+                      }
+                    },
+                    [
+                      _c("view", { staticClass: "vipbox-head" }, [
+                        _c("image", {
+                          staticClass: "vipbox-logo",
+                          attrs: { src: item.photo, mode: "widthFix" }
+                        }),
+                        _c("view", [_vm._v(_vm._s(item.title))])
+                      ]),
+                      _c("view", { staticClass: "vipbox-content" }, [
+                        _vm._v(_vm._s(item.desc))
+                      ])
+                    ]
+                  )
                 ])
               ]
             )

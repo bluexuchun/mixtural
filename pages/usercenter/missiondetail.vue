@@ -170,7 +170,8 @@
 				finishcode:false,
 				ewmcode:'',
 				rules_photo:[],
-				codeid:0
+				codeid:0,
+				code:2
 			};
 		},
 		methods:{
@@ -247,29 +248,30 @@
 			},
 			// 提交任务
 			async finishMission(){
+				let _this = this
 				// 判断用户是否签到已满
-				let signall = this.starnum
-				let signnum = this.current_sign
+				let signall = _this.starnum
+				let signnum = _this.current_sign
 				if(signnum == signall){
 					let response = await api.finishMission({
-						uid:this.userInfo.uid,
-						bid:this.bid
+						uid:_this.userInfo.uid,
+						bid:_this.bid
 					})
 					if(response.status == 1){
 						// this.init()
-						this.ewmcode = response.data
-						this.finishcode = true
+						_this.ewmcode = response.data
+						_this.finishcode = true
 						// 定时循环判断用户是否被扫成功 成功刷新
 						let time = setInterval(() => {
-							let code = this.getCode()
-							if(code == 1){
-								this.changeCode()
+							_this.getCode()
+							if(_this.code == 1){
+								_this.changeCode()
 								clearInterval(time)
 							}
 						},1000)
 					}
 				}else{
-					this.finisherror = true
+					_this.finisherror = true
 				}
 			},
 			
@@ -279,9 +281,8 @@
 					uid:this.userInfo.uid,
 					bid:this.bid
 				})
-				let code = getStatus.data.code_status
+				this.code = getStatus.data.code_status
 				this.codeid = getStatus.data.id
-				return code
 			},
 			
 			// 改变状态值
@@ -291,7 +292,10 @@
 				})
 				if(changeResult.status == 1){
 					Utils.toast('完成任务！')
-					this.finishcode = false
+					setTimeout(() => {
+						this.finishcode = false
+						this.init()
+					},1000)
 				}
 			}
 			

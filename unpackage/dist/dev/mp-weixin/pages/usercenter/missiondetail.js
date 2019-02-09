@@ -285,7 +285,8 @@ var _mixin = _interopRequireDefault(__webpack_require__(/*! @/utils/mixin */ "..
       finishcode: false,
       ewmcode: '',
       rules_photo: [],
-      codeid: 0 };
+      codeid: 0,
+      code: 2 };
 
   },
   methods: {
@@ -361,52 +362,55 @@ var _mixin = _interopRequireDefault(__webpack_require__(/*! @/utils/mixin */ "..
                 }case 4:case "end":return _context2.stop();}}}, _callee2, this);}));function actionSign() {return _actionSign.apply(this, arguments);}return actionSign;}(),
 
     // 提交任务
-    finishMission: function () {var _finishMission = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var _this2 = this;var signall, signnum, response, time;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+    finishMission: function () {var _finishMission = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var _this, signall, signnum, response, time;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+                _this = this;
                 // 判断用户是否签到已满
-                signall = this.starnum;
-                signnum = this.current_sign;if (!(
-                signnum == signall)) {_context3.next = 9;break;}_context3.next = 5;return (
+                signall = _this.starnum;
+                signnum = _this.current_sign;if (!(
+                signnum == signall)) {_context3.next = 10;break;}_context3.next = 6;return (
                   _api.default.finishMission({
-                    uid: this.userInfo.uid,
-                    bid: this.bid }));case 5:response = _context3.sent;
+                    uid: _this.userInfo.uid,
+                    bid: _this.bid }));case 6:response = _context3.sent;
 
                 if (response.status == 1) {
                   // this.init()
-                  this.ewmcode = response.data;
-                  this.finishcode = true;
+                  _this.ewmcode = response.data;
+                  _this.finishcode = true;
                   // 定时循环判断用户是否被扫成功 成功刷新
                   time = setInterval(function () {
-                    var code = _this2.getCode();
-                    if (code == 1) {
-                      _this2.changeCode();
+                    _this.getCode();
+                    if (_this.code == 1) {
+                      _this.changeCode();
                       clearInterval(time);
                     }
                   }, 1000);
-                }_context3.next = 10;break;case 9:
+                }_context3.next = 11;break;case 10:
 
-                this.finisherror = true;case 10:case "end":return _context3.stop();}}}, _callee3, this);}));function finishMission() {return _finishMission.apply(this, arguments);}return finishMission;}(),
+                _this.finisherror = true;case 11:case "end":return _context3.stop();}}}, _callee3, this);}));function finishMission() {return _finishMission.apply(this, arguments);}return finishMission;}(),
 
 
 
     // 动态获取状态值
-    getCode: function () {var _getCode = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var getStatus, code;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.next = 2;return (
+    getCode: function () {var _getCode = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var getStatus;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:_context4.next = 2;return (
                   _api.default.getCodeStatus({
                     uid: this.userInfo.uid,
                     bid: this.bid }));case 2:getStatus = _context4.sent;
 
-                code = getStatus.data.code_status;
-                this.codeid = getStatus.data.id;return _context4.abrupt("return",
-                code);case 6:case "end":return _context4.stop();}}}, _callee4, this);}));function getCode() {return _getCode.apply(this, arguments);}return getCode;}(),
+                this.code = getStatus.data.code_status;
+                this.codeid = getStatus.data.id;case 5:case "end":return _context4.stop();}}}, _callee4, this);}));function getCode() {return _getCode.apply(this, arguments);}return getCode;}(),
 
 
     // 改变状态值
-    changeCode: function () {var _changeCode = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee5() {var changeResult;return _regenerator.default.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:_context5.next = 2;return (
+    changeCode: function () {var _changeCode = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee5() {var _this2 = this;var changeResult;return _regenerator.default.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:_context5.next = 2;return (
                   _api.default.changeCode({
                     current_id: this.codeid }));case 2:changeResult = _context5.sent;
 
                 if (changeResult.status == 1) {
                   _index.default.toast('完成任务！');
-                  this.finishcode = false;
+                  setTimeout(function () {
+                    _this2.finishcode = false;
+                    _this2.init();
+                  }, 1000);
                 }case 4:case "end":return _context5.stop();}}}, _callee5, this);}));function changeCode() {return _changeCode.apply(this, arguments);}return changeCode;}() },
 
 

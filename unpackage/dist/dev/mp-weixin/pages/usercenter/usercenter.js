@@ -739,26 +739,32 @@ var _footer = _interopRequireDefault(__webpack_require__(/*! @/components/footer
   },
   onLoad: function onLoad(options) {
     // 拿到扫码的bid值
-    if (options.scene) {
-      var sceneData = options.scene.split('_');
-      var type = sceneData[1];
-      if (type == 'user') {
-        var bid = sceneData[0];
-        if (bid) {
-          this.bid = bid;
-          uni.setStorageSync("bid", bid);
+    var storagebid = uni.getStorageSync("bid");
+    if (storagebid && !options.scene) {
+      this.bid = storagebid;
+    } else {
+      if (options.scene) {
+        var sceneData = options.scene.split('_');
+        var type = sceneData[1];
+        if (type == 'user') {
+          var bid = sceneData[0];
+          if (bid) {
+            this.bid = bid;
+            uni.setStorageSync("bid", bid);
+          } else {
+            this.allowLoad = false;
+          }
         } else {
-          this.allowLoad = false;
+          var dataid = sceneData[0];
+          uni.navigateTo({
+            url: '/pages/scan/scan?id=' + dataid + '&type=' + type });
+
         }
       } else {
-        var dataid = sceneData[0];
-        uni.navigateTo({
-          url: '/pages/scan/scan?id=' + dataid + '&type=' + type });
-
+        this.allowLoad = false;
       }
-    } else {
-      this.allowLoad = false;
     }
+
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
@@ -1013,7 +1019,7 @@ var render = function() {
                             _c("view", { staticClass: "vipbox" }, [
                               _c("image", {
                                 staticClass: "vipbox-bg",
-                                attrs: { src: item.bg, mode: "widthFix" }
+                                attrs: { src: item.bg, mode: "aspectFill" }
                               }),
                               _c("view", { staticClass: "vipbox-head" }, [
                                 _c("image", {
@@ -1137,10 +1143,10 @@ var render = function() {
                 "view",
                 { staticClass: "content_sign" },
                 [
-                  _vm._l(_vm.currect_total, function(aindex, index) {
+                  _vm._l(_vm.currect_total, function(currectitem, aindex) {
                     return _c(
                       "view",
-                      { staticClass: "sign_item sign_active" },
+                      { key: aindex, staticClass: "sign_item sign_active" },
                       [
                         _c("view", { staticClass: "item_title" }, [
                           _vm._v("第" + _vm._s(aindex + 1) + "天")
@@ -1155,21 +1161,26 @@ var render = function() {
                       ]
                     )
                   }),
-                  _vm._l(_vm.nosign, function(nindex, index) {
-                    return _c("view", { staticClass: "sign_item" }, [
-                      _c("view", { staticClass: "item_title" }, [
-                        _vm._v(
-                          "第" + _vm._s(_vm.currect_total + nindex + 1) + "天"
-                        )
-                      ]),
-                      _c("image", {
-                        staticClass: "item_icon",
-                        attrs: {
-                          src: "../../static/images/usercenter/star_active.png",
-                          mode: "widthFix"
-                        }
-                      })
-                    ])
+                  _vm._l(_vm.nosign, function(signitem, nindex) {
+                    return _c(
+                      "view",
+                      { key: nindex, staticClass: "sign_item" },
+                      [
+                        _c("view", { staticClass: "item_title" }, [
+                          _vm._v(
+                            "第" + _vm._s(_vm.currect_total + nindex + 1) + "天"
+                          )
+                        ]),
+                        _c("image", {
+                          staticClass: "item_icon",
+                          attrs: {
+                            src:
+                              "../../static/images/usercenter/star_active.png",
+                            mode: "widthFix"
+                          }
+                        })
+                      ]
+                    )
                   })
                 ],
                 2

@@ -46,5 +46,8 @@ const mixin = {
             console.log('不需要更新信息');
         }
     }
+	//用户端：判断是否传入店铺id，如果有，就更新缓存的店铺id
+	//_this.$root.$mp.query.scene
+	//商家端-》用户端
 }
 export default mixin

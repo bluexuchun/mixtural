@@ -5,11 +5,10 @@
 			<view class="vipcurrent">
 				您目前的等级为{{missionList[currentid].title}}
 			</view>
-            <swiper class="swiper vipdetail-box" :indicator-dots="indicatorDots" :autoplay="autoplay" :duration="duration" :current="currenid" @change="changeVip">
+            <swiper class="swiper vipdetail-box" :duration="duration" :current="currenid" @change="changeVip">
                 <swiper-item v-for="(item,itemindex) in missionList" :key="itemindex">
                     <view class="vip-box">
-                    	<view class="vipbox">
-							<image class="vipbox-bg" :src="item.bg"></image>
+                    	<view class="vipbox" :style="{background:'url('+item.bg+')',backgroundSize:'cover',overflow:'hidden',backgroundPosition:'center',backgroundRepeat:'no-repeat'}">
 							<view class="vipbox-head">
 								<image class="vipbox-logo" :src="item.photo" mode="widthFix"></image>
 								<view>
@@ -55,8 +54,6 @@
 		},
 		data() {
 			return {
-				indicatorDots: false,
-				autoplay: false,
 				duration: 500,
 				is_show:false,
 				// swiper变动的id值
@@ -110,9 +107,11 @@
 				
 			},
 			changeVip(e) {
+				console.log(e.detail)
 				let vipid = e.detail.current
-				this.currenid = vipid
-				console.log(this.missionList[this.currenid].title)
+				if(e.detail.source == "touch"){
+					this.currenid = vipid
+				}
 			},
 			navigateto(type){
 				console.log(type)

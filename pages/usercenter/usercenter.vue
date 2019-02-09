@@ -75,7 +75,7 @@
 					    <swiper-item v-for="(item,itemindex) in vipawardlist" :key="itemindex">
 					        <view class="vip-box">
 								<view class="vipbox">
-									<image class="vipbox-bg" :src="item.bg" mode="widthFix"></image>
+									<image class="vipbox-bg" :src="item.bg" mode="aspectFill"></image>
 									<view class="vipbox-head">
 										<image class="vipbox-logo" :src="item.photo" mode="widthFix"></image>
 										{{item.title}}
@@ -147,13 +147,13 @@
 						您已连续签到{{currect_total}}天
 					</view>
 					<view class="content_sign">
-						<view v-for="aindex in currect_total" class="sign_item sign_active">
+						<view v-for="(currectitem,aindex) in currect_total" :key="aindex" class="sign_item sign_active">
 							<view class="item_title">
 								第{{aindex + 1}}天
 							</view>
 							<image class="item_icon" src="../../static/images/usercenter/gou.png" mode="widthFix"></image>
 						</view>
-						<view v-for="nindex in nosign" class="sign_item">
+						<view v-for="(signitem,nindex) in nosign" :key="nindex" class="sign_item">
 							<view class="item_title">
 								第{{currect_total + nindex + 1}}天
 							</view>
@@ -332,26 +332,32 @@
 		},
 		onLoad(options){
 			// 拿到扫码的bid值
-			if(options.scene){
-				let sceneData = options.scene.split('_')
-				let type = sceneData[1]
-				if(type == 'user'){
-					let bid = sceneData[0]
-					if(bid){
-						this.bid = bid
-						uni.setStorageSync("bid",bid)
+			let storagebid = uni.getStorageSync("bid")
+			if(storagebid && !options.scene){
+				this.bid = storagebid
+			}else{
+				if(options.scene){
+					let sceneData = options.scene.split('_')
+					let type = sceneData[1]
+					if(type == 'user'){
+						let bid = sceneData[0]
+						if(bid){
+							this.bid = bid
+							uni.setStorageSync("bid",bid)
+						}else{
+							this.allowLoad = false
+						}
 					}else{
-						this.allowLoad = false
+						let dataid = sceneData[0]
+						uni.navigateTo({
+							url:'/pages/scan/scan?id='+dataid+'&type='+type
+						})
 					}
 				}else{
-					let dataid = sceneData[0]
-					uni.navigateTo({
-						url:'/pages/scan/scan?id='+dataid+'&type='+type
-					})
+					this.allowLoad = false
 				}
-			}else{
-				this.allowLoad = false
 			}
+			
 		}
 	}
 </script>
