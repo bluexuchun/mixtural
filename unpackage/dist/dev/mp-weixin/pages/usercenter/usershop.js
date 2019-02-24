@@ -159,6 +159,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _is = _interopRequireDefault(__webpack_require__(/*! is */ "../../../GitProject/mixtural/node_modules/is/index.js"));
 var _api = _interopRequireDefault(__webpack_require__(/*! ../../utils/api */ "../../../GitProject/mixtural/utils/api.js"));
 var _utils = _interopRequireDefault(__webpack_require__(/*! ../../utils */ "../../../GitProject/mixtural/utils/index.js"));
@@ -179,7 +197,9 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
       images: '',
       nickname: '',
       mobile: '',
-      shopname: '' };
+      shopname: '',
+      shop_code: '',
+      status: 1 };
 
   },
   methods: {
@@ -195,9 +215,12 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
                   _this.mobile = data.mobile;
                   _this.images = data.business_license;
                   _this.shopname = data.business_title;
+                  _this.status = data.status;
+                  if (data.shop_code) {
+                    _this.shop_code = data.shop_code;
+                  }
                 } else {
                   _utils.default.loaded();
-                  _utils.default.toast(response.message);
                 }case 7:case "end":return _context.stop();}}}, _callee, this);}));function init() {return _init.apply(this, arguments);}return init;}(),
 
     getPhoneNumber: function () {var _getPhoneNumber = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(e) {var _this;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
@@ -218,6 +241,9 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
                     _this.$store.commit('set_dynamic_address', {});
                     _this.$store.commit('set_dynamic_address_close', false);
                     uni.clearStorageSync();
+                    uni.navigateTo({
+                      url: '/pages/home/login' });
+
                   } });case 3:case "end":return _context2.stop();}}}, _callee2, this);}));function getPhoneNumber(_x) {return _getPhoneNumber.apply(this, arguments);}return getPhoneNumber;}(),
 
 
@@ -251,16 +277,32 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
                 }case 5:case "end":return _context4.stop();}}}, _callee4, this);}));function getMobile(_x2, _x3) {return _getMobile.apply(this, arguments);}return getMobile;}(),
 
     save: function () {var _save = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee5() {var _this, data, response;return _regenerator.default.wrap(function _callee5$(_context5) {while (1) {switch (_context5.prev = _context5.next) {case 0:
-                _this = this;
+                _this = this;if (!
+                _is.default.empty(_this.nickname)) {_context5.next = 4;break;}
+                _utils.default.error("请填写姓名");return _context5.abrupt("return",
+                false);case 4:if (!
+
+                _is.default.empty(_this.mobile)) {_context5.next = 7;break;}
+                _utils.default.error("请填写手机号");return _context5.abrupt("return",
+                false);case 7:if (!
+
+                _is.default.empty(_this.shopname)) {_context5.next = 10;break;}
+                _utils.default.error("请填写商家名称");return _context5.abrupt("return",
+                false);case 10:if (!
+
+                _is.default.empty(_this.images)) {_context5.next = 13;break;}
+                _utils.default.error("请上传营业执照");return _context5.abrupt("return",
+                false);case 13:
+
                 _utils.default.loading('正在保存信息');
                 data = {
                   uid: _this.userInfo.uid,
                   username: _this.nickname,
                   mobile: _this.mobile,
                   business_title: _this.shopname,
-                  business_license: _this.images };_context5.next = 5;return (
+                  business_license: _this.images };_context5.next = 17;return (
 
-                  _api.default.addShop(data));case 5:response = _context5.sent;
+                  _api.default.addShop(data));case 17:response = _context5.sent;
                 if (response.status == 1) {
                   _utils.default.loaded();
                   _utils.default.success(response.message);
@@ -273,8 +315,22 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
                 } else {
                   _utils.default.loaded();
                   _utils.default.toast(response.message);
-                }case 7:case "end":return _context5.stop();}}}, _callee5, this);}));function save() {return _save.apply(this, arguments);}return save;}() },
+                }case 19:case "end":return _context5.stop();}}}, _callee5, this);}));function save() {return _save.apply(this, arguments);}return save;}(),
 
+    download_ewm: function download_ewm() {
+      var code = this.shop_code;
+      wx.getImageInfo({
+        src: code,
+        success: function success(sres) {
+          wx.saveImageToPhotosAlbum({
+            filePath: sres.path,
+            success: function success(res) {
+              console.log(res);
+            } });
+
+        } });
+
+    } },
 
 
   onLoad: function onLoad() {
@@ -314,12 +370,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "main" }, [
-    _c("div", { staticClass: "container-body" }, [
-      _c("div", { staticClass: "function" }, [
-        _c("div", { staticClass: "function-item" }, [
-          _c("div", { staticClass: "function-item-left" }, [_vm._v("姓名")]),
-          _c("div", { staticClass: "function-item-right" }, [
+  return _c("view", { staticClass: "main" }, [
+    _c("view", { staticClass: "container-body" }, [
+      _c("view", { staticClass: "function" }, [
+        _c("view", { staticClass: "function-item" }, [
+          _c("view", { staticClass: "function-item-left" }, [_vm._v("姓名")]),
+          _c("view", { staticClass: "function-item-right" }, [
             _c("input", {
               directives: [
                 {
@@ -344,15 +400,14 @@ var render = function() {
                   _vm.nickname = $event.target.value
                 }
               }
-            }),
-            _c("span", { staticClass: "iconfont icon-right" })
+            })
           ])
         ]),
         _c(
-          "div",
+          "view",
           { staticClass: "function-item" },
           [
-            _c("div", { staticClass: "function-item-left" }, [_vm._v("手机")]),
+            _c("view", { staticClass: "function-item-left" }, [_vm._v("手机")]),
             _c(
               "button",
               {
@@ -366,18 +421,24 @@ var render = function() {
                 on: { getphonenumber: _vm.getPhoneNumber }
               },
               [
-                _c("div", { staticClass: "txt" }, [_vm._v(_vm._s(_vm.mobile))]),
+                _vm.mobile
+                  ? _c("view", { staticClass: "txt" }, [
+                      _vm._v(_vm._s(_vm.mobile))
+                    ])
+                  : _c("view", { staticClass: "txt" }, [
+                      _vm._v("请点击获取手机号")
+                    ]),
                 _c("span", { staticClass: "iconfont icon-right" })
               ]
             )
           ],
           1
         ),
-        _c("div", { staticClass: "function-item" }, [
-          _c("div", { staticClass: "function-item-left" }, [
+        _c("view", { staticClass: "function-item" }, [
+          _c("view", { staticClass: "function-item-left" }, [
             _vm._v("商家名称")
           ]),
-          _c("div", { staticClass: "function-item-right" }, [
+          _c("view", { staticClass: "function-item-right" }, [
             _c("input", {
               directives: [
                 {
@@ -402,12 +463,21 @@ var render = function() {
                   _vm.shopname = $event.target.value
                 }
               }
-            }),
-            _c("span", { staticClass: "iconfont icon-right" })
+            })
           ])
         ]),
+        _vm.status == 1
+          ? _c("view", { staticClass: "function-item" }, [
+              _c("view", { staticClass: "function-item-left" }, [
+                _vm._v("审核状态")
+              ]),
+              _c("view", { staticClass: "function-item-right" }, [
+                _vm._v("待审核")
+              ])
+            ])
+          : _vm._e(),
         _c(
-          "div",
+          "view",
           {
             staticClass: "uploadimg_item",
             attrs: { eventid: "e709262e-3" },
@@ -420,20 +490,40 @@ var render = function() {
                   attrs: { src: _vm.images, mode: "widthFix" }
                 })
               : _c(
-                  "div",
+                  "view",
                   { staticClass: "uploadimg_word" },
                   [_vm._v("上传营业执照"), _c("br"), _vm._v("+")],
                   1
                 )
           ]
-        )
+        ),
+        _vm.shop_code
+          ? _c("view", { staticClass: "uploadimg_ewmcode" }, [
+              _c("view", { staticClass: "ewmcode_word" }, [
+                _vm._v("商家二维码")
+              ]),
+              _c("image", {
+                staticClass: "ewmcode_img",
+                attrs: { src: _vm.shop_code, mode: "widthFix" }
+              }),
+              _c(
+                "view",
+                {
+                  staticClass: "ewm_download",
+                  attrs: { eventid: "e709262e-4" },
+                  on: { click: _vm.download_ewm }
+                },
+                [_vm._v("保存二维码")]
+              )
+            ])
+          : _vm._e()
       ])
     ]),
     _c(
       "view",
       {
         staticClass: "shop_submit",
-        attrs: { eventid: "e709262e-4" },
+        attrs: { eventid: "e709262e-5" },
         on: { click: _vm.save }
       },
       [_vm._v("保存")]

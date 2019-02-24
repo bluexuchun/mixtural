@@ -43,7 +43,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: 32rpx;
-  color: #fff;
+  color: #000;
 }
 .mine .mine_lists {
   width: 100%;
@@ -98,5 +98,16 @@
 }
 .mine .mine_lists .mine_item .item_right .icon_more {
   width: 35rpx;
+}
+.changeIdentity {
+  width: 80%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 28rpx;
+  background: #FFDB4D;
+  color: #000;
+  margin: 50rpx auto;
 }
 

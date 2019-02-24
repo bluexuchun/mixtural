@@ -29,7 +29,7 @@
 						bid:this.id,
 						uid:this.userInfo.uid
 					})
-					console.log(addResult) 
+					uni.setStorageSync("bid",this.id)
 					if(addResult.status == 1){
 						Utils.loaded()
 						this.result = addResult.message

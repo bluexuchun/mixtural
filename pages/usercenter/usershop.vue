@@ -1,47 +1,65 @@
 <template>
-    <div class="main">
-        <div class="container-body">
-            <!-- <div class="function-title">商家入驻</div> -->
-            <div class="function">
-                <div class="function-item">
-                    <div class="function-item-left">
+    <view class="main">
+        <view class="container-body">
+            <!-- <view class="function-title">商家入驻</view> -->
+            <view class="function">
+                <view class="function-item">
+                    <view class="function-item-left">
                         姓名
-                    </div>
-                    <div class="function-item-right">
+                    </view>
+                    <view class="function-item-right">
                         <input type="text" placeholder="请填写姓名" v-model="nickname" class="txt" />
-                        <span class="iconfont icon-right"></span>
-                    </div>
-                </div>
-				<div class="function-item">
-				    <div class="function-item-left">
+                        <!-- <span class="iconfont icon-right"></span> -->
+                    </view>
+                </view>
+				<view class="function-item">
+				    <view class="function-item-left">
 				        手机
-				    </div>
+				    </view>
 				    <button plain hover-class="none" class="function-item-right button-class" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">
-				        <div class="txt">{{mobile}}</div>
+				        <view class="txt" v-if="mobile">{{mobile}}</view>
+				        <view class="txt" v-else>请点击获取手机号</view>
 				        <span class="iconfont icon-right"></span>
 				    </button>
-				</div>
-				<div class="function-item">
-				    <div class="function-item-left">
+				</view>
+				<view class="function-item">
+				    <view class="function-item-left">
 						商家名称
-				    </div>
-				    <div class="function-item-right">
+				    </view>
+				    <view class="function-item-right">
 				        <input type="text" placeholder="请填写商家名称" v-model="shopname" class="txt" />
-				        <span class="iconfont icon-right"></span>
-				    </div>
-				</div>
-                <div class="uploadimg_item" @click="uploadimg">
+				        <!-- <span class="iconfont icon-right"></span> -->
+				    </view>
+				</view>
+				<view class="function-item" v-if="status == 1">
+				    <view class="function-item-left">
+						审核状态
+				    </view>
+				    <view class="function-item-right">
+				        待审核
+				    </view>
+				</view>
+                <view class="uploadimg_item" @click="uploadimg">
 					<image v-if="images" class="uploadimg_img" :src="images" mode="widthFix"></image>
-					<div v-else class="uploadimg_word">
+					<view v-else class="uploadimg_word">
 						上传营业执照<br>+
-					</div>
-                </div>
-            </div>
-        </div>
+					</view>
+                </view>
+				<view class="uploadimg_ewmcode" v-if="shop_code">
+					<view class="ewmcode_word">
+						商家二维码
+					</view>
+					<image class="ewmcode_img" :src="shop_code" mode="widthFix"></image>
+					<view class="ewm_download" @click="download_ewm">
+						保存二维码
+					</view>
+				</view>
+            </view>
+        </view>
 		<view class="shop_submit" @click="save">
 			保存
 		</view>
-    </div>
+    </view>
 </template>
 <script>
 import is from 'is'
@@ -64,7 +82,9 @@ export default {
             images: '',
             nickname: '',
             mobile: '',
-			shopname:''
+			shopname:'',
+			shop_code:'',
+			status:1
         }
     },
     methods: {
@@ -80,9 +100,12 @@ export default {
 				_this.mobile = data.mobile
 				_this.images = data.business_license
 				_this.shopname = data.business_title
+				_this.status = data.status
+				if(data.shop_code){
+					_this.shop_code = data.shop_code
+				}
 			}else{
 				Utils.loaded();
-				Utils.toast(response.message);
 			}
         },
         async getPhoneNumber(e) {
@@ -103,6 +126,9 @@ export default {
                     _this.$store.commit('set_dynamic_address', {});
                     _this.$store.commit('set_dynamic_address_close', false);
                     uni.clearStorageSync();
+					uni.navigateTo({
+						url: '/pages/home/login',
+					});
                 }
             });
         },
@@ -137,6 +163,22 @@ export default {
         },
         async save() {
             let _this = this;
+			if(is.empty(_this.nickname)){
+				Utils.error("请填写姓名")
+				return false
+			}
+			if(is.empty(_this.mobile)){
+				Utils.error("请填写手机号")
+				return false
+			}
+			if(is.empty(_this.shopname)){
+				Utils.error("请填写商家名称")
+				return false
+			}
+			if(is.empty(_this.images)){
+				Utils.error("请上传营业执照")
+				return false
+			}
             Utils.loading('正在保存信息');
             let data = {
 				uid:_this.userInfo.uid,
@@ -159,7 +201,21 @@ export default {
                 Utils.loaded();
                 Utils.toast(response.message);
             }
-        }
+        },
+		download_ewm(){
+			let code = this.shop_code
+			wx.getImageInfo({
+				src:code,
+				success:function(sres){
+					wx.saveImageToPhotosAlbum({
+						filePath:sres.path,
+						success:function(res){
+							console.log(res)
+						}
+					})
+				}
+			})
+		}
 
     },
     onLoad() {

@@ -10,9 +10,9 @@
 			<view class="sign_btn" @click="actionSign">
 				签
 			</view>
-			<view class="mission_rule" @click="showModel">
+<!-- 			<view class="mission_rule" @click="showModel">
 				任务规则/步骤
-			</view>
+			</view> -->
 		</view>
 		<view class="mission_star">
 			<view v-for="(item,idx) in current_sign" :key="idx" class="star_item">

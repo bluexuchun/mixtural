@@ -165,6 +165,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 var _is = _interopRequireDefault(__webpack_require__(/*! is */ "../../../GitProject/mixtural/node_modules/is/index.js"));
 var _index = _interopRequireDefault(__webpack_require__(/*! @/utils/index */ "../../../GitProject/mixtural/utils/index.js"));
 var _api = _interopRequireDefault(__webpack_require__(/*! @/utils/api */ "../../../GitProject/mixtural/utils/api.js"));
@@ -196,7 +200,27 @@ var _mixin = _interopRequireDefault(__webpack_require__(/*! @/utils/mixin */ "..
       uni.makePhoneCall({
         phoneNumber: '114' //仅为示例
       });
-    } },
+    },
+    c2iden: function () {var _c2iden = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var _this, result;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                _this = this;
+                _index.default.loading('正在切换身份..');_context2.next = 4;return (
+                  _api.default.change2iden({
+                    uid: this.userInfo.uid }));case 4:result = _context2.sent;
+
+                console.log(result);
+                if (result.status == 1) {
+                  _index.default.loaded();
+                  _index.default.toast(result.message);
+                  setTimeout(function () {
+                    uni.switchTab({
+                      url: '/pages/usercenter/usercenter' });
+
+                  }, 1000);
+                } else {
+                  _index.default.loaded();
+                  _index.default.error(result.message);
+                }case 7:case "end":return _context2.stop();}}}, _callee2, this);}));function c2iden() {return _c2iden.apply(this, arguments);}return c2iden;}() },
+
 
   onShow: function onShow() {
     var _this = this;
@@ -273,7 +297,6 @@ var render = function() {
         },
         [_vm._m(2), _vm._m(3)]
       ),
-      _vm._m(4),
       _c(
         "view",
         {
@@ -285,7 +308,16 @@ var render = function() {
             }
           }
         },
-        [_vm._m(5), _vm._m(6)]
+        [_vm._m(4), _vm._m(5)]
+      ),
+      _c(
+        "view",
+        {
+          staticClass: "changeIdentity",
+          attrs: { eventid: "5632880a-3" },
+          on: { click: _vm.c2iden }
+        },
+        [_vm._v("切换至商家身份")]
       )
     ])
   ])
@@ -345,23 +377,6 @@ var staticRenderFns = [
           mode: "widthFix"
         }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("view", { staticClass: "mine_item" }, [
-      _c("view", { staticClass: "item_left" }, [
-        _c("image", {
-          attrs: {
-            src: "../../static/images/usercenter/icon_xy.png",
-            mode: "widthFix"
-          }
-        }),
-        _vm._v("用户协议")
-      ]),
-      _c("view", { staticClass: "item_right" })
     ])
   },
   function() {

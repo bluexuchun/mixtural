@@ -16,6 +16,14 @@
           box-sizing: border-box;
   padding: 20rpx 40rpx;
 }
+.vipwallet .viptips {
+  width: 100%;
+  font-size: 24rpx;
+  color: #999;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+}
 .vipwallet .vipdetail-box {
   width: 100%;
   height: 400rpx;
@@ -45,50 +53,47 @@
           box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   background: #ffffff;
-  position: relative;
-}
-.vipwallet .vipdetail-box .vip-box .vipbox .vipbox-bg {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  border-radius: 10px;
-}
-.vipwallet .vipdetail-box .vip-box .vipbox .vipbox-logo {
-  width: 50rpx;
-  border-radius: 50%;
-  margin-right: 16rpx;
-}
-.vipwallet .vipdetail-box .vip-box .vipbox .vipbox-head {
-  width: 50%;
-  height: 20%;
-  font-size: 28rpx;
-  color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.vipwallet .vipdetail-box .vip-box .vipbox .vipbox-logo {
+  width: 80rpx;
+  border-radius: 50%;
+  color: #000;
+}
+.vipwallet .vipdetail-box .vip-box .vipbox .vipbox-head {
+  font-size: 28rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
 }
 .vipwallet .vipdetail-box .vip-box .vipbox .vipbox-content {
-  width: 100%;
-  height: 100%;
   font-size: 26rpx;
-  color: #fff;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 58rpx 40rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -106,9 +111,8 @@
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: absolute;
-  top: 0px;
-  left: 0px;
+  color: #999;
+  margin-top: 14rpx;
 }
 .vipinfo {
   width: 100%;
@@ -136,7 +140,7 @@
   bottom: 0px;
   left: 0px;
   background: #FFDB4D;
-  color: #fff;
+  color: #000;
   font-size: 28rpx;
 }
 .model_back {

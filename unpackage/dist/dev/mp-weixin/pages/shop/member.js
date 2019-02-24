@@ -238,12 +238,14 @@ var _mixin = _interopRequireDefault(__webpack_require__(/*! @/utils/mixin */ "..
       var isshow = this.is_show;
       if (isshow) {
         this.is_show = false;
+        this.initMember();
         uni.showTabBar({});
 
 
       } else {
         this.is_show = true;
       }
+
     } },
 
 

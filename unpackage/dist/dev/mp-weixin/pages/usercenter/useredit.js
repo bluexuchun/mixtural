@@ -173,15 +173,16 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
 
   },
   methods: {
-    init: function init() {
-      var _this = this;
-      _this.realname = _this.userInfo.realname;
-      _this.mobile = _this.userInfo.mobile;
-      var addressDetail = uni.getStorageSync("addressSh");
-      _this.address = addressDetail;
-    },
+    init: function () {var _init = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this, result;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                _this = this;_context.next = 3;return (
+                  _api.default.getDetail({ uid: _this.userInfo.uid }));case 3:result = _context.sent;
+                console.log(result);
+                _this.realname = result.data.realname;
+                _this.mobile = result.data.mobile;
+                _this.address = result.data.address;case 8:case "end":return _context.stop();}}}, _callee, this);}));function init() {return _init.apply(this, arguments);}return init;}(),
 
-    getPhoneNumber: function () {var _getPhoneNumber = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(e) {var _this;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+
+    getPhoneNumber: function () {var _getPhoneNumber = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(e) {var _this;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
                 _this = this;
                 _utils.default.loading('正在获取手机号');
                 uni.checkSession({
@@ -199,7 +200,10 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
                     _this.$store.commit('set_dynamic_address', {});
                     _this.$store.commit('set_dynamic_address_close', false);
                     uni.clearStorageSync();
-                  } });case 3:case "end":return _context.stop();}}}, _callee, this);}));function getPhoneNumber(_x) {return _getPhoneNumber.apply(this, arguments);}return getPhoneNumber;}(),
+                    uni.navigateTo({
+                      url: '/pages/home/login' });
+
+                  } });case 3:case "end":return _context2.stop();}}}, _callee2, this);}));function getPhoneNumber(_x) {return _getPhoneNumber.apply(this, arguments);}return getPhoneNumber;}(),
 
 
     getAddress: function getAddress() {
@@ -217,36 +221,47 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
         } });
 
     },
-    getMobile: function () {var _getMobile = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2(encryptedData, iv) {var _this, response;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
-                _this = this;_context2.next = 3;return (
-                  _api.default.getPhoneNumber(encryptedData, iv));case 3:response = _context2.sent;
+    getMobile: function () {var _getMobile = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3(encryptedData, iv) {var _this, response;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
+                _this = this;_context3.next = 3;return (
+                  _api.default.getPhoneNumber(encryptedData, iv));case 3:response = _context3.sent;
                 if (response.status == 1) {
                   _this.mobile = response.data;
                   _utils.default.loaded();
                 } else {
                   _utils.default.loaded();
                   _utils.default.toast(response.message);
-                }case 5:case "end":return _context2.stop();}}}, _callee2, this);}));function getMobile(_x2, _x3) {return _getMobile.apply(this, arguments);}return getMobile;}(),
+                }case 5:case "end":return _context3.stop();}}}, _callee3, this);}));function getMobile(_x2, _x3) {return _getMobile.apply(this, arguments);}return getMobile;}(),
 
-    updateInfo: function () {var _updateInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var _this, data, response;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:
-                _this = this;
+    updateInfo: function () {var _updateInfo = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var _this, data, response;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
+                _this = this;if (!
+                _is.default.empty(_this.realname)) {_context4.next = 4;break;}
+                _utils.default.error("请填写真实姓名");return _context4.abrupt("return",
+                false);case 4:if (!
+
+                _is.default.empty(_this.mobile)) {_context4.next = 7;break;}
+                _utils.default.error("请填写手机号");return _context4.abrupt("return",
+                false);case 7:if (!
+
+                _is.default.empty(_this.address)) {_context4.next = 10;break;}
+                _utils.default.error("请填写收货地址");return _context4.abrupt("return",
+                false);case 10:
+
                 _utils.default.loading('正在保存信息');
                 data = {
                   realname: _this.realname,
                   mobile: _this.mobile,
-                  address: _this.address };
+                  address: _this.address,
+                  uid: _this.userInfo.uid };_context4.next = 14;return (
 
-                console.log(data);_context3.next = 6;return (
-                  _api.default.updateProfile(data));case 6:response = _context3.sent;
+                  _api.default.addDetail(data));case 14:response = _context4.sent;
                 if (response.status == 1) {
-                  _this.$store.commit('set_userInfo', response.data.userInfo);
-                  _this.$store.commit('set_token', response.data.token);
                   _utils.default.loaded();
                   _utils.default.success(response.message);
+                  _this.init();
                 } else {
                   _utils.default.loaded();
                   _utils.default.toast(response.message);
-                }case 8:case "end":return _context3.stop();}}}, _callee3, this);}));function updateInfo() {return _updateInfo.apply(this, arguments);}return updateInfo;}() },
+                }case 16:case "end":return _context4.stop();}}}, _callee4, this);}));function updateInfo() {return _updateInfo.apply(this, arguments);}return updateInfo;}() },
 
 
 
@@ -319,15 +334,16 @@ var render = function() {
                   _vm.realname = $event.target.value
                 }
               }
-            }),
-            _c("span", { staticClass: "iconfont icon-right" })
+            })
           ])
         ]),
         _c(
           "div",
           { staticClass: "function-item" },
           [
-            _c("div", { staticClass: "function-item-left" }, [_vm._v("手机")]),
+            _c("div", { staticClass: "function-item-left" }, [
+              _vm._v("手机号")
+            ]),
             _c(
               "button",
               {
@@ -341,7 +357,13 @@ var render = function() {
                 on: { getphonenumber: _vm.getPhoneNumber }
               },
               [
-                _c("div", { staticClass: "txt" }, [_vm._v(_vm._s(_vm.mobile))]),
+                _vm.mobile
+                  ? _c("div", { staticClass: "txt" }, [
+                      _vm._v(_vm._s(_vm.mobile))
+                    ])
+                  : _c("div", { staticClass: "txt" }, [
+                      _vm._v("请点击获取手机号")
+                    ]),
                 _c("span", { staticClass: "iconfont icon-right" })
               ]
             )
@@ -380,7 +402,8 @@ var render = function() {
                   _vm.address = $event.target.value
                 }
               }
-            })
+            }),
+            _c("span", { staticClass: "iconfont icon-right" })
           ])
         ])
       ])

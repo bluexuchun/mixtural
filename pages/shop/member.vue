@@ -123,12 +123,14 @@
 				let isshow = this.is_show
 				if(isshow){
 					this.is_show = false
+					this.initMember()
 					uni.showTabBar({
 						
 					})
 				}else{
 					this.is_show = true
 				}
+				
 			},
 			
 			

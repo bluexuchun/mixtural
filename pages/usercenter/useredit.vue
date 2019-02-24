@@ -8,15 +8,15 @@
 				    </div>
 				    <div class="function-item-right">
 				        <input type="text" placeholder="请填写昵称" v-model="realname" class="txt" />
-				        <span class="iconfont icon-right"></span>
 				    </div>
 				</div>
                 <div class="function-item">
                     <div class="function-item-left">
-                        手机
+                        手机号
                     </div>
                     <button plain hover-class="none" class="function-item-right button-class" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">
-                        <div class="txt">{{mobile}}</div>
+                        <div class="txt" v-if="mobile">{{mobile}}</div>
+						<div class="txt" v-else>请点击获取手机号</div>
                         <span class="iconfont icon-right"></span>
                     </button>
                 </div>
@@ -26,7 +26,7 @@
 				    </div>
 				    <div class="function-item-right">
 				        <input type="text" style="width:100%" placeholder="请选择收获地址" v-model="address" @click="getAddress" class="txt" readonly/>
-				        <span class="iconfont icon-right"A</span>
+				        <span class="iconfont icon-right"></span>
 				    </div>
 				</div>
             </div>
@@ -58,12 +58,13 @@ export default {
         }
     },
     methods: {
-        init() {
+        async init() {
             let _this = this;
-            _this.realname = _this.userInfo.realname;
-            _this.mobile = _this.userInfo.mobile;
-			let addressDetail = uni.getStorageSync("addressSh")
-			_this.address = addressDetail;
+			let result = await api.getDetail({uid:_this.userInfo.uid})
+			console.log(result)
+            _this.realname = result.data.realname;
+            _this.mobile = result.data.mobile;
+			_this.address = result.data.address
         },
         
         async getPhoneNumber(e) {
@@ -84,6 +85,9 @@ export default {
                     _this.$store.commit('set_dynamic_address', {});
                     _this.$store.commit('set_dynamic_address_close', false);
                     uni.clearStorageSync();
+					uni.navigateTo({
+						url: '/pages/home/login',
+					});
                 }
             });
         },
@@ -115,19 +119,30 @@ export default {
         },
         async updateInfo() {
             let _this = this;
+			if(is.empty(_this.realname)){
+				Utils.error("请填写真实姓名")
+				return false
+			}
+			if(is.empty(_this.mobile)){
+				Utils.error("请填写手机号")
+				return false
+			}
+			if(is.empty(_this.address)){
+				Utils.error("请填写收货地址")
+				return false
+			}
             Utils.loading('正在保存信息');
             let data = {
                 realname: _this.realname,
                 mobile: _this.mobile,
-                address:_this.address
+                address:_this.address,
+				uid:_this.userInfo.uid
             };
-            console.log(data);
-            let response = await api.updateProfile(data);
+            let response = await api.addDetail(data);
             if (response.status == 1) {
-                _this.$store.commit('set_userInfo', response.data.userInfo);
-                _this.$store.commit('set_token', response.data.token);
                 Utils.loaded();
                 Utils.success(response.message);
+				_this.init()
             } else {
                 Utils.loaded();
                 Utils.toast(response.message);

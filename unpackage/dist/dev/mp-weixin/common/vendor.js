@@ -1049,6 +1049,26 @@ var api = {
       token: token,
       rawData: rawData });},
 
+  // 获取详细信息
+  getDetail: function getDetail(data) {return _request.default.get(baseUrlApi + '/api.php?entry=app&c=member&a=userinfo&do=userinfo', _objectSpread({},
+    data));},
+
+  // 添加详细信息
+  addDetail: function addDetail(data) {return _request.default.get(baseUrlApi + '/api.php?entry=app&c=member&a=userinfo&do=hold', _objectSpread({},
+    data));},
+
+  // 切换身份
+  change2iden: function change2iden(data) {return _request.default.get(baseUrlApi + '/api.php?entry=app&c=task&a=switch&do=role_uid', _objectSpread({},
+    data));},
+
+  // 删除粉丝列表
+  deleteFans: function deleteFans(data) {return _request.default.get(baseUrlApi + '/api.php?entry=app&c=task&a=record&do=fans_del', _objectSpread({},
+    data));},
+
+  // 获取粉丝列表
+  getFans: function getFans(data) {return _request.default.get(baseUrlApi + '/api.php?entry=app&c=task&a=record&do=fans', _objectSpread({},
+    data));},
+
   // 获取二维码是否被核销
   getCodeStatus: function getCodeStatus(data) {return _request.default.get(baseUrlApi + '/api.php?entry=app&c=task&a=statusCode&do=gain', _objectSpread({},
     data));},
@@ -2074,16 +2094,19 @@ function upx2px (number, newDeviceWidth) {
   if (number === 0) {
     return 0
   }
-  number = (number / BASE_DEVICE_WIDTH) * (newDeviceWidth || deviceWidth);
-  number = Math.floor(number + EPS);
-  if (number === 0) {
+  let result = (number / BASE_DEVICE_WIDTH) * (newDeviceWidth || deviceWidth);
+  if (result < 0) {
+    result = -result;
+  }
+  result = Math.floor(result + EPS);
+  if (result === 0) {
     if (deviceDPR === 1 || !isIOS) {
       return 1
     } else {
       return 0.5
     }
   }
-  return number
+  return number < 0 ? -result : result
 }
 
 var protocols = {};
@@ -2300,6 +2323,9 @@ function callHook$1(vm, hook, params) {
   if (hook === 'onError' && handlers) {
     handlers = [handlers];
   }
+  if(typeof handlers === 'function'){
+    handlers = [handlers]
+  }
 
   var ret;
   if (handlers) {
@@ -2435,6 +2461,18 @@ function getRootVueVm(page) {
     onNavigationBarButtonTap: function onNavigationBarButtonTap(options) {
         var rootVueVM = getRootVueVm(this);
     		callHook$1(rootVueVM, "onNavigationBarButtonTap", options)
+    },
+    onNavigationBarSearchInputChanged: function onNavigationBarSearchInputChanged(options) {
+        var rootVueVM = getRootVueVm(this);
+    		callHook$1(rootVueVM, "onNavigationBarSearchInputChanged", options)
+    },
+    onNavigationBarSearchInputConfirmed: function onNavigationBarSearchInputConfirmed(options) {
+        var rootVueVM = getRootVueVm(this);
+    		callHook$1(rootVueVM, "onNavigationBarSearchInputConfirmed", options)
+    },
+    onNavigationBarSearchInputClicked: function onNavigationBarSearchInputClicked(options) {
+        var rootVueVM = getRootVueVm(this);
+    		callHook$1(rootVueVM, "onNavigationBarSearchInputClicked", options)
     },
     onBackPress: function onBackPress(options) {
         var rootVueVM = getRootVueVm(this);

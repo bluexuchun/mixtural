@@ -263,17 +263,17 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
                 if (response.status == 1) {
                   _index.default.loaded();
                   _data = response.data;
-                  _this.images = _data.detail_photo ? JSON.parse(_data.detail_photo) : [];
+                  // _this.images = data.detail_photo ? JSON.parse(data.detail_photo) : []
                   _this.level_name = _data.grade_title;
-                  _this.level_pic = _data.grade_photo;
+                  // _this.level_pic = data.grade_photo
                   _this.level_desc = _data.description;
-                  _this.level_bg = _data.grade_bg;
+                  // _this.level_bg = data.grade_bg
                   _this.signnum = _data.sign_time;
                   _this.mission_content = _data.detail;
                   _this.mission_award = _data.award;
                   _this.displayorder = _data.displayorder;
-                  _this.mission_rule = _data.task_rules;
-                  _this.ruleimages = _data.rules_photo ? JSON.parse(_data.rules_photo) : [];
+                  // 						_this.mission_rule = data.task_rules
+                  // 						_this.ruleimages = data.rules_photo ? JSON.parse(data.rules_photo) : []
                 } else {
                   _index.default.loaded();
                   _index.default.toast(response.message);
@@ -323,18 +323,18 @@ var _uploadImage = _interopRequireDefault(__webpack_require__(/*! ../../componen
                 data = {
                   bid: uni.getStorageSync("bid"),
                   id: _this.id,
-                  grade_photo: _this.level_pic,
+                  // grade_photo: _this.level_pic,
                   grade_title: _this.level_name,
-                  grade_bg: _this.level_bg,
+                  // grade_bg:_this.level_bg,
                   description: _this.level_desc,
                   sign_time: _this.signnum,
                   detail: _this.mission_content,
-                  detail_photo: _this.images,
+                  // detail_photo:_this.images,
                   displayorder: _this.displayorder,
-                  award: _this.mission_award,
-                  task_rules: _this.mission_rule,
-                  rules_photo: _this.ruleimages };_context4.next = 5;return (
-
+                  award: _this.mission_award
+                  // 					task_rules:_this.mission_rule,
+                  // 					rules_photo:_this.ruleimages
+                };_context4.next = 5;return (
                   _api.default.addLevel(data));case 5:response = _context4.sent;
                 if (response.status == 1) {
                   _index.default.loaded();
@@ -393,35 +393,6 @@ var render = function() {
     _c("view", { staticClass: "level_basic" }, [
       _c("view", { staticClass: "level_t" }, [_vm._v("基本信息")]),
       _c("view", { staticClass: "level_info" }, [
-        _c(
-          "view",
-          { staticClass: "item_info", staticStyle: { height: "120rpx" } },
-          [
-            _c("view", { staticClass: "item_label" }, [_vm._v("等级图片")]),
-            _c(
-              "view",
-              {
-                staticClass: "item_input",
-                attrs: { eventid: "4ec20383-0" },
-                on: { click: _vm.uploadLevelIcon }
-              },
-              [
-                _vm.level_pic
-                  ? _c("image", {
-                      staticClass: "icon_input",
-                      attrs: { src: _vm.level_pic, mode: "" }
-                    })
-                  : _c("image", {
-                      staticClass: "icon_input",
-                      attrs: {
-                        src: "../../static/images/icon_default.png",
-                        mode: ""
-                      }
-                    })
-              ]
-            )
-          ]
-        ),
         _c("view", { staticClass: "item_info" }, [
           _c("view", { staticClass: "item_label" }, [_vm._v("等级名称")]),
           _c("view", { staticClass: "item_input" }, [
@@ -437,7 +408,7 @@ var render = function() {
               attrs: {
                 type: "text",
                 placeholder: "请填写等级名称",
-                eventid: "4ec20383-1"
+                eventid: "4ec20383-0"
               },
               domProps: { value: _vm.level_name },
               on: {
@@ -466,7 +437,7 @@ var render = function() {
               attrs: {
                 type: "text",
                 placeholder: "请填写等级描述",
-                eventid: "4ec20383-2"
+                eventid: "4ec20383-1"
               },
               domProps: { value: _vm.level_desc },
               on: {
@@ -480,46 +451,6 @@ var render = function() {
             })
           ])
         ]),
-        _c(
-          "view",
-          { staticClass: "item_info", staticStyle: { height: "150rpx" } },
-          [
-            _c("view", { staticClass: "item_label" }, [
-              _vm._v("等级背景图(默认白色背景图)")
-            ]),
-            _c(
-              "view",
-              {
-                staticClass: "item_input",
-                attrs: { eventid: "4ec20383-3" },
-                on: { click: _vm.uploadimg }
-              },
-              [
-                _vm.level_bg
-                  ? _c("image", {
-                      staticClass: "icon_input",
-                      staticStyle: {
-                        width: "200rpx",
-                        height: "100rpx",
-                        "box-shadow": "0px 2px 8px rgba(0,0,0,0.5)",
-                        "border-radius": "6px"
-                      },
-                      attrs: { src: _vm.level_bg, mode: "" }
-                    })
-                  : _c("view", {
-                      staticClass: "icon_input",
-                      staticStyle: {
-                        width: "200rpx",
-                        height: "100rpx",
-                        "box-shadow": "0px 2px 8px rgba(0,0,0,0.5)",
-                        "border-radius": "6px",
-                        background: "#fff"
-                      }
-                    })
-              ]
-            )
-          ]
-        ),
         _c("view", { staticClass: "item_info" }, [
           _c("view", { staticClass: "item_label" }, [_vm._v("等级排序")]),
           _c("view", { staticClass: "item_input" }, [
@@ -535,7 +466,7 @@ var render = function() {
               attrs: {
                 type: "text",
                 placeholder: "请填写等级排序",
-                eventid: "4ec20383-4"
+                eventid: "4ec20383-2"
               },
               domProps: { value: _vm.displayorder },
               on: {
@@ -574,7 +505,7 @@ var render = function() {
               attrs: {
                 "placeholder-style": "color:#eaeaea",
                 placeholder: "输入该等级的福利",
-                eventid: "4ec20383-5"
+                eventid: "4ec20383-3"
               },
               domProps: { value: _vm.mission_award },
               on: {
@@ -606,7 +537,7 @@ var render = function() {
               attrs: {
                 type: "text",
                 placeholder: "请填写签到次数",
-                eventid: "4ec20383-6"
+                eventid: "4ec20383-4"
               },
               domProps: { value: _vm.signnum },
               on: {
@@ -619,52 +550,6 @@ var render = function() {
               }
             })
           ])
-        ]),
-        _c("view", { staticClass: "item_infospe" }, [
-          _c("view", { staticClass: "item_label" }, [_vm._v("任务规则/步骤")]),
-          _c("view", { staticClass: "item_inputspe" }, [
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.mission_rule,
-                  expression: "mission_rule"
-                }
-              ],
-              attrs: {
-                "placeholder-style": "color:#eaeaea",
-                placeholder: "输入任务规则/步骤",
-                eventid: "4ec20383-7"
-              },
-              domProps: { value: _vm.mission_rule },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.mission_rule = $event.target.value
-                }
-              }
-            })
-          ]),
-          _c(
-            "div",
-            { staticClass: "container-header" },
-            [
-              _c("v-upload-image", {
-                attrs: { eventid: "4ec20383-8", mpcomid: "4ec20383-0" },
-                model: {
-                  value: _vm.ruleimages,
-                  callback: function($$v) {
-                    _vm.ruleimages = $$v
-                  },
-                  expression: "ruleimages"
-                }
-              })
-            ],
-            1
-          )
         ]),
         _c("view", { staticClass: "item_infospe" }, [
           _c("view", { staticClass: "item_label" }, [_vm._v("任务详情")]),
@@ -681,7 +566,7 @@ var render = function() {
               attrs: {
                 "placeholder-style": "color:#eaeaea",
                 placeholder: "输入任务详情的内容",
-                eventid: "4ec20383-9"
+                eventid: "4ec20383-5"
               },
               domProps: { value: _vm.mission_content },
               on: {
@@ -693,24 +578,7 @@ var render = function() {
                 }
               }
             })
-          ]),
-          _c(
-            "div",
-            { staticClass: "container-header" },
-            [
-              _c("v-upload-image", {
-                attrs: { eventid: "4ec20383-10", mpcomid: "4ec20383-1" },
-                model: {
-                  value: _vm.images,
-                  callback: function($$v) {
-                    _vm.images = $$v
-                  },
-                  expression: "images"
-                }
-              })
-            ],
-            1
-          )
+          ])
         ])
       ])
     ]),
@@ -718,7 +586,7 @@ var render = function() {
       "view",
       {
         staticClass: "level_save",
-        attrs: { eventid: "4ec20383-11" },
+        attrs: { eventid: "4ec20383-6" },
         on: {
           click: function($event) {
             _vm.save()

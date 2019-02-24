@@ -4,7 +4,7 @@
 		{
 		    "path": "pages/usercenter/usercenter",
 		    "style": {
-				"navigationBarTextStyle":"white",
+				"navigationBarTextStyle":"black",
 		        "navigationBarTitleText": "首页",
 				"navigationBarBackgroundColor": "#FFDB4D"
 		    }
@@ -16,28 +16,28 @@
         }, {
 		    "path": "pages/usercenter/mine",
 		    "style": {
-				"navigationBarTextStyle":"white",
+				"navigationBarTextStyle":"black",
 		        "navigationBarTitleText": "我的",
 				"navigationBarBackgroundColor": "#FFDB4D"
 		    }
 		},{
 			"path": "pages/usercenter/useredit",
 			"style": {
-				"navigationBarTextStyle":"white",
+				"navigationBarTextStyle":"black",
 			    "navigationBarTitleText": "用户编辑",
 				"navigationBarBackgroundColor": "#FFDB4D"
 			}
 		},{
 			"path": "pages/usercenter/usershop",
 			"style": {
-				"navigationBarTextStyle":"white",
+				"navigationBarTextStyle":"black",
 			    "navigationBarTitleText": "商家入驻",
 				"navigationBarBackgroundColor": "#FFDB4D"
 			}
 		},{
 			"path": "pages/usercenter/missiondetail",
 			"style": {
-				"navigationBarTextStyle":"white",
+				"navigationBarTextStyle":"black",
 			    "navigationBarTitleText": "任务详情",
 				"navigationBarBackgroundColor": "#FFDB4D"
 			}
@@ -65,17 +65,23 @@
 		},{
 			"path": "pages/shop/leveldetail",
 			"style": {
-				"navigationBarTextStyle":"white",
+				"navigationBarTextStyle":"black",
 			    "navigationBarTitleText": "等级详情",
 				"navigationBarBackgroundColor": "#FFDB4D"
 			}
-			
 		},{
 			"path": "pages/scan/scan",
 			"style": {
 				"navigationBarTextStyle":"black",
 			    "navigationBarTitleText": "扫码",
 				"navigationBarBackgroundColor": "#fff"
+			}
+		},{
+			"path": "pages/fans/fans",
+			"style": {
+				"navigationBarTextStyle":"black",
+			    "navigationBarTitleText": "粉丝列表",
+				"navigationBarBackgroundColor": "#FFDB4D"
 			}
 		}
     ],

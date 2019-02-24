@@ -112,7 +112,7 @@
   text-align: center;
   line-height: 50rpx;
   background: #FFDB4D;
-  color: #ffffff;
+  color: #000;
 }
 .level_list .level_item .item_right .level_view {
   margin-right: 10rpx;
@@ -136,7 +136,7 @@
   bottom: 0px;
   left: 0px;
   background: #FFDB4D;
-  color: #fff;
+  color: #000;
   font-size: 28rpx;
 }
 .model_back {

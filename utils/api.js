@@ -6,6 +6,26 @@ const api = {
         token: token,
         rawData: rawData
     }),
+	// 获取详细信息
+	getDetail:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=member&a=userinfo&do=userinfo',{
+		...data
+	}),
+	// 添加详细信息
+	addDetail:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=member&a=userinfo&do=hold',{
+		...data
+	}),
+	// 切换身份
+	change2iden:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=task&a=switch&do=role_uid',{
+		...data
+	}),
+	// 删除粉丝列表
+	deleteFans:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=task&a=record&do=fans_del',{
+		...data
+	}),
+	// 获取粉丝列表
+	getFans:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=task&a=record&do=fans',{
+		...data
+	}),
 	// 获取二维码是否被核销
 	getCodeStatus:(data) => request.get(baseUrlApi + '/api.php?entry=app&c=task&a=statusCode&do=gain',{
 		...data

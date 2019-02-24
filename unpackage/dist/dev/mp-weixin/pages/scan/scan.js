@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js"));
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js"));
 
 
 
@@ -144,7 +144,7 @@ var _mixin = _interopRequireDefault(__webpack_require__(/*! @/utils/mixin */ "..
                     bid: this.id,
                     uid: this.userInfo.uid }));case 4:addResult = _context.sent;
 
-                console.log(addResult);
+                uni.setStorageSync("bid", this.id);
                 if (addResult.status == 1) {
                   _index.default.loaded();
                   this.result = addResult.message;
@@ -180,6 +180,7 @@ var _mixin = _interopRequireDefault(__webpack_require__(/*! @/utils/mixin */ "..
     this.type = type;
     this.id = id;
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
 /***/ }),
 

@@ -156,6 +156,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
 var _is = _interopRequireDefault(__webpack_require__(/*! is */ "../../../GitProject/mixtural/node_modules/is/index.js"));
 var _index = _interopRequireDefault(__webpack_require__(/*! @/utils/index */ "../../../GitProject/mixtural/utils/index.js"));
 var _api = _interopRequireDefault(__webpack_require__(/*! @/utils/api */ "../../../GitProject/mixtural/utils/api.js"));
@@ -303,36 +306,24 @@ var render = function() {
               { key: itemindex, attrs: { mpcomid: "94a8eff4-0-" + itemindex } },
               [
                 _c("view", { staticClass: "vip-box" }, [
-                  _c(
-                    "view",
-                    {
-                      staticClass: "vipbox",
-                      style: {
-                        background: "url(" + item.bg + ")",
-                        backgroundSize: "cover",
-                        overflow: "hidden",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat"
-                      }
-                    },
-                    [
-                      _c("view", { staticClass: "vipbox-head" }, [
-                        _c("image", {
-                          staticClass: "vipbox-logo",
-                          attrs: { src: item.photo, mode: "widthFix" }
-                        }),
-                        _c("view", [_vm._v(_vm._s(item.title))])
-                      ]),
-                      _c("view", { staticClass: "vipbox-content" }, [
-                        _vm._v(_vm._s(item.desc))
-                      ])
-                    ]
-                  )
+                  _c("view", { staticClass: "vipbox" }, [
+                    _c("view", { staticClass: "vipbox-head" }, [
+                      _c("image", {
+                        staticClass: "vipbox-logo",
+                        attrs: { src: item.photo, mode: "widthFix" }
+                      }),
+                      _c("view", [_vm._v(_vm._s(item.title))])
+                    ]),
+                    _c("view", { staticClass: "vipbox-content" }, [
+                      _vm._v(_vm._s(item.desc))
+                    ])
+                  ])
                 ])
               ]
             )
           })
-        )
+        ),
+        _c("view", { staticClass: "viptips" }, [_vm._v("左右滑动查看更多")])
       ],
       1
     ),

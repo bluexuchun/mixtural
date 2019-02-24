@@ -8,7 +8,7 @@
             <swiper class="swiper vipdetail-box" :duration="duration" :current="currenid" @change="changeVip">
                 <swiper-item v-for="(item,itemindex) in missionList" :key="itemindex">
                     <view class="vip-box">
-                    	<view class="vipbox" :style="{background:'url('+item.bg+')',backgroundSize:'cover',overflow:'hidden',backgroundPosition:'center',backgroundRepeat:'no-repeat'}">
+                    	<view class="vipbox">
 							<view class="vipbox-head">
 								<image class="vipbox-logo" :src="item.photo" mode="widthFix"></image>
 								<view>
@@ -22,6 +22,9 @@
 					</view>
                 </swiper-item>
             </swiper>
+			<view class="viptips">
+				左右滑动查看更多
+			</view>
         </view>
 		
 		<!-- vip card -->

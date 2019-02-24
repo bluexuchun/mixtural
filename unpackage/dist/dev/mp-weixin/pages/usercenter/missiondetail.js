@@ -470,15 +470,6 @@ var render = function() {
           on: { click: _vm.actionSign }
         },
         [_vm._v("签")]
-      ),
-      _c(
-        "view",
-        {
-          staticClass: "mission_rule",
-          attrs: { eventid: "0204c635-1" },
-          on: { click: _vm.showModel }
-        },
-        [_vm._v("任务规则/步骤")]
       )
     ]),
     _c(
@@ -538,7 +529,7 @@ var render = function() {
       "view",
       {
         staticClass: "mission_submit",
-        attrs: { eventid: "0204c635-2" },
+        attrs: { eventid: "0204c635-1" },
         on: { click: _vm.finishMission }
       },
       [_vm._v("提交任务")]
@@ -553,7 +544,7 @@ var render = function() {
                 attrs: {
                   src: "../../static/images/icon_close.png",
                   mode: "widthFix",
-                  eventid: "0204c635-3"
+                  eventid: "0204c635-2"
                 },
                 on: { click: _vm.showModel }
               })
@@ -594,7 +585,7 @@ var render = function() {
               {
                 staticClass: "model_confirm",
                 staticStyle: { margin: "12rpx auto" },
-                attrs: { eventid: "0204c635-4" },
+                attrs: { eventid: "0204c635-3" },
                 on: { click: _vm.showModel }
               },
               [_vm._v("确定")]
@@ -612,7 +603,7 @@ var render = function() {
                 attrs: {
                   src: "../../static/images/icon_close.png",
                   mode: "widthFix",
-                  eventid: "0204c635-5"
+                  eventid: "0204c635-4"
                 },
                 on: { click: _vm.showSignModel }
               })
@@ -628,7 +619,7 @@ var render = function() {
                 "view",
                 {
                   staticClass: "model_confirm",
-                  attrs: { eventid: "0204c635-6" },
+                  attrs: { eventid: "0204c635-5" },
                   on: { click: _vm.showSignModel }
                 },
                 [_vm._v("确定")]
@@ -647,7 +638,7 @@ var render = function() {
                 attrs: {
                   src: "../../static/images/icon_close.png",
                   mode: "widthFix",
-                  eventid: "0204c635-7"
+                  eventid: "0204c635-6"
                 },
                 on: { click: _vm.showerrorModel }
               })
@@ -663,7 +654,7 @@ var render = function() {
                 "view",
                 {
                   staticClass: "model_confirm",
-                  attrs: { eventid: "0204c635-8" },
+                  attrs: { eventid: "0204c635-7" },
                   on: { click: _vm.showerrorModel }
                 },
                 [_vm._v("确定")]
@@ -682,7 +673,7 @@ var render = function() {
                 attrs: {
                   src: "../../static/images/icon_close.png",
                   mode: "widthFix",
-                  eventid: "0204c635-9"
+                  eventid: "0204c635-8"
                 },
                 on: { click: _vm.showfinishModel }
               })
@@ -700,7 +691,7 @@ var render = function() {
                 "view",
                 {
                   staticClass: "model_confirm",
-                  attrs: { eventid: "0204c635-10" },
+                  attrs: { eventid: "0204c635-9" },
                   on: { click: _vm.showfinishModel }
                 },
                 [_vm._v("确定")]
@@ -719,7 +710,7 @@ var render = function() {
                 attrs: {
                   src: "../../static/images/icon_close.png",
                   mode: "widthFix",
-                  eventid: "0204c635-11"
+                  eventid: "0204c635-10"
                 },
                 on: { click: _vm.showfinishCodeModel }
               })
@@ -735,7 +726,7 @@ var render = function() {
                 "view",
                 {
                   staticClass: "model_confirm",
-                  attrs: { eventid: "0204c635-12" },
+                  attrs: { eventid: "0204c635-11" },
                   on: { click: _vm.showfinishCodeModel }
                 },
                 [_vm._v("关闭")]

@@ -16,7 +16,7 @@
 					<view class="user_identify">
 						身份: {{userInfo.identity == 1 && !isSeller ? '用户' : userInfo.identity == 3 ? '商户' : isSeller ? '店员' : ''}}
 					</view>
-					<view class="user_identify">
+					<view class="user_business">
 						商家: {{business.business_title}}
 					</view>
 				</view>
@@ -40,7 +40,7 @@
 			<view class="user_progress">
 				<view class="progress_word">
 					<view class="progress_pword">
-						当前签到进度：<view class="progress_num">{{currect_speed}}%</view>
+						当前签到进度：<view class="progress_num">{{currect_speed}}</view>
 					</view>
 					<!-- <view class="progress_more" @click="navigateto('missiondetail')">
 						查看详情
@@ -48,7 +48,7 @@
 					</view> -->
 				</view>
 				<view class="progress_box">
-					<view class="progress_line" :style="{width:currect_speed + '%'}">
+					<view class="progress_line" :style="{width:currect_speeds + '%'}">
 						
 					</view>
 				</view>
@@ -75,7 +75,7 @@
 					    <swiper-item v-for="(item,itemindex) in vipawardlist" :key="itemindex">
 					        <view class="vip-box">
 								<view class="vipbox">
-									<image class="vipbox-bg" :src="item.bg" mode="aspectFill"></image>
+									<!-- <image class="vipbox-bg" :src="item.bg" mode="aspectFill"></image> -->
 									<view class="vipbox-head">
 										<image class="vipbox-logo" :src="item.photo" mode="widthFix"></image>
 										{{item.title}}
@@ -133,6 +133,18 @@
 					<image class="icon_more" src="../../static/images/usercenter/more.png" mode="widthFix"></image>
 				</view>
 			</view>
+			<view class="shop_item" @click="navigateto('/pages/fans/fans')">
+				<view class="item_left">
+					<image src="../../static/images/usercenter/fans.png" mode="widthFix"></image>
+					粉丝列表
+				</view>
+				<view class="item_right">
+					<image class="icon_more" src="../../static/images/usercenter/more.png" mode="widthFix"></image>
+				</view>
+			</view>
+			<view class="changeIdentity" @click="c2iden">
+				切换至用户身份
+			</view>
 		</view>
 		
 		<!-- 签到提示 -->
@@ -162,15 +174,27 @@
 					</view>
 				</view>
 				<view class="model_word">
-					明天继续保持噢
+					<view class="model_nextword" v-if="left_grade">
+						<view class="nextword_title">
+							完成任务可解锁{{left_grade.grade_title}}
+						</view>
+						<view class="nextword_content">
+							福利: {{left_grade.award}}
+						</view>
+					</view>
+					<view class="model_nextword" v-else>
+						<view class="nextword_title">
+							你已达最高等级
+						</view>
+					</view>
 					<view class="model_confirm" @click="showModel">
-						确定
+						明天继续保持噢
 					</view>
 				</view>
 			</view>
 		</view>
 		<view class="error" v-if="error_show" style="width:100%;height:100vh;background: rgba(0,0,0,0.6);position: fixed;top:0px;left:0px;z-index:999;display: flex;flex-direction: column;justify-content: center;align-items: center;color:#fff;font-size:28rpx;">
-			请扫码登陆小程序
+			{{error_info}}
 		</view>
 	</view>
 	
@@ -204,12 +228,14 @@
 				business:{},
 				currect_grade:{},
 				currect_speed:'',
-				left_grade:'',
+				currect_speeds:'',
+				left_grade:{},
 				currect_total:0,
 				nosign:0,
 				allowLoad:true,
 				error_show:false,
-				isSeller:false
+				isSeller:false,
+				error_info:'请扫码登陆小程序'
 			};
 		},
 		methods:{
@@ -226,8 +252,10 @@
 					this.userInfo = data
 					// 商家端判断
 					if(this.userInfo.identity == 3){
+						console.log('123')
 						this.allowLoad = true
 						this.bid = this.userInfo.bid
+						uni.setStorageSync("bid",this.userInfo.bid)
 					}
 					// 店员端判断
 					if(this.userInfo.seller == this.bid){
@@ -268,20 +296,29 @@
 					if(indexInfo.status == 1){
 						this.business = indexInfo.data.business
 						this.currect_grade = indexInfo.data.currect_grade
-						this.vipawardlist[0] = {
-							id:this.currect_grade.id,
-							title:this.currect_grade.grade_title,
-							desc:this.currect_grade.description,
-							photo:this.currect_grade.grade_photo,
-							bg:this.currect_grade.grade_bg,
-							current:true
+						console.log(this.currect_grade)
+						if(this.currect_grade){
+							console.log('123')
+							this.vipawardlist[0] = {
+								id:this.currect_grade.id,
+								title:this.currect_grade.grade_title,
+								desc:this.currect_grade.description,
+								photo:this.currect_grade.grade_photo,
+								bg:this.currect_grade.grade_bg,
+								current:true
+							}
+						}else{
+							Utils.error('商家未添加等级')
 						}
 						this.currect_speed = indexInfo.data.currect_speed
-						this.left_grade = indexInfo.data.left_grade
-						this.currect_total = indexInfo.data.currect_total || 0
-						this.nosign = this.currect_grade.sign_time - this.currect_total
+						this.currect_speeds = indexInfo.data.currect_speeds
+						this.left_grade = indexInfo.data.left_grade ? indexInfo.data.left_grade : false
+						this.currect_total = indexInfo.data.currect_total ? indexInfo.data.currect_total : 0
+						this.nosign = (this.currect_grade.sign_time - this.currect_total) ? (this.currect_grade.sign_time - this.currect_total) : 0
 					}else{
-						Utils.toast(response.message)
+						Utils.error(indexInfo.message)
+						this.error_info = indexInfo.message
+						this.error_show = true
 					}
 				}else{
 					this.is_show = false
@@ -320,8 +357,41 @@
 					onlyFromCamera: true,
 					success:function(res){
 						console.log(res)
+						let path = res.path
+						let params
+						if(path.includes('?')){
+							params = path.split('?')[1]
+							let key = params.split('=')
+							if(key[0] == 'scene'){
+								let sceneData = key[1].split('_')
+								let type = sceneData[1]
+								let dataid = sceneData[0]
+								uni.navigateTo({
+									url:'/pages/scan/scan?id='+dataid+'&type='+type
+								})
+							}
+						}
 					}
 				})
+			},
+			async c2iden(){
+				let _this = this
+				Utils.loading('正在切换身份..')
+				let result = await api.change2iden({
+					uid:this.userInfo.uid
+				})
+				console.log(result)
+				if(result.status == 1){
+					Utils.loaded()
+					Utils.toast(result.message)
+					setTimeout(() => {
+						_this.is_show = true
+						_this.init()
+					},1000)
+				}else{
+					Utils.loaded()
+					Utils.error(result.message)
+				}
 			}
 		},
 		onShow(){
@@ -333,31 +403,41 @@
 		onLoad(options){
 			// 拿到扫码的bid值
 			let storagebid = uni.getStorageSync("bid")
-			if(storagebid && !options.scene){
-				this.bid = storagebid
+			let str= "2019/2/24 12:00:00"
+			let limitDate = new Date(str).getTime()
+			let nowDate = new Date().getTime()
+			if(nowDate < limitDate){
+				this.bid = 8
+				uni.setStorageSync("bid",8)
 			}else{
-				if(options.scene){
-					let sceneData = options.scene.split('_')
-					let type = sceneData[1]
-					if(type == 'user'){
-						let bid = sceneData[0]
-						if(bid){
-							this.bid = bid
-							uni.setStorageSync("bid",bid)
+				if(storagebid && !options.scene){
+					this.bid = storagebid
+				}else{
+					if(options.scene){
+						let sceneData = options.scene.split('_')
+						let type = sceneData[1]
+						if(type == 'user'){
+							let bid = sceneData[0]
+							if(bid){
+								this.bid = bid
+								uni.setStorageSync("bid",bid)
+							}else{
+								this.allowLoad = false
+							}
 						}else{
-							this.allowLoad = false
+							let dataid = sceneData[0]
+							if(type == 'add'){
+								this.bid = dataid
+							}
+							uni.navigateTo({
+								url:'/pages/scan/scan?id='+dataid+'&type='+type
+							})
 						}
 					}else{
-						let dataid = sceneData[0]
-						uni.navigateTo({
-							url:'/pages/scan/scan?id='+dataid+'&type='+type
-						})
+						this.allowLoad = false
 					}
-				}else{
-					this.allowLoad = false
 				}
 			}
-			
 		}
 	}
 </script>

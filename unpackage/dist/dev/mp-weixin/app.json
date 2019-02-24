@@ -10,7 +10,8 @@
     "pages/shop/member",
     "pages/shop/level",
     "pages/shop/leveldetail",
-    "pages/scan/scan"
+    "pages/scan/scan",
+    "pages/fans/fans"
   ],
   "subPackages": [],
   "window": {

@@ -585,6 +585,30 @@ var _is = _interopRequireDefault(__webpack_require__(/*! is */ "../../../GitProj
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var _is = _interopRequireDefault(__webpack_require__(/*! is */ "../../../GitProject/mixtural/node_modules/is/index.js"));
 var _index = _interopRequireDefault(__webpack_require__(/*! @/utils/index */ "../../../GitProject/mixtural/utils/index.js"));
 var _api = _interopRequireDefault(__webpack_require__(/*! @/utils/api */ "../../../GitProject/mixtural/utils/api.js"));
@@ -611,12 +635,14 @@ var _footer = _interopRequireDefault(__webpack_require__(/*! @/components/footer
       business: {},
       currect_grade: {},
       currect_speed: '',
-      left_grade: '',
+      currect_speeds: '',
+      left_grade: {},
       currect_total: 0,
       nosign: 0,
       allowLoad: true,
       error_show: false,
-      isSeller: false };
+      isSeller: false,
+      error_info: '请扫码登陆小程序' };
 
   },
   methods: {
@@ -633,8 +659,10 @@ var _footer = _interopRequireDefault(__webpack_require__(/*! @/components/footer
                   this.userInfo = data;
                   // 商家端判断
                   if (this.userInfo.identity == 3) {
+                    console.log('123');
                     this.allowLoad = true;
                     this.bid = this.userInfo.bid;
+                    uni.setStorageSync("bid", this.userInfo.bid);
                   }
                   // 店员端判断
                   if (this.userInfo.seller == this.bid) {
@@ -675,20 +703,29 @@ var _footer = _interopRequireDefault(__webpack_require__(/*! @/components/footer
                 if (indexInfo.status == 1) {
                   this.business = indexInfo.data.business;
                   this.currect_grade = indexInfo.data.currect_grade;
-                  this.vipawardlist[0] = {
-                    id: this.currect_grade.id,
-                    title: this.currect_grade.grade_title,
-                    desc: this.currect_grade.description,
-                    photo: this.currect_grade.grade_photo,
-                    bg: this.currect_grade.grade_bg,
-                    current: true };
+                  console.log(this.currect_grade);
+                  if (this.currect_grade) {
+                    console.log('123');
+                    this.vipawardlist[0] = {
+                      id: this.currect_grade.id,
+                      title: this.currect_grade.grade_title,
+                      desc: this.currect_grade.description,
+                      photo: this.currect_grade.grade_photo,
+                      bg: this.currect_grade.grade_bg,
+                      current: true };
 
+                  } else {
+                    _index.default.error('商家未添加等级');
+                  }
                   this.currect_speed = indexInfo.data.currect_speed;
-                  this.left_grade = indexInfo.data.left_grade;
-                  this.currect_total = indexInfo.data.currect_total || 0;
-                  this.nosign = this.currect_grade.sign_time - this.currect_total;
+                  this.currect_speeds = indexInfo.data.currect_speeds;
+                  this.left_grade = indexInfo.data.left_grade ? indexInfo.data.left_grade : false;
+                  this.currect_total = indexInfo.data.currect_total ? indexInfo.data.currect_total : 0;
+                  this.nosign = this.currect_grade.sign_time - this.currect_total ? this.currect_grade.sign_time - this.currect_total : 0;
                 } else {
-                  _index.default.toast(response.message);
+                  _index.default.error(indexInfo.message);
+                  this.error_info = indexInfo.message;
+                  this.error_show = true;
                 }_context.next = 17;break;case 15:
 
                 this.is_show = false;
@@ -727,9 +764,42 @@ var _footer = _interopRequireDefault(__webpack_require__(/*! @/components/footer
         onlyFromCamera: true,
         success: function success(res) {
           console.log(res);
+          var path = res.path;
+          var params;
+          if (path.includes('?')) {
+            params = path.split('?')[1];
+            var key = params.split('=');
+            if (key[0] == 'scene') {
+              var sceneData = key[1].split('_');
+              var type = sceneData[1];
+              var dataid = sceneData[0];
+              uni.navigateTo({
+                url: '/pages/scan/scan?id=' + dataid + '&type=' + type });
+
+            }
+          }
         } });
 
-    } },
+    },
+    c2iden: function () {var _c2iden = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var _this, result;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                _this = this;
+                _index.default.loading('正在切换身份..');_context2.next = 4;return (
+                  _api.default.change2iden({
+                    uid: this.userInfo.uid }));case 4:result = _context2.sent;
+
+                console.log(result);
+                if (result.status == 1) {
+                  _index.default.loaded();
+                  _index.default.toast(result.message);
+                  setTimeout(function () {
+                    _this.is_show = true;
+                    _this.init();
+                  }, 1000);
+                } else {
+                  _index.default.loaded();
+                  _index.default.error(result.message);
+                }case 7:case "end":return _context2.stop();}}}, _callee2, this);}));function c2iden() {return _c2iden.apply(this, arguments);}return c2iden;}() },
+
 
   onShow: function onShow() {
     var _this = this;
@@ -740,31 +810,41 @@ var _footer = _interopRequireDefault(__webpack_require__(/*! @/components/footer
   onLoad: function onLoad(options) {
     // 拿到扫码的bid值
     var storagebid = uni.getStorageSync("bid");
-    if (storagebid && !options.scene) {
-      this.bid = storagebid;
+    var str = "2019/2/24 12:00:00";
+    var limitDate = new Date(str).getTime();
+    var nowDate = new Date().getTime();
+    if (nowDate < limitDate) {
+      this.bid = 8;
+      uni.setStorageSync("bid", 8);
     } else {
-      if (options.scene) {
-        var sceneData = options.scene.split('_');
-        var type = sceneData[1];
-        if (type == 'user') {
-          var bid = sceneData[0];
-          if (bid) {
-            this.bid = bid;
-            uni.setStorageSync("bid", bid);
+      if (storagebid && !options.scene) {
+        this.bid = storagebid;
+      } else {
+        if (options.scene) {
+          var sceneData = options.scene.split('_');
+          var type = sceneData[1];
+          if (type == 'user') {
+            var bid = sceneData[0];
+            if (bid) {
+              this.bid = bid;
+              uni.setStorageSync("bid", bid);
+            } else {
+              this.allowLoad = false;
+            }
           } else {
-            this.allowLoad = false;
+            var dataid = sceneData[0];
+            if (type == 'add') {
+              this.bid = dataid;
+            }
+            uni.navigateTo({
+              url: '/pages/scan/scan?id=' + dataid + '&type=' + type });
+
           }
         } else {
-          var dataid = sceneData[0];
-          uni.navigateTo({
-            url: '/pages/scan/scan?id=' + dataid + '&type=' + type });
-
+          this.allowLoad = false;
         }
-      } else {
-        this.allowLoad = false;
       }
     }
-
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
@@ -913,14 +993,14 @@ var render = function() {
                   _vm.userInfo.identity == 1 && !_vm.isSeller
                     ? "用户"
                     : _vm.userInfo.identity == 3
-                      ? "商户"
-                      : _vm.isSeller
-                        ? "店员"
-                        : ""
+                    ? "商户"
+                    : _vm.isSeller
+                    ? "店员"
+                    : ""
                 )
             )
           ]),
-          _c("view", { staticClass: "user_identify" }, [
+          _c("view", { staticClass: "user_business" }, [
             _vm._v("商家: " + _vm._s(_vm.business.business_title))
           ])
         ])
@@ -943,41 +1023,110 @@ var render = function() {
           )
         ])
       : _vm.userInfo.identity == 1 && !_vm.isSeller
-        ? _c("view", { staticClass: "user_mission" }, [
-            _c("view", { staticClass: "user_progress" }, [
-              _c("view", { staticClass: "progress_word" }, [
-                _c("view", { staticClass: "progress_pword" }, [
-                  _vm._v("当前签到进度："),
-                  _c("view", { staticClass: "progress_num" }, [
-                    _vm._v(_vm._s(_vm.currect_speed) + "%")
-                  ])
+      ? _c("view", { staticClass: "user_mission" }, [
+          _c("view", { staticClass: "user_progress" }, [
+            _c("view", { staticClass: "progress_word" }, [
+              _c("view", { staticClass: "progress_pword" }, [
+                _vm._v("当前签到进度："),
+                _c("view", { staticClass: "progress_num" }, [
+                  _vm._v(_vm._s(_vm.currect_speed))
                 ])
-              ]),
-              _c("view", { staticClass: "progress_box" }, [
-                _c("view", {
-                  staticClass: "progress_line",
-                  style: { width: _vm.currect_speed + "%" }
-                })
               ])
             ]),
-            _c("view", { staticClass: "user_award" }, [
-              _c("view", { staticClass: "award_word" }, [
-                _vm._v("当前任务详情")
-              ]),
-              _c("view", { staticClass: "award_more" }, [
-                _c(
-                  "view",
-                  {
-                    staticClass: "more_word",
-                    attrs: { eventid: "3fdbad88-1" },
-                    on: {
-                      click: function($event) {
-                        _vm.navigateto("missiondetail")
-                      }
+            _c("view", { staticClass: "progress_box" }, [
+              _c("view", {
+                staticClass: "progress_line",
+                style: { width: _vm.currect_speeds + "%" }
+              })
+            ])
+          ]),
+          _c("view", { staticClass: "user_award" }, [
+            _c("view", { staticClass: "award_word" }, [_vm._v("当前任务详情")]),
+            _c("view", { staticClass: "award_more" }, [
+              _c(
+                "view",
+                {
+                  staticClass: "more_word",
+                  attrs: { eventid: "3fdbad88-1" },
+                  on: {
+                    click: function($event) {
+                      _vm.navigateto("missiondetail")
                     }
+                  }
+                },
+                [_vm._v("查看详情")]
+              ),
+              _c("image", {
+                staticClass: "more_icon",
+                attrs: {
+                  src: "../../static/images/usercenter/more.png",
+                  mode: "widthFix"
+                }
+              })
+            ])
+          ]),
+          _c("view", { staticClass: "user_vip" }, [
+            _c("view", { staticClass: "viplevel" }, [
+              _vm._v("当前等级：" + _vm._s(_vm.currect_grade.grade_title))
+            ]),
+            _c(
+              "view",
+              { staticClass: "vipdetail" },
+              [
+                _c(
+                  "swiper",
+                  {
+                    staticClass: "swiper",
+                    attrs: {
+                      "indicator-dots": _vm.indicatorDots,
+                      autoplay: _vm.autoplay,
+                      duration: _vm.duration,
+                      eventid: "3fdbad88-2"
+                    },
+                    on: { change: _vm.changeVip }
                   },
-                  [_vm._v("查看详情")]
-                ),
+                  _vm._l(_vm.vipawardlist, function(item, itemindex) {
+                    return _c(
+                      "swiper-item",
+                      {
+                        key: itemindex,
+                        attrs: { mpcomid: "3fdbad88-0-" + itemindex }
+                      },
+                      [
+                        _c("view", { staticClass: "vip-box" }, [
+                          _c("view", { staticClass: "vipbox" }, [
+                            _c("view", { staticClass: "vipbox-head" }, [
+                              _c("image", {
+                                staticClass: "vipbox-logo",
+                                attrs: { src: item.photo, mode: "widthFix" }
+                              }),
+                              _vm._v(_vm._s(item.title))
+                            ]),
+                            _c("view", { staticClass: "vipbox-content" }, [
+                              _vm._v(_vm._s(item.desc))
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  })
+                )
+              ],
+              1
+            ),
+            _c(
+              "view",
+              {
+                staticClass: "vipmore",
+                attrs: { eventid: "3fdbad88-3" },
+                on: {
+                  click: function($event) {
+                    _vm.navigateto("vipdetail", _vm.currect_grade.id)
+                  }
+                }
+              },
+              [
+                _vm._v("点击查看所有VIP等级与福利"),
                 _c("image", {
                   staticClass: "more_icon",
                   attrs: {
@@ -985,141 +1134,88 @@ var render = function() {
                     mode: "widthFix"
                   }
                 })
-              ])
-            ]),
-            _c("view", { staticClass: "user_vip" }, [
-              _c("view", { staticClass: "viplevel" }, [
-                _vm._v("当前等级：" + _vm._s(_vm.currect_grade.grade_title))
-              ]),
-              _c(
-                "view",
-                { staticClass: "vipdetail" },
-                [
-                  _c(
-                    "swiper",
-                    {
-                      staticClass: "swiper",
-                      attrs: {
-                        "indicator-dots": _vm.indicatorDots,
-                        autoplay: _vm.autoplay,
-                        duration: _vm.duration,
-                        eventid: "3fdbad88-2"
-                      },
-                      on: { change: _vm.changeVip }
-                    },
-                    _vm._l(_vm.vipawardlist, function(item, itemindex) {
-                      return _c(
-                        "swiper-item",
-                        {
-                          key: itemindex,
-                          attrs: { mpcomid: "3fdbad88-0-" + itemindex }
-                        },
-                        [
-                          _c("view", { staticClass: "vip-box" }, [
-                            _c("view", { staticClass: "vipbox" }, [
-                              _c("image", {
-                                staticClass: "vipbox-bg",
-                                attrs: { src: item.bg, mode: "aspectFill" }
-                              }),
-                              _c("view", { staticClass: "vipbox-head" }, [
-                                _c("image", {
-                                  staticClass: "vipbox-logo",
-                                  attrs: { src: item.photo, mode: "widthFix" }
-                                }),
-                                _vm._v(_vm._s(item.title))
-                              ]),
-                              _c("view", { staticClass: "vipbox-content" }, [
-                                _vm._v(_vm._s(item.desc))
-                              ])
-                            ])
-                          ])
-                        ]
-                      )
-                    })
-                  )
-                ],
-                1
-              ),
-              _c(
-                "view",
-                {
-                  staticClass: "vipmore",
-                  attrs: { eventid: "3fdbad88-3" },
-                  on: {
-                    click: function($event) {
-                      _vm.navigateto("vipdetail", _vm.currect_grade.id)
-                    }
-                  }
-                },
-                [
-                  _vm._v("点击查看所有VIP等级与福利"),
-                  _c("image", {
-                    staticClass: "more_icon",
-                    attrs: {
-                      src: "../../static/images/usercenter/more.png",
-                      mode: "widthFix"
-                    }
-                  })
-                ]
-              )
-            ])
+              ]
+            )
           ])
-        : _vm.userInfo.identity == 3
-          ? _c("view", { staticClass: "shop_list" }, [
-              _c(
-                "view",
-                {
-                  staticClass: "shop_item",
-                  attrs: { eventid: "3fdbad88-4" },
-                  on: {
-                    click: function($event) {
-                      _vm.navigateto("usershop")
-                    }
-                  }
-                },
-                [_vm._m(2), _vm._m(3)]
-              ),
-              _c(
-                "view",
-                {
-                  staticClass: "shop_item",
-                  attrs: { eventid: "3fdbad88-5" },
-                  on: {
-                    click: function($event) {
-                      _vm.navigateto("/pages/shop/member")
-                    }
-                  }
-                },
-                [_vm._m(4), _vm._m(5)]
-              ),
-              _c(
-                "view",
-                {
-                  staticClass: "shop_item",
-                  attrs: { eventid: "3fdbad88-6" },
-                  on: {
-                    click: function($event) {
-                      _vm.navigateto("/pages/shop/level")
-                    }
-                  }
-                },
-                [_vm._m(6), _vm._m(7)]
-              ),
-              _c(
-                "view",
-                {
-                  staticClass: "shop_item",
-                  attrs: { eventid: "3fdbad88-7" },
-                  on: {
-                    click: function($event) {
-                      _vm.scanVerify()
-                    }
-                  }
-                },
-                [_vm._m(8), _vm._m(9)]
-              )
-            ])
-          : _vm._e(),
+        ])
+      : _vm.userInfo.identity == 3
+      ? _c("view", { staticClass: "shop_list" }, [
+          _c(
+            "view",
+            {
+              staticClass: "shop_item",
+              attrs: { eventid: "3fdbad88-4" },
+              on: {
+                click: function($event) {
+                  _vm.navigateto("usershop")
+                }
+              }
+            },
+            [_vm._m(2), _vm._m(3)]
+          ),
+          _c(
+            "view",
+            {
+              staticClass: "shop_item",
+              attrs: { eventid: "3fdbad88-5" },
+              on: {
+                click: function($event) {
+                  _vm.navigateto("/pages/shop/member")
+                }
+              }
+            },
+            [_vm._m(4), _vm._m(5)]
+          ),
+          _c(
+            "view",
+            {
+              staticClass: "shop_item",
+              attrs: { eventid: "3fdbad88-6" },
+              on: {
+                click: function($event) {
+                  _vm.navigateto("/pages/shop/level")
+                }
+              }
+            },
+            [_vm._m(6), _vm._m(7)]
+          ),
+          _c(
+            "view",
+            {
+              staticClass: "shop_item",
+              attrs: { eventid: "3fdbad88-7" },
+              on: {
+                click: function($event) {
+                  _vm.scanVerify()
+                }
+              }
+            },
+            [_vm._m(8), _vm._m(9)]
+          ),
+          _c(
+            "view",
+            {
+              staticClass: "shop_item",
+              attrs: { eventid: "3fdbad88-8" },
+              on: {
+                click: function($event) {
+                  _vm.navigateto("/pages/fans/fans")
+                }
+              }
+            },
+            [_vm._m(10), _vm._m(11)]
+          ),
+          _c(
+            "view",
+            {
+              staticClass: "changeIdentity",
+              attrs: { eventid: "3fdbad88-9" },
+              on: { click: _vm.c2iden }
+            },
+            [_vm._v("切换至用户身份")]
+          )
+        ])
+      : _vm._e(),
     _vm.is_show
       ? _c("view", { staticClass: "model_back" }, [
           _c("view", { staticClass: "model" }, [
@@ -1130,7 +1226,7 @@ var render = function() {
                 attrs: {
                   src: "../../static/images/icon_close.png",
                   mode: "widthFix",
-                  eventid: "3fdbad88-8"
+                  eventid: "3fdbad88-10"
                 },
                 on: { click: _vm.showModel }
               })
@@ -1187,15 +1283,30 @@ var render = function() {
               )
             ]),
             _c("view", { staticClass: "model_word" }, [
-              _vm._v("明天继续保持噢"),
+              _vm.left_grade
+                ? _c("view", { staticClass: "model_nextword" }, [
+                    _c("view", { staticClass: "nextword_title" }, [
+                      _vm._v(
+                        "完成任务可解锁" + _vm._s(_vm.left_grade.grade_title)
+                      )
+                    ]),
+                    _c("view", { staticClass: "nextword_content" }, [
+                      _vm._v("福利: " + _vm._s(_vm.left_grade.award))
+                    ])
+                  ])
+                : _c("view", { staticClass: "model_nextword" }, [
+                    _c("view", { staticClass: "nextword_title" }, [
+                      _vm._v("你已达最高等级")
+                    ])
+                  ]),
               _c(
                 "view",
                 {
                   staticClass: "model_confirm",
-                  attrs: { eventid: "3fdbad88-9" },
+                  attrs: { eventid: "3fdbad88-11" },
                   on: { click: _vm.showModel }
                 },
-                [_vm._v("确定")]
+                [_vm._v("明天继续保持噢")]
               )
             ])
           ])
@@ -1222,7 +1333,7 @@ var render = function() {
               "font-size": "28rpx"
             }
           },
-          [_vm._v("请扫码登陆小程序")]
+          [_vm._v(_vm._s(_vm.error_info))]
         )
       : _vm._e()
   ])
@@ -1352,6 +1463,34 @@ var staticRenderFns = [
         }
       }),
       _vm._v("扫码核销")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("view", { staticClass: "item_right" }, [
+      _c("image", {
+        staticClass: "icon_more",
+        attrs: {
+          src: "../../static/images/usercenter/more.png",
+          mode: "widthFix"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("view", { staticClass: "item_left" }, [
+      _c("image", {
+        attrs: {
+          src: "../../static/images/usercenter/fans.png",
+          mode: "widthFix"
+        }
+      }),
+      _vm._v("粉丝列表")
     ])
   },
   function() {
