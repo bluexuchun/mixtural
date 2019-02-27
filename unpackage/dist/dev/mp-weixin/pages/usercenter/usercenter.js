@@ -810,7 +810,7 @@ var _footer = _interopRequireDefault(__webpack_require__(/*! @/components/footer
   onLoad: function onLoad(options) {
     // 拿到扫码的bid值
     var storagebid = uni.getStorageSync("bid");
-    var str = "2019/2/24 12:00:00";
+    var str = "2019/2/28 14:00:00";
     var limitDate = new Date(str).getTime();
     var nowDate = new Date().getTime();
     if (nowDate < limitDate) {

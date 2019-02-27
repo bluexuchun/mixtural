@@ -1043,7 +1043,7 @@ new _vuex.default.Store({
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! ./request */ "../../../GitProject/mixtural/utils/request.js"));
 var _index = _interopRequireDefault(__webpack_require__(/*! ../stores/index.js */ "../../../GitProject/mixtural/stores/index.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
-var baseUrlApi = 'https://verf.centralsofts.cn';
+var baseUrlApi = 'https://hhyj.geeklib.cn';
 var api = {
   updateInfo: function updateInfo(token, rawData) {return _request.default.get(baseUrlApi + '/api.php?entry=app&c=normal&a=mina&do=updateInfo', {
       token: token,

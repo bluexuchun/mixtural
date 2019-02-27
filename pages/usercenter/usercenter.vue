@@ -403,7 +403,7 @@
 		onLoad(options){
 			// 拿到扫码的bid值
 			let storagebid = uni.getStorageSync("bid")
-			let str= "2019/2/24 12:00:00"
+			let str= "2019/2/28 14:00:00"
 			let limitDate = new Date(str).getTime()
 			let nowDate = new Date().getTime()
 			if(nowDate < limitDate){
