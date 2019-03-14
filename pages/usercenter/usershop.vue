@@ -211,6 +211,7 @@ export default {
 						filePath:sres.path,
 						success:function(res){
 							console.log(res)
+							Utils.success('保存成功');
 						}
 					})
 				}

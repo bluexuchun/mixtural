@@ -1,2 +1,2 @@
 <import src="./fans.vue.wxml" />
-    <template is="a0286370" data="{{ ...$root['0'], $root }}"/>
+    <template is="a1603a94" data="{{ ...$root['0'], $root }}"/>

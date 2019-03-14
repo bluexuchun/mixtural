@@ -7,9 +7,15 @@
 			<view class="headava">
 				<image class="img_ava" :src="userInfo.avatar"></image>
 			</view>
-			<view class="sign_btn" @click="actionSign">
-				签
+			<view class="sign_box"  @click="actionSign">
+				<view class="sign_btn">
+					签
+				</view>
+				<view class="sign_tips">
+					点击此处进行签到
+				</view>
 			</view>
+			
 <!-- 			<view class="mission_rule" @click="showModel">
 				任务规则/步骤
 			</view> -->

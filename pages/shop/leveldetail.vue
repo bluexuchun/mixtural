@@ -22,12 +22,12 @@
 						<input type="text" v-model="level_name" placeholder="请填写等级名称" />
 					</view>
 				</view>
-				<view class="item_info">
+				<view class="item_infospe">
 					<view class="item_label">
-						等级描述
+						等级福利
 					</view>
-					<view class="item_input">
-						<input type="text" v-model="level_desc" placeholder="请填写等级描述" />
+					<view class="item_inputspe">
+						<textarea v-model="mission_award" placeholder-style="color:#999" placeholder="例到店消费即可获赠可乐一瓶、每次消费可享8.8折扣优惠、每周可获价值XX元代金券一张......"/>
 					</view>
 				</view>
 <!-- 				<view class="item_info" style="height:150rpx">
@@ -49,14 +49,6 @@
 				</view>
 				<view class="item_tips">
 					温馨提示：等级排序与等级息息相关<br>如VIP1->等级排序为1,VIP2-等级排序为2
-				</view>
-				<view class="item_infospe">
-					<view class="item_label">
-						等级福利
-					</view>
-					<view class="item_inputspe">
-						<textarea v-model="mission_award" placeholder-style="color:#eaeaea" placeholder="输入该等级的福利"/>
-					</view>
 				</view>
 			</view>
 			<view class="level_t">
@@ -87,7 +79,7 @@
 						任务详情
 					</view>
 					<view class="item_inputspe">
-						<textarea v-model="mission_content" placeholder-style="color:#eaeaea" placeholder="输入任务详情的内容"/>
+						<textarea v-model="mission_content" placeholder-style="color:#999" placeholder="例消费拍照并转发朋友圈、关注本店公众号、同行好友加入本店并完成首次签到......"/>
 					</view>
 					<!-- <div class="container-header">
 					    <v-upload-image v-model="images"></v-upload-image>

@@ -36,6 +36,9 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 16rpx 40rpx;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
 }
 .vipwallet .vipdetail-box .vip-box .vipboxhid {
   background: rgba(255, 255, 255, 0.6);
@@ -52,7 +55,6 @@
   -webkit-box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.6);
           box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
-  background: #ffffff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

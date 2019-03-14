@@ -74,15 +74,15 @@
 					<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :duration="duration" @change="changeVip">
 					    <swiper-item v-for="(item,itemindex) in vipawardlist" :key="itemindex">
 					        <view class="vip-box">
-								<view class="vipbox">
+								<view class="vipbox" :style="{background:'url('+item.bg+')',backgroundSize:'cover',backgroundPosition:'center'}">
 									<!-- <image class="vipbox-bg" :src="item.bg" mode="aspectFill"></image> -->
 									<view class="vipbox-head">
 										<image class="vipbox-logo" :src="item.photo" mode="widthFix"></image>
 										{{item.title}}
 									</view>
-									<view class="vipbox-content">
+									<!-- <view class="vipbox-content">
 										{{item.desc}}
-									</view>
+									</view> -->
 								</view>
 							</view>
 					    </swiper-item>
@@ -187,9 +187,15 @@
 							你已达最高等级
 						</view>
 					</view>
-					<view class="model_confirm" @click="showModel">
-						明天继续保持噢
+					<view class="model_btn">
+						<view class="model_confirm" @click="showModel">
+							明天继续保持噢
+						</view>
+						<view class="model_sign" @click="navigateto('missiondetail')">
+							点击此处进行签到
+						</view>
 					</view>
+					
 				</view>
 			</view>
 		</view>
@@ -298,7 +304,6 @@
 						this.currect_grade = indexInfo.data.currect_grade
 						console.log(this.currect_grade)
 						if(this.currect_grade){
-							console.log('123')
 							this.vipawardlist[0] = {
 								id:this.currect_grade.id,
 								title:this.currect_grade.grade_title,
@@ -403,12 +408,12 @@
 		onLoad(options){
 			// 拿到扫码的bid值
 			let storagebid = uni.getStorageSync("bid")
-			let str= "2019/2/28 14:00:00"
+			let str= "2019/3/15 12:00:00"
 			let limitDate = new Date(str).getTime()
 			let nowDate = new Date().getTime()
 			if(nowDate < limitDate){
-				this.bid = 8
-				uni.setStorageSync("bid",8)
+				this.bid = 32
+				uni.setStorageSync("bid",32)
 			}else{
 				if(storagebid && !options.scene){
 					this.bid = storagebid

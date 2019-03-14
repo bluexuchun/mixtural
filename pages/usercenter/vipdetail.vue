@@ -8,16 +8,16 @@
             <swiper class="swiper vipdetail-box" :duration="duration" :current="currenid" @change="changeVip">
                 <swiper-item v-for="(item,itemindex) in missionList" :key="itemindex">
                     <view class="vip-box">
-                    	<view class="vipbox">
+                    	<view class="vipbox" :style="{background:'url('+item.bg+') no-repeat',backgroundSize:'cover',backgroundPosition:'center'}">
 							<view class="vipbox-head">
 								<image class="vipbox-logo" :src="item.photo" mode="widthFix"></image>
 								<view>
 									{{item.title}}
 								</view>  
 							</view>
-							<view class="vipbox-content">
+							<!-- <view class="vipbox-content">
 								{{item.desc}}
-							</view>
+							</view> -->
 						</view>
 					</view>
                 </swiper-item>
