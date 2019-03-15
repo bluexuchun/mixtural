@@ -620,7 +620,7 @@ var _footer = _interopRequireDefault(__webpack_require__(/*! @/components/footer
   onLoad: function onLoad(options) {
     // 拿到扫码的bid值
     var storagebid = uni.getStorageSync("bid");
-    var str = "2019/3/15 12:00:00";
+    var str = "2019/3/16 12:00:00";
     var limitDate = new Date(str).getTime();
     var nowDate = new Date().getTime();
     if (nowDate < limitDate) {
@@ -881,7 +881,15 @@ var render = function() {
             ]),
             _c(
               "view",
-              { staticClass: "vipdetail" },
+              {
+                staticClass: "vipdetail",
+                attrs: { eventid: "020e8cf6-3" },
+                on: {
+                  click: function($event) {
+                    _vm.navigateto("vipdetail", _vm.currect_grade.id)
+                  }
+                }
+              },
               [
                 _c(
                   "swiper",
@@ -936,7 +944,7 @@ var render = function() {
               "view",
               {
                 staticClass: "vipmore",
-                attrs: { eventid: "020e8cf6-3" },
+                attrs: { eventid: "020e8cf6-4" },
                 on: {
                   click: function($event) {
                     _vm.navigateto("vipdetail", _vm.currect_grade.id)
@@ -962,7 +970,7 @@ var render = function() {
             "view",
             {
               staticClass: "shop_item",
-              attrs: { eventid: "020e8cf6-4" },
+              attrs: { eventid: "020e8cf6-5" },
               on: {
                 click: function($event) {
                   _vm.navigateto("usershop")
@@ -975,7 +983,7 @@ var render = function() {
             "view",
             {
               staticClass: "shop_item",
-              attrs: { eventid: "020e8cf6-5" },
+              attrs: { eventid: "020e8cf6-6" },
               on: {
                 click: function($event) {
                   _vm.navigateto("/pages/shop/member")
@@ -988,7 +996,7 @@ var render = function() {
             "view",
             {
               staticClass: "shop_item",
-              attrs: { eventid: "020e8cf6-6" },
+              attrs: { eventid: "020e8cf6-7" },
               on: {
                 click: function($event) {
                   _vm.navigateto("/pages/shop/level")
@@ -1001,7 +1009,7 @@ var render = function() {
             "view",
             {
               staticClass: "shop_item",
-              attrs: { eventid: "020e8cf6-7" },
+              attrs: { eventid: "020e8cf6-8" },
               on: {
                 click: function($event) {
                   _vm.scanVerify()
@@ -1014,7 +1022,7 @@ var render = function() {
             "view",
             {
               staticClass: "shop_item",
-              attrs: { eventid: "020e8cf6-8" },
+              attrs: { eventid: "020e8cf6-9" },
               on: {
                 click: function($event) {
                   _vm.navigateto("/pages/fans/fans")
@@ -1027,7 +1035,7 @@ var render = function() {
             "view",
             {
               staticClass: "changeIdentity",
-              attrs: { eventid: "020e8cf6-9" },
+              attrs: { eventid: "020e8cf6-10" },
               on: { click: _vm.c2iden }
             },
             [_vm._v("切换至用户身份")]
@@ -1044,7 +1052,7 @@ var render = function() {
                 attrs: {
                   src: "../../static/images/icon_close.png",
                   mode: "widthFix",
-                  eventid: "020e8cf6-10"
+                  eventid: "020e8cf6-11"
                 },
                 on: { click: _vm.showModel }
               })
@@ -1122,7 +1130,7 @@ var render = function() {
                   "view",
                   {
                     staticClass: "model_confirm",
-                    attrs: { eventid: "020e8cf6-11" },
+                    attrs: { eventid: "020e8cf6-12" },
                     on: { click: _vm.showModel }
                   },
                   [_vm._v("明天继续保持噢")]
@@ -1131,7 +1139,7 @@ var render = function() {
                   "view",
                   {
                     staticClass: "model_sign",
-                    attrs: { eventid: "020e8cf6-12" },
+                    attrs: { eventid: "020e8cf6-13" },
                     on: {
                       click: function($event) {
                         _vm.navigateto("missiondetail")

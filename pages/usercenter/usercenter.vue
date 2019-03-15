@@ -70,7 +70,7 @@
 				<view class="viplevel">
 					当前等级：{{currect_grade.grade_title}}
 				</view>
-				<view class="vipdetail">
+				<view class="vipdetail" @click="navigateto('vipdetail',currect_grade.id)">
 					<swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :duration="duration" @change="changeVip">
 					    <swiper-item v-for="(item,itemindex) in vipawardlist" :key="itemindex">
 					        <view class="vip-box">
@@ -408,7 +408,7 @@
 		onLoad(options){
 			// 拿到扫码的bid值
 			let storagebid = uni.getStorageSync("bid")
-			let str= "2019/3/15 12:00:00"
+			let str= "2019/3/16 12:00:00"
 			let limitDate = new Date(str).getTime()
 			let nowDate = new Date().getTime()
 			if(nowDate < limitDate){
