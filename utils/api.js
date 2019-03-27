@@ -1,6 +1,6 @@
 import request from './request'
 import stores from '../stores/index.js'
-const baseUrlApi = 'https://hhyj.geeklib.cn'
+const baseUrlApi = 'https://hhyj.huihuiyoujiang.com'
 const api = {
     updateInfo: (token, rawData) => request.get(baseUrlApi + '/api.php?entry=app&c=normal&a=mina&do=updateInfo', {
         token: token,

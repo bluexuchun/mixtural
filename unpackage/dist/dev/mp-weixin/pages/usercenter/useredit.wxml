@@ -1,2 +1,2 @@
 <import src="./useredit.vue.wxml" />
-    <template is="7714e2eb" data="{{ ...$root['0'], $root }}"/>
+    <template is="e7160006" data="{{ ...$root['0'], $root }}"/>

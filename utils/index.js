@@ -278,7 +278,7 @@ export default class Utils {
      * 上传图片
      */
     static uploader(filePath, type = 'image') {
-        const url = 'https://hhyj.geeklib.cn/api.php?entry=app&c=utility&a=file&do=upload&type=' + type + '&token=' + stores.state.app.token;
+        const url = 'https://hhyj.huihuiyoujiang.com/api.php?entry=app&c=utility&a=file&do=upload&type=' + type + '&token=' + stores.state.app.token;
         const token = stores.state.app.token;
         console.log('上传token:', token)
         let uploadHandler = new Promise((resolve, reject) => {
